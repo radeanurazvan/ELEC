@@ -64,8 +64,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Battery.cpp" />
     <ClCompile Include="Classes\Components\BaseComponent\BaseComponent.cpp" />
     <ClCompile Include="bgiout.cxx" />
+    <ClCompile Include="Classes\Source.cpp" />
     <ClCompile Include="dibutil.cxx" />
     <ClCompile Include="drawing.cxx" />
     <ClCompile Include="ELEC.cpp" />
@@ -81,6 +83,7 @@
     <ClCompile Include="winthread.cxx" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Battery.h" />
     <ClInclude Include="Classes\Components\BaseComponent\BaseComponent.h" />
     <ClInclude Include="dibutil.h" />
     <ClInclude Include="graphics.h" />
