@@ -64,16 +64,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Battery.cpp" />
+    <ClCompile Include="Classes\Components\AmplifierOp\AmplifierOp.cpp" />
+    <ClCompile Include="Classes\Components\Battery\Battery.cpp" />
     <ClCompile Include="Classes\Components\BaseComponent\BaseComponent.cpp" />
     <ClCompile Include="bgiout.cxx" />
     <ClCompile Include="Classes\Source.cpp" />
+    <ClCompile Include="Classes\Components\Condenser\Condenser.cpp" />
     <ClCompile Include="dibutil.cxx" />
+    <ClCompile Include="Classes\Components\Diode\Diode.cpp" />
     <ClCompile Include="drawing.cxx" />
     <ClCompile Include="ELEC.cpp" />
     <ClCompile Include="file.cxx" />
     <ClCompile Include="misc.cxx" />
     <ClCompile Include="mouse.cxx" />
+    <ClCompile Include="Classes\Components\Node\Node.cpp" />
     <ClCompile Include="palette.cxx" />
     <ClCompile Include="eyes.cpp" />
     <ClCompile Include="Classes\CartesianCoordinate.cpp" />
@@ -83,12 +87,16 @@
     <ClCompile Include="winthread.cxx" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Battery.h" />
+    <ClInclude Include="Classes\Components\AmplifierOp\AmplifierOp.h" />
+    <ClInclude Include="Classes\Components\Battery\Battery.h" />
     <ClInclude Include="Classes\Components\BaseComponent\BaseComponent.h" />
+    <ClInclude Include="Classes\Components\Condenser\Condenser.h" />
     <ClInclude Include="dibutil.h" />
+    <ClInclude Include="Classes\Components\Diode\Diode.h" />
     <ClInclude Include="graphics.h" />
     <ClInclude Include="Classes\CartesianCoordinate.h" />
     <ClInclude Include="Classes\Components\Resistor\Resistor.h" />
+    <ClInclude Include="Classes\Components\Node\Node.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="winbgi.h" />
     <ClInclude Include="winbgim.h" />

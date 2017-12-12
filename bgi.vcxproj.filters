@@ -69,7 +69,19 @@
     <ClCompile Include="Classes\Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Battery.cpp">
+    <ClCompile Include="Classes\Components\Battery\Battery.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Components\Condenser\Condenser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Components\Node\Node.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Components\Diode\Diode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Components\AmplifierOp\AmplifierOp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -101,7 +113,19 @@
     <ClInclude Include="Classes\Components\Resistor\Resistor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Battery.h">
+    <ClInclude Include="Classes\Components\Battery\Battery.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Components\Condenser\Condenser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Components\Node\Node.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Components\Diode\Diode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Components\AmplifierOp\AmplifierOp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
