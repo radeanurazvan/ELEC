@@ -69,7 +69,11 @@
     <ClCompile Include="Classes\Components\BaseComponent\BaseComponent.cpp" />
     <ClCompile Include="bgiout.cxx" />
     <ClCompile Include="Classes\Source.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="Classes\Components\Condenser\Condenser.cpp" />
+=======
+    <ClCompile Include="Classes\Components\Condensator\Condensator.cpp" />
+>>>>>>> ce89313890f5aea6b70812efa1f1d18b1cc3139d
     <ClCompile Include="dibutil.cxx" />
     <ClCompile Include="Classes\Components\Diode\Diode.cpp" />
     <ClCompile Include="drawing.cxx" />
@@ -83,14 +87,21 @@
     <ClCompile Include="Classes\CartesianCoordinate.cpp" />
     <ClCompile Include="Classes\Components\Resistor\Resistor.cpp" />
     <ClCompile Include="text.cxx" />
+    <ClCompile Include="Classes\Components\TranzistorNPN\TranzistorNPN.cpp" />
+    <ClCompile Include="Classes\Components\TranzistorPNP\TranzistorPNP.cpp" />
     <ClCompile Include="winbgi.cxx" />
     <ClCompile Include="winthread.cxx" />
+    <ClCompile Include="Classes\Components\Zenner\Zenner.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Classes\Components\AmplifierOp\AmplifierOp.h" />
     <ClInclude Include="Classes\Components\Battery\Battery.h" />
     <ClInclude Include="Classes\Components\BaseComponent\BaseComponent.h" />
+<<<<<<< HEAD
     <ClInclude Include="Classes\Components\Condenser\Condenser.h" />
+=======
+    <ClInclude Include="Classes\Components\Condensator\Condensator.h" />
+>>>>>>> ce89313890f5aea6b70812efa1f1d18b1cc3139d
     <ClInclude Include="dibutil.h" />
     <ClInclude Include="Classes\Components\Diode\Diode.h" />
     <ClInclude Include="graphics.h" />
@@ -98,9 +109,12 @@
     <ClInclude Include="Classes\Components\Resistor\Resistor.h" />
     <ClInclude Include="Classes\Components\Node\Node.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Classes\Components\TranzistorNPN\TranzistorNPN.h" />
+    <ClInclude Include="Classes\Components\TranzistorPNP\TranzistorPNP.h" />
     <ClInclude Include="winbgi.h" />
     <ClInclude Include="winbgim.h" />
     <ClInclude Include="winbgitypes.h" />
+    <ClInclude Include="Classes\Components\Zenner\Zenner.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
