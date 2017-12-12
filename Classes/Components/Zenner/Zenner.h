@@ -1,15 +1,14 @@
 #pragma once
 #include "../BaseComponent/BaseComponent.h"
-class Condensator :	
+class Zenner :
 	public BaseComponent
 {
-public:
-	Condensator();
-	~Condensator();
-	virtual void Draw();
 private:
-	std::string name = "Condensator";
+	std::string name = "Zenner";
 	int numberOfConnectors = 2;
-
+public:
+	Zenner();
+	~Zenner();
+	virtual void Draw();
 };
 
