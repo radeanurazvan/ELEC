@@ -1,13 +1,10 @@
 #include "BaseComponent.h"
 
-
-
 BaseComponent::BaseComponent()
 {
 	numberOfConnectors = 0;
 	name = "Base Component";
 }
-
 
 BaseComponent::~BaseComponent()
 {

@@ -1,12 +1,13 @@
 #pragma once
-#include "..\Classes\Components\BaseComponent\BaseComponent.h"
+#include "../BaseComponent/BaseComponent.h"
+
 class Node :
 	public BaseComponent
 {
 public:
 	Node();
 	~Node();
-	virtual void Draw();
+	void Draw() override;
 private:
 	std::string name = "Node";
 	int numberOfConnectors = 1;

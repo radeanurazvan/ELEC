@@ -1,15 +1,12 @@
 #pragma once
 #include "../BaseComponent/BaseComponent.h"
-
-class Diode :
+class NpnTransistor :
 	public BaseComponent
 {
+	std::string name = "Tranzistor NPN";
+	int numberOfConnectors = 3;
 public:
-	Diode();
-	~Diode();
+	NpnTransistor();
 	void Draw() override;
-private:
-	std::string name = "Diode";
-	int numberOfConnectors = 2;
 };
 

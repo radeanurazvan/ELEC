@@ -64,11 +64,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Battery.cpp" />
+    <ClCompile Include="Classes\Components\OperationalAmplifier\OperationalAmplifier.cpp" />
     <ClCompile Include="Classes\Components\BaseComponent\BaseComponent.cpp" />
     <ClCompile Include="bgiout.cxx" />
+    <ClCompile Include="Classes\Components\Battery\Battery.cpp" />
+    <ClCompile Include="Classes\Components\Condenser\Condenser.cpp" />
+    <ClCompile Include="Classes\Components\Diode\Diode.cpp" />
+    <ClCompile Include="Classes\Components\Node\Node.cpp" />
     <ClCompile Include="Classes\Source.cpp" />
-    <ClCompile Include="Classes\Components\Condensator\Condensator.cpp" />
     <ClCompile Include="dibutil.cxx" />
     <ClCompile Include="drawing.cxx" />
     <ClCompile Include="ELEC.cpp" />
@@ -80,27 +83,33 @@
     <ClCompile Include="Classes\CartesianCoordinate.cpp" />
     <ClCompile Include="Classes\Components\Resistor\Resistor.cpp" />
     <ClCompile Include="text.cxx" />
-    <ClCompile Include="Classes\Components\TranzistorNPN\TranzistorNPN.cpp" />
-    <ClCompile Include="Classes\Components\TranzistorPNP\TranzistorPNP.cpp" />
+    <ClCompile Include="Classes\Components\NpnTransistor\NpnTransistor.cpp" />
+    <ClCompile Include="Classes\Components\PnpTransistor\PnpTransistor.cpp" />
     <ClCompile Include="winbgi.cxx" />
     <ClCompile Include="winthread.cxx" />
-    <ClCompile Include="Classes\Components\Zenner\Zenner.cpp" />
+    <ClCompile Include="Classes\Components\ZennerDiode\ZennerDiode.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Battery.h" />
+    <ClInclude Include="Classes\Components\OperationalAmplifier\OperationalAmplifier.h" />
     <ClInclude Include="Classes\Components\BaseComponent\BaseComponent.h" />
-    <ClInclude Include="Classes\Components\Condensator\Condensator.h" />
+    <ClInclude Include="Classes\Components\Battery\Battery.h" />
+    <ClInclude Include="Classes\Components\Condenser\Condenser.h" />
+    <ClInclude Include="Classes\Components\Diode\Diode.h" />
+    <ClInclude Include="Classes\Components\Node\Node.h" />
     <ClInclude Include="dibutil.h" />
     <ClInclude Include="graphics.h" />
     <ClInclude Include="Classes\CartesianCoordinate.h" />
     <ClInclude Include="Classes\Components\Resistor\Resistor.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="Classes\Components\TranzistorNPN\TranzistorNPN.h" />
-    <ClInclude Include="Classes\Components\TranzistorPNP\TranzistorPNP.h" />
+    <ClInclude Include="Classes\Components\NpnTransistor\NpnTransistor.h" />
+    <ClInclude Include="Classes\Components\PnpTransistor\PnpTransistor.h" />
     <ClInclude Include="winbgi.h" />
     <ClInclude Include="winbgim.h" />
     <ClInclude Include="winbgitypes.h" />
-    <ClInclude Include="Classes\Components\Zenner\Zenner.h" />
+    <ClInclude Include="Classes\Components\ZennerDiode\ZennerDiode.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitignore" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

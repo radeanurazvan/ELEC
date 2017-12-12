@@ -1,5 +1,6 @@
 #pragma once
-#include "..\Classes\Components\BaseComponent\BaseComponent.h"
+#include "../BaseComponent/BaseComponent.h"
+
 class Battery :
 	public BaseComponent
 {

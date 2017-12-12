@@ -10,3 +10,7 @@ Condenser::Condenser()
 Condenser::~Condenser()
 {
 }
+
+void Condenser::Draw()
+{
+}

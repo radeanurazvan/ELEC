@@ -75,25 +75,22 @@
     <ClCompile Include="Classes\Components\Condenser\Condenser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Classes\Components\Node\Node.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Classes\Components\Diode\Diode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Classes\Components\AmplifierOp\AmplifierOp.cpp">
+    <ClCompile Include="Classes\Components\Node\Node.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Classes\Components\Condensator\Condensator.cpp">
+    <ClCompile Include="Classes\Components\OperationalAmplifier\OperationalAmplifier.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Classes\Components\TranzistorNPN\TranzistorNPN.cpp">
+    <ClCompile Include="Classes\Components\NpnTransistor\NpnTransistor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Classes\Components\TranzistorPNP\TranzistorPNP.cpp">
+    <ClCompile Include="Classes\Components\PnpTransistor\PnpTransistor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Classes\Components\Zenner\Zenner.cpp">
+    <ClCompile Include="Classes\Components\ZennerDiode\ZennerDiode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -131,26 +128,26 @@
     <ClInclude Include="Classes\Components\Condenser\Condenser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Classes\Components\Node\Node.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Classes\Components\Diode\Diode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Classes\Components\AmplifierOp\AmplifierOp.h">
+    <ClInclude Include="Classes\Components\Node\Node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Classes\Components\Condensator\Condensator.h">
+    <ClInclude Include="Classes\Components\OperationalAmplifier\OperationalAmplifier.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Classes\Components\TranzistorNPN\TranzistorNPN.h">
+    <ClInclude Include="Classes\Components\NpnTransistor\NpnTransistor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Classes\Components\TranzistorPNP\TranzistorPNP.h">
+    <ClInclude Include="Classes\Components\PnpTransistor\PnpTransistor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Classes\Components\Zenner\Zenner.h">
+    <ClInclude Include="Classes\Components\ZennerDiode\ZennerDiode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitignore" />
   </ItemGroup>
 </Project>
