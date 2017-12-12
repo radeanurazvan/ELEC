@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Classes">
+      <UniqueIdentifier>{347c0dc1-8a97-4a06-ab08-879d29fcdc29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Components">
+      <UniqueIdentifier>{4e75e360-2c92-4cb1-90b1-369524b7fb82}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="bgiout.cxx">
@@ -51,6 +57,15 @@
     <ClCompile Include="eyes.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Classes\CartesianCoordinate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Components\BaseComponent\BaseComponent.cpp">
+      <Filter>Classes\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Components\Resistor\Resistor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="winbgim.h">
@@ -70,6 +85,15 @@
     </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\CartesianCoordinate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Components\BaseComponent\BaseComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Components\Resistor\Resistor.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

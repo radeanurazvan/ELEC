@@ -64,6 +64,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Classes\Components\BaseComponent\BaseComponent.cpp" />
     <ClCompile Include="bgiout.cxx" />
     <ClCompile Include="dibutil.cxx" />
     <ClCompile Include="drawing.cxx" />
@@ -73,13 +74,18 @@
     <ClCompile Include="mouse.cxx" />
     <ClCompile Include="palette.cxx" />
     <ClCompile Include="eyes.cpp" />
+    <ClCompile Include="Classes\CartesianCoordinate.cpp" />
+    <ClCompile Include="Classes\Components\Resistor\Resistor.cpp" />
     <ClCompile Include="text.cxx" />
     <ClCompile Include="winbgi.cxx" />
     <ClCompile Include="winthread.cxx" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Classes\Components\BaseComponent\BaseComponent.h" />
     <ClInclude Include="dibutil.h" />
     <ClInclude Include="graphics.h" />
+    <ClInclude Include="Classes\CartesianCoordinate.h" />
+    <ClInclude Include="Classes\Components\Resistor\Resistor.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="winbgi.h" />
     <ClInclude Include="winbgim.h" />
