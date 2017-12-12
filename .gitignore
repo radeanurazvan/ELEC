@@ -1,0 +1,6 @@
+Debug
+Debug/*.obj
+debug/*
+*.vcxproj
+*.vcxproj.filters
+*.vs
