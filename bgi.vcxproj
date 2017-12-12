@@ -64,24 +64,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Classes\Components\AmplifierOp\AmplifierOp.cpp" />
-    <ClCompile Include="Classes\Components\Battery\Battery.cpp" />
+    <ClCompile Include="Battery.cpp" />
     <ClCompile Include="Classes\Components\BaseComponent\BaseComponent.cpp" />
     <ClCompile Include="bgiout.cxx" />
     <ClCompile Include="Classes\Source.cpp" />
-<<<<<<< HEAD
-    <ClCompile Include="Classes\Components\Condenser\Condenser.cpp" />
-=======
     <ClCompile Include="Classes\Components\Condensator\Condensator.cpp" />
->>>>>>> ce89313890f5aea6b70812efa1f1d18b1cc3139d
     <ClCompile Include="dibutil.cxx" />
-    <ClCompile Include="Classes\Components\Diode\Diode.cpp" />
     <ClCompile Include="drawing.cxx" />
     <ClCompile Include="ELEC.cpp" />
     <ClCompile Include="file.cxx" />
     <ClCompile Include="misc.cxx" />
     <ClCompile Include="mouse.cxx" />
-    <ClCompile Include="Classes\Components\Node\Node.cpp" />
     <ClCompile Include="palette.cxx" />
     <ClCompile Include="eyes.cpp" />
     <ClCompile Include="Classes\CartesianCoordinate.cpp" />
@@ -94,20 +87,13 @@
     <ClCompile Include="Classes\Components\Zenner\Zenner.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Classes\Components\AmplifierOp\AmplifierOp.h" />
-    <ClInclude Include="Classes\Components\Battery\Battery.h" />
+    <ClInclude Include="Battery.h" />
     <ClInclude Include="Classes\Components\BaseComponent\BaseComponent.h" />
-<<<<<<< HEAD
-    <ClInclude Include="Classes\Components\Condenser\Condenser.h" />
-=======
     <ClInclude Include="Classes\Components\Condensator\Condensator.h" />
->>>>>>> ce89313890f5aea6b70812efa1f1d18b1cc3139d
     <ClInclude Include="dibutil.h" />
-    <ClInclude Include="Classes\Components\Diode\Diode.h" />
     <ClInclude Include="graphics.h" />
     <ClInclude Include="Classes\CartesianCoordinate.h" />
     <ClInclude Include="Classes\Components\Resistor\Resistor.h" />
-    <ClInclude Include="Classes\Components\Node\Node.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Classes\Components\TranzistorNPN\TranzistorNPN.h" />
     <ClInclude Include="Classes\Components\TranzistorPNP\TranzistorPNP.h" />
