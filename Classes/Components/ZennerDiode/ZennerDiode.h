@@ -8,6 +8,5 @@ class Zenner :
 	int numberOfConnectors = 2;
 public:
 	Zenner();
-	~Zenner();
 	void Draw() override;
 };

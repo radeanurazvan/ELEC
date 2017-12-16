@@ -7,6 +7,5 @@ class Resistor : BaseComponent
 	int numberOfConnectors = 2;
 public:
 	Resistor();
-	~Resistor();
 	void Draw() override;
 };

@@ -57,16 +57,10 @@
     <ClCompile Include="eyes.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Classes\CartesianCoordinate.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Classes\Components\BaseComponent\BaseComponent.cpp">
       <Filter>Classes\Components</Filter>
     </ClCompile>
     <ClCompile Include="Classes\Components\Resistor\Resistor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Classes\Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Classes\Components\Battery\Battery.cpp">
@@ -93,6 +87,24 @@
     <ClCompile Include="Classes\Components\ZennerDiode\ZennerDiode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Classes\Components\SiNuGate\SiNuGate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Components\ServoMotor\ServoMotor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Helpers\GraphicsHelper\GraphicsHelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Helpers\CartesianPointsHelper\CartesianPointsHelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\CartesianPlane\CartesianCoordinate\CartesianCoordinate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\CartesianPlane\CartesianPoint\CartesianPoint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="winbgim.h">
@@ -112,9 +124,6 @@
     </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>Resource Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Classes\CartesianCoordinate.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Classes\Components\BaseComponent\BaseComponent.h">
       <Filter>Header Files</Filter>
@@ -144,6 +153,30 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Classes\Components\ZennerDiode\ZennerDiode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Components\SiNuGate\SiNuGate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Components\ServoMotor\ServoMotor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Helpers\GraphicsHelper\GraphicsHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Components\Resistor\Resources\ResistorResources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Helpers\CartesianPointsHelper\CartesianPointsHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\CartesianPlane\CartesianCoordinate\CartesianCoordinate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\CartesianPlane\CartesianPoint\CartesianPoint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Components\BaseComponent\Resources\BaseComponentResources.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,6 +1,6 @@
 #include "BaseComponent.h"
 
-BaseComponent::BaseComponent()
+BaseComponent::BaseComponent(): coordinates()
 {
 	numberOfConnectors = 0;
 	name = "Base Component";

@@ -6,11 +6,6 @@ TranzistorPNP::TranzistorPNP()
 {
 }
 
-
-TranzistorPNP::~TranzistorPNP()
-{
-}
-
 void TranzistorPNP::Draw()
 {
 }

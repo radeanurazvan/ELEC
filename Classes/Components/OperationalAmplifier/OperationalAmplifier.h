@@ -3,12 +3,10 @@
 class OperationalAmplifier :
 	public BaseComponent
 {
+	std::string name = "Operational Amplfier";
+	int numberOfConnectors = 3;
 public:
 	OperationalAmplifier();
-	~OperationalAmplifier();
 	void Draw() override;
-private:
-	std::string name = "AmplifierOp";
-	int numberOfConnectors = 3;
 };
 

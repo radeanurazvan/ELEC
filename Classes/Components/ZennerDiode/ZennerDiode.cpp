@@ -6,11 +6,6 @@ Zenner::Zenner()
 {
 }
 
-
-Zenner::~Zenner()
-{
-}
-
 void Zenner::Draw()
 {
 }

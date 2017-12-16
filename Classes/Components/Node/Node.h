@@ -6,7 +6,6 @@ class Node :
 {
 public:
 	Node();
-	~Node();
 	void Draw() override;
 private:
 	std::string name = "Node";

@@ -64,6 +64,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Classes\CartesianPlane\CartesianPoint\CartesianPoint.cpp" />
+    <ClCompile Include="Classes\Helpers\CartesianPointsHelper\CartesianPointsHelper.cpp" />
     <ClCompile Include="Classes\Components\OperationalAmplifier\OperationalAmplifier.cpp" />
     <ClCompile Include="Classes\Components\BaseComponent\BaseComponent.cpp" />
     <ClCompile Include="bgiout.cxx" />
@@ -71,7 +73,9 @@
     <ClCompile Include="Classes\Components\Condenser\Condenser.cpp" />
     <ClCompile Include="Classes\Components\Diode\Diode.cpp" />
     <ClCompile Include="Classes\Components\Node\Node.cpp" />
-    <ClCompile Include="Classes\Source.cpp" />
+    <ClCompile Include="Classes\Components\ServoMotor\ServoMotor.cpp" />
+    <ClCompile Include="Classes\Components\SiNuGate\SiNuGate.cpp" />
+    <ClCompile Include="Classes\Helpers\GraphicsHelper\GraphicsHelper.cpp" />
     <ClCompile Include="dibutil.cxx" />
     <ClCompile Include="drawing.cxx" />
     <ClCompile Include="ELEC.cpp" />
@@ -80,7 +84,7 @@
     <ClCompile Include="mouse.cxx" />
     <ClCompile Include="palette.cxx" />
     <ClCompile Include="eyes.cpp" />
-    <ClCompile Include="Classes\CartesianCoordinate.cpp" />
+    <ClCompile Include="Classes\CartesianPlane\CartesianCoordinate\CartesianCoordinate.cpp" />
     <ClCompile Include="Classes\Components\Resistor\Resistor.cpp" />
     <ClCompile Include="text.cxx" />
     <ClCompile Include="Classes\Components\NpnTransistor\NpnTransistor.cpp" />
@@ -90,15 +94,22 @@
     <ClCompile Include="Classes\Components\ZennerDiode\ZennerDiode.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Classes\Components\BaseComponent\Resources\BaseComponentResources.h" />
+    <ClInclude Include="Classes\CartesianPlane\CartesianPoint\CartesianPoint.h" />
     <ClInclude Include="Classes\Components\OperationalAmplifier\OperationalAmplifier.h" />
     <ClInclude Include="Classes\Components\BaseComponent\BaseComponent.h" />
     <ClInclude Include="Classes\Components\Battery\Battery.h" />
     <ClInclude Include="Classes\Components\Condenser\Condenser.h" />
     <ClInclude Include="Classes\Components\Diode\Diode.h" />
     <ClInclude Include="Classes\Components\Node\Node.h" />
+    <ClInclude Include="Classes\Components\Resistor\Resources\ResistorResources.h" />
+    <ClInclude Include="Classes\Components\ServoMotor\ServoMotor.h" />
+    <ClInclude Include="Classes\Components\SiNuGate\SiNuGate.h" />
+    <ClInclude Include="Classes\Helpers\CartesianPointsHelper\CartesianPointsHelper.h" />
+    <ClInclude Include="Classes\Helpers\GraphicsHelper\GraphicsHelper.h" />
     <ClInclude Include="dibutil.h" />
     <ClInclude Include="graphics.h" />
-    <ClInclude Include="Classes\CartesianCoordinate.h" />
+    <ClInclude Include="Classes\CartesianPlane\CartesianCoordinate\CartesianCoordinate.h" />
     <ClInclude Include="Classes\Components\Resistor\Resistor.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Classes\Components\NpnTransistor\NpnTransistor.h" />

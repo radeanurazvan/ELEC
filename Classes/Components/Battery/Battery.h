@@ -4,14 +4,9 @@
 class Battery :
 	public BaseComponent
 {
-public:
-	Battery();
-	~Battery();
-	virtual void Draw();
- 
-private:
 	std::string name = "Battery";
 	int numberOfConnectors = 2;
-
+public:
+	Battery();
+	void Draw() override;
 };
-

@@ -4,10 +4,6 @@ Diode::Diode()
 {
 }
 
-Diode::~Diode()
-{
-}
-
 void Diode::Draw()
 {
 }

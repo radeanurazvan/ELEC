@@ -6,11 +6,6 @@ Battery::Battery()
 {
 }
 
-
-Battery::~Battery()
-{
-}
-
 void Battery::Draw()
 {
 }

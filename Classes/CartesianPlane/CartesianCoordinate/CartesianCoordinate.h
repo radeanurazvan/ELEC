@@ -2,10 +2,9 @@
 class CartesianCoordinate
 {	
 	private:
-		int x, y;
+		int _x, _y;
 	public:
-		CartesianCoordinate();
-		~CartesianCoordinate();
+		CartesianCoordinate(int x = 0, int y = 0);
 		int GetX();
 		void SetX(int coord);
 		int GetY();
