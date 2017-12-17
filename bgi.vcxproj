@@ -96,6 +96,7 @@
   <ItemGroup>
     <ClInclude Include="Classes\Components\BaseComponent\Resources\BaseComponentResources.h" />
     <ClInclude Include="Classes\CartesianPlane\CartesianPoint\CartesianPoint.h" />
+    <ClInclude Include="Classes\Components\Battery\Resources\BatteryResources.h" />
     <ClInclude Include="Classes\Components\OperationalAmplifier\OperationalAmplifier.h" />
     <ClInclude Include="Classes\Components\BaseComponent\BaseComponent.h" />
     <ClInclude Include="Classes\Components\Battery\Battery.h" />
