@@ -1,5 +1,5 @@
 #pragma once
-#include "e:\Projects\C++ projects\ELEC\Classes\Components\BaseComponent\BaseComponent.h"
+#include "../BaseComponent/BaseComponent.h"
 class SiNuGate :
 	public BaseComponent
 {
