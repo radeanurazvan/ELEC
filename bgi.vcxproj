@@ -107,6 +107,7 @@
     <ClInclude Include="Classes\Components\SiNuGate\SiNuGate.h" />
     <ClInclude Include="Classes\Helpers\CartesianPointsHelper\CartesianPointsHelper.h" />
     <ClInclude Include="Classes\Helpers\GraphicsHelper\GraphicsHelper.h" />
+    <ClInclude Include="Classes\Components\Condenser\Resources\CondenserResources.h" />
     <ClInclude Include="dibutil.h" />
     <ClInclude Include="graphics.h" />
     <ClInclude Include="Classes\CartesianPlane\CartesianCoordinate\CartesianCoordinate.h" />

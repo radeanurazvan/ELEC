@@ -21,3 +21,14 @@ int CartesianPoint::GetY()
 {
 	return _coordinates.GetY();
 }
+
+void CartesianPoint::MoveToRight(const int distance)
+{
+	_coordinates.SetX(_coordinates.GetX() + distance);
+}
+
+void CartesianPoint::MoveUpwards(const int distance)
+{
+	_coordinates.SetY(_coordinates.GetY() + distance);
+
+}

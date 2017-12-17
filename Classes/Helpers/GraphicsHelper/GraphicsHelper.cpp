@@ -48,3 +48,14 @@ void GraphicsHelper::DrawSegmnentOfWidth(CartesianPoint startingPoint, int width
 
 	line(startingPoint.GetX(), startingPoint.GetY(), computedPoint.GetX(), computedPoint.GetY());
 }
+
+void GraphicsHelper::DrawSegmnentOfHeight(CartesianPoint startingPoint, int height)
+{
+	auto center = GetViewportCenter();
+	CartesianPoint computedPoint(startingPoint.GetX(), startingPoint.GetY() + height);
+
+	ComputeCoordinates(startingPoint);
+	ComputeCoordinates(computedPoint);
+
+	line(startingPoint.GetX(), startingPoint.GetY(), computedPoint.GetX(), computedPoint.GetY());
+}

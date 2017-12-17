@@ -1,4 +1,24 @@
 #include "BaseComponent.h"
+#include "../../Helpers/GraphicsHelper/GraphicsHelper.h"
+#include "../../Helpers/CartesianPointsHelper/CartesianPointsHelper.h"
+
+void BaseComponent::DrawMiddleConnectors(CartesianPoint bottomLeftLimit, CartesianPoint topRightLimit)
+{
+
+	const CartesianPoint topLeft(bottomLeftLimit.GetX(), topRightLimit.GetY());
+	const CartesianPoint bottomRight(topRightLimit.GetX(), bottomLeftLimit.GetY());
+
+	const auto middleLeft = CartesianPointsHelper::GetMiddlePointBetween(topLeft, bottomLeftLimit);
+	const auto middleRight = CartesianPointsHelper::GetMiddlePointBetween(topRightLimit, bottomRight);
+
+	GraphicsHelper::DrawSegmnentOfWidth(middleLeft, -BaseComponentResources::connectorWidth);
+	GraphicsHelper::DrawSegmnentOfWidth(middleRight, BaseComponentResources::connectorWidth);
+}
+
+CartesianPoint BaseComponent::GetReferencePoint()
+{
+	return CartesianPoint (GetCoordinates().GetX(), GetCoordinates().GetY());
+}
 
 BaseComponent::BaseComponent(): coordinates()
 {
