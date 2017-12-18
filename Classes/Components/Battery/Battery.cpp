@@ -18,6 +18,11 @@ void Battery::Draw()
 	GraphicsHelper::DrawSegmnentOfHeight(leftConductorPoint, BatteryResources::conductorLeftHeight);
 	GraphicsHelper::DrawSegmnentOfHeight(rightConductorPoint, -BatteryResources::conductorRightHeight);
 
-	DrawMiddleConnectors(leftConductorPoint, rightConductorPoint);
+	auto connectorsDrawReferencePoint = leftConductorPoint;
+	connectorsDrawReferencePoint
+		.MoveToRight(BatteryResources::spaceBetweenConductors)
+		->MoveUpwards(BatteryResources::conductorLeftHeight);
+
+	DrawMiddleConnectors(leftConductorPoint, connectorsDrawReferencePoint);
 
 }

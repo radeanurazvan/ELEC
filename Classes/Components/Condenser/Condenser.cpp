@@ -13,8 +13,9 @@ void Condenser::Draw()
 	const auto leftConductorPoint = GetReferencePoint();
 	auto rightConductorPoint = GetReferencePoint();
 
-	rightConductorPoint.MoveToRight(CondenserResources::spaceBetweenConductors);
-	rightConductorPoint.MoveUpwards(CondenserResources::conductorsHeight);
+	rightConductorPoint
+		.MoveToRight(CondenserResources::spaceBetweenConductors)
+		->MoveUpwards(CondenserResources::conductorsHeight);
 
 	GraphicsHelper::DrawSegmnentOfHeight(leftConductorPoint, CondenserResources::conductorsHeight);
 	GraphicsHelper::DrawSegmnentOfHeight(rightConductorPoint, -CondenserResources::conductorsHeight);

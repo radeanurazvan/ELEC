@@ -7,5 +7,6 @@ private:
 	CartesianPointsHelper();
 public:
 	static CartesianPoint GetMiddlePointBetween(CartesianPoint pointA, CartesianPoint pointB);
+
 };
 

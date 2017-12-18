@@ -10,7 +10,8 @@ public:
 	void SetCoordinates(CartesianCoordinate coordinates);
 	int GetX();
 	int GetY();
-	void MoveToRight(const int distance);
-	void MoveUpwards(const int distance);
+	CartesianPoint* MoveToRight(const int distance);
+	CartesianPoint* MoveUpwards(const int distance);
+	CartesianPoint* MoveDownwards(const int distance);
 };
 

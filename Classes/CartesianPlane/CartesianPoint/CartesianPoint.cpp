@@ -1,13 +1,13 @@
 #include "CartesianPoint.h"
 
 
-CartesianPoint::CartesianPoint(int x, int y)
+CartesianPoint::CartesianPoint(const int x, const int y)
 {
-	CartesianCoordinate coordinates(x, y);
+	const CartesianCoordinate coordinates(x, y);
 	SetCoordinates(coordinates);
 }
 
-void CartesianPoint::SetCoordinates(CartesianCoordinate coordinates)
+void CartesianPoint::SetCoordinates(const CartesianCoordinate coordinates)
 {
 	_coordinates = coordinates;
 }
@@ -22,13 +22,20 @@ int CartesianPoint::GetY()
 	return _coordinates.GetY();
 }
 
-void CartesianPoint::MoveToRight(const int distance)
+CartesianPoint* CartesianPoint::MoveToRight(const int distance)
 {
 	_coordinates.SetX(_coordinates.GetX() + distance);
+	return this;
 }
 
-void CartesianPoint::MoveUpwards(const int distance)
+CartesianPoint* CartesianPoint::MoveUpwards(const int distance)
 {
 	_coordinates.SetY(_coordinates.GetY() + distance);
+	return this;
+}
 
+CartesianPoint* CartesianPoint::MoveDownwards(const int distance)
+{
+	_coordinates.SetY(_coordinates.GetY() - distance);
+	return this;
 }
