@@ -24,7 +24,16 @@ void GraphicsHelper::ComputeCoordinates(CartesianPoint & point)
 	const CartesianCoordinate computedCoordinates(computedX, computedY);
 	point.SetCoordinates(computedCoordinates);
 }
-
+void GraphicsHelper::DrawTriangle(CartesianPoint A,CartesianPoint B,CartesianPoint C)
+{
+	auto center = GetViewportCenter();
+	ComputeCoordinates(A);
+	ComputeCoordinates(B);
+	ComputeCoordinates(C);
+	line(A.GetX(), A.GetY(), B.GetX(), B.GetY());
+	line(B.GetX(), B.GetY(), C.GetX(), C.GetY());
+	line(C.GetX(), C.GetY(), A.GetX(), A.GetY());
+}
 void GraphicsHelper::DrawRectangle(CartesianPoint bottomLeft, CartesianPoint topRight)
 {
 	auto center = GetViewportCenter();

@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include "Resources/BaseComponentResources.h";
+#include "Resources/BaseComponentResources.h"
 #include "../../CartesianPlane/CartesianCoordinate/CartesianCoordinate.h"
 #include "../../CartesianPlane/CartesianPoint/CartesianPoint.h"
 

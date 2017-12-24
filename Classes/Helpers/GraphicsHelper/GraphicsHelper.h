@@ -12,5 +12,6 @@ public:
 	static void DrawLine(CartesianPoint pointA, CartesianPoint pointB);
 	static void DrawSegmnentOfWidth(CartesianPoint startingPoint, int width);
 	static void DrawSegmnentOfHeight(CartesianPoint startingPoint, int height);
+	static void DrawTriangle(CartesianPoint pointA, CartesianPoint pointB, CartesianPoint pointC);
 };
 

@@ -1,5 +1,5 @@
 #pragma once
-#include "../CartesianCoordinate/CartesianCoordinate.h";
+#include "../CartesianCoordinate/CartesianCoordinate.h"
 
 class CartesianPoint
 {
