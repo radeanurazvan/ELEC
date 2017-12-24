@@ -194,6 +194,9 @@
     <ClInclude Include="Classes\Components\ServoMotor\Resources\ServoMotorResources.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Classes\Components\ZennerDiode\Resources\ZennerDiodeResources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />

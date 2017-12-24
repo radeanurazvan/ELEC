@@ -1,12 +1,12 @@
 #pragma once
 #include "../BaseComponent/BaseComponent.h"
 
-class Zenner :
+class ZennerDiode :
 	public BaseComponent
 {
-	std::string name = "Zenner";
+	std::string name = "ZennerDiode";
 	int numberOfConnectors = 2;
 public:
-	Zenner();
+	ZennerDiode();
 	void Draw() override;
 };

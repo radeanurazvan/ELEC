@@ -62,6 +62,9 @@ void GraphicsHelper::DrawRectangle(CartesianPoint bottomLeft, CartesianPoint top
 
 void GraphicsHelper::DrawLine(CartesianPoint pointA, CartesianPoint pointB)
 {
+	auto center = GetViewportCenter();
+	ComputeCoordinates(pointA);
+	ComputeCoordinates(pointB);
 	line(pointA.GetX(), pointA.GetY(), pointB.GetX(), pointB.GetY());
 }
 
