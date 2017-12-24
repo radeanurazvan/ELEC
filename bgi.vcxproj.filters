@@ -191,6 +191,9 @@
     <ClInclude Include="Classes\Components\OperationalAmplifier\Resources\OprerationalAmplifierResources.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Classes\Components\ServoMotor\Resources\ServoMotorResources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />

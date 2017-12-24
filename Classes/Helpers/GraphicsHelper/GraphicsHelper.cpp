@@ -34,6 +34,24 @@ void GraphicsHelper::DrawTriangle(CartesianPoint A,CartesianPoint B,CartesianPoi
 	line(B.GetX(), B.GetY(), C.GetX(), C.GetY());
 	line(C.GetX(), C.GetY(), A.GetX(), A.GetY());
 }
+void GraphicsHelper::DrawCharacter(CartesianPoint Point,char Character)
+{
+	auto center = GetViewportCenter();
+	ComputeCoordinates(Point);
+	if (Character == 'M') {
+		outtextxy(Point.GetX(), Point.GetY(), "M");}
+	else
+	{
+		
+	}
+
+}
+void GraphicsHelper::DrawCircle(CartesianPoint MidPoint,int radius)
+{
+	auto center = GetViewportCenter();
+	ComputeCoordinates(MidPoint);
+	circle(MidPoint.GetX(), MidPoint.GetY(), radius);
+}
 void GraphicsHelper::DrawRectangle(CartesianPoint bottomLeft, CartesianPoint topRight)
 {
 	auto center = GetViewportCenter();
