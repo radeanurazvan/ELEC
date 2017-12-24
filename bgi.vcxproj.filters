@@ -84,9 +84,6 @@
     <ClCompile Include="Classes\Components\PnpTransistor\PnpTransistor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Classes\Components\ZennerDiode\ZennerDiode.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Classes\Components\SiNuGate\SiNuGate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -103,6 +100,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Classes\CartesianPlane\CartesianPoint\CartesianPoint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Components\ZennerDiode\ZennerDiode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -152,9 +152,6 @@
     <ClInclude Include="Classes\Components\PnpTransistor\PnpTransistor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Classes\Components\ZennerDiode\ZennerDiode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Classes\Components\SiNuGate\SiNuGate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -195,6 +192,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Classes\Components\ZennerDiode\Resources\ZennerDiodeResources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Components\ZennerDiode\ZennerDiode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Components\NpnTransistor\Resources\NpnTransistorResources.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

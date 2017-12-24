@@ -98,6 +98,7 @@
     <ClInclude Include="Classes\CartesianPlane\CartesianPoint\CartesianPoint.h" />
     <ClInclude Include="Classes\Components\Battery\Resources\BatteryResources.h" />
     <ClInclude Include="Classes\Components\Diode\Resources\DiodeResources.h" />
+    <ClInclude Include="Classes\Components\NpnTransistor\Resources\NpnTransistorResources.h" />
     <ClInclude Include="Classes\Components\OperationalAmplifier\Resources\OprerationalAmplifierResources.h" />
     <ClInclude Include="Classes\Components\OperationalAmplifier\OperationalAmplifier.h" />
     <ClInclude Include="Classes\Components\BaseComponent\BaseComponent.h" />
