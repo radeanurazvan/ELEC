@@ -1,12 +1,12 @@
 #pragma once
 #include "../BaseComponent/BaseComponent.h"
 
-class TranzistorPNP :
+class PnpTransistor :
 	public BaseComponent
 {
 	std::string name = "Tranzistor PNP";
 	int numberOfConnectors = 3;
 public:
-	TranzistorPNP();
+	PnpTransistor();
 	void Draw() override;
 };

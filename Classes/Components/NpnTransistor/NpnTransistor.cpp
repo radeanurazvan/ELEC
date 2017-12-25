@@ -28,4 +28,11 @@ void NpnTransistor::Draw()
 	GraphicsHelper::DrawLine(MidConductor, Line);
 	GraphicsHelper::DrawLine(MidConductor, UpperConductor);
 	GraphicsHelper::DrawLine(MidConductor, LowerConductor);
+	auto PointA = LowerConductor;
+	auto PointB = LowerConductor;
+	auto PointC = LowerConductor;
+	PointA.MoveDownwards(NpnTransistorResources::DistanceFromaPoint);
+	PointB.MoveToRight(-NpnTransistorResources::DistanceFromaPoint);
+	GraphicsHelper::DrawTriangle(PointA, PointB, PointC);
+	GraphicsHelper::DrawSegmnentOfHeight(UpperConductor, -NpnTransistorResources::EntriLine);
 }
