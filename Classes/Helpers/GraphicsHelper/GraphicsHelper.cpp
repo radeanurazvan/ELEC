@@ -14,7 +14,7 @@ CartesianPoint GraphicsHelper::GetViewportCenter()
 	return center;
 }
 
-void GraphicsHelper::ComputeCoordinates(CartesianPoint & point)
+void GraphicsHelper::ComputeCoordinates(CartesianPoint& point)
 {
 	auto center = GetViewportCenter();
 
@@ -24,7 +24,8 @@ void GraphicsHelper::ComputeCoordinates(CartesianPoint & point)
 	const CartesianCoordinate computedCoordinates(computedX, computedY);
 	point.SetCoordinates(computedCoordinates);
 }
-void GraphicsHelper::DrawTriangle(CartesianPoint A,CartesianPoint B,CartesianPoint C)
+
+void GraphicsHelper::DrawTriangle(CartesianPoint A, CartesianPoint B, CartesianPoint C)
 {
 	auto center = GetViewportCenter();
 	ComputeCoordinates(A);
@@ -34,24 +35,28 @@ void GraphicsHelper::DrawTriangle(CartesianPoint A,CartesianPoint B,CartesianPoi
 	line(B.GetX(), B.GetY(), C.GetX(), C.GetY());
 	line(C.GetX(), C.GetY(), A.GetX(), A.GetY());
 }
-void GraphicsHelper::DrawCharacter(CartesianPoint Point,char Character)
-{
-	auto center = GetViewportCenter();
-	ComputeCoordinates(Point);
-	if (Character == 'M') {
-		outtextxy(Point.GetX(), Point.GetY(), "M");}
-	else
-	{
-		
-	}
 
-}
-void GraphicsHelper::DrawCircle(CartesianPoint MidPoint,int radius)
+void GraphicsHelper::DrawCharacter(CartesianPoint point, char character)
 {
 	auto center = GetViewportCenter();
-	ComputeCoordinates(MidPoint);
-	circle(MidPoint.GetX(), MidPoint.GetY(), radius);
+	ComputeCoordinates(point);
+	auto characterPointer = &character;
+	outtextxy(point.GetX(), point.GetY(), characterPointer);
 }
+
+void GraphicsHelper::DrawArc(CartesianPoint centerPoint, int startAngle, int endAngle, int radius)
+{
+	ComputeCoordinates(centerPoint);
+	arc(centerPoint.GetX(), centerPoint.GetY(), startAngle, endAngle, radius);
+}
+
+void GraphicsHelper::DrawCircle(CartesianPoint midPoint, int radius)
+{
+	auto center = GetViewportCenter();
+	ComputeCoordinates(midPoint);
+	circle(midPoint.GetX(), midPoint.GetY(), radius);
+}
+
 void GraphicsHelper::DrawRectangle(CartesianPoint bottomLeft, CartesianPoint topRight)
 {
 	auto center = GetViewportCenter();

@@ -84,9 +84,6 @@
     <ClCompile Include="Classes\Components\PnpTransistor\PnpTransistor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Classes\Components\SiNuGate\SiNuGate.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Classes\Components\ServoMotor\ServoMotor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -103,6 +100,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Classes\Components\ZennerDiode\ZennerDiode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Components\SiNuGate\NandGate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -150,9 +150,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Classes\Components\PnpTransistor\PnpTransistor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Classes\Components\SiNuGate\SiNuGate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Classes\Components\ServoMotor\ServoMotor.h">
@@ -204,6 +201,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Classes\Components\Node\Resources\NodeResources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Components\SiNuGate\NandGate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Components\SiNuGate\Resources\NandGateResources.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

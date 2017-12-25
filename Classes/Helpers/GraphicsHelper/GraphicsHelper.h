@@ -14,6 +14,7 @@ public:
 	static void DrawSegmnentOfHeight(CartesianPoint startingPoint, int height);
 	static void DrawTriangle(CartesianPoint pointA, CartesianPoint pointB, CartesianPoint pointC);
 	static void DrawCircle(CartesianPoint MidPoint, int radius);
-	static void DrawCharacter(CartesianPoint Point, char Character);
+	static void DrawCharacter(CartesianPoint Point, const char character);
+	static void DrawArc(CartesianPoint centerPoint, int startAngle, int endAngle, int radius);
 };
 

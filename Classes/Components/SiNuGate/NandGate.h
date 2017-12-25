@@ -1,12 +1,12 @@
 #pragma once
 #include "../BaseComponent/BaseComponent.h"
-class SiNuGate :
+class NandGate :
 	public BaseComponent
 {
-	std::string name = "Si-Nu Gate";
+	std::string name = "NAND Gate";
 	int numberOfConnectors = 3;
 public:
-	SiNuGate();
+	NandGate();
 	void Draw() override;
 };
 

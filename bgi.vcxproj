@@ -74,7 +74,7 @@
     <ClCompile Include="Classes\Components\Diode\Diode.cpp" />
     <ClCompile Include="Classes\Components\Node\Node.cpp" />
     <ClCompile Include="Classes\Components\ServoMotor\ServoMotor.cpp" />
-    <ClCompile Include="Classes\Components\SiNuGate\SiNuGate.cpp" />
+    <ClCompile Include="Classes\Components\SiNuGate\NandGate.cpp" />
     <ClCompile Include="Classes\Helpers\GraphicsHelper\GraphicsHelper.cpp" />
     <ClCompile Include="dibutil.cxx" />
     <ClCompile Include="drawing.cxx" />
@@ -111,7 +111,8 @@
     <ClInclude Include="Classes\Components\Resistor\Resources\ResistorResources.h" />
     <ClInclude Include="Classes\Components\ServoMotor\Resources\ServoMotorResources.h" />
     <ClInclude Include="Classes\Components\ServoMotor\ServoMotor.h" />
-    <ClInclude Include="Classes\Components\SiNuGate\SiNuGate.h" />
+    <ClInclude Include="Classes\Components\SiNuGate\NandGate.h" />
+    <ClInclude Include="Classes\Components\SiNuGate\Resources\NandGateResources.h" />
     <ClInclude Include="Classes\Components\ZennerDiode\Resources\ZennerDiodeResources.h" />
     <ClInclude Include="Classes\Helpers\CartesianPointsHelper\CartesianPointsHelper.h" />
     <ClInclude Include="Classes\Helpers\GraphicsHelper\GraphicsHelper.h" />
