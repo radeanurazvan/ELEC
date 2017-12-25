@@ -1,0 +1,20 @@
+{
+  "Components": [
+    {
+      "Type": "Resistor",
+      "Position": {
+        "x": 2,
+        "y": 7
+      }
+    }
+  ],
+
+  "Links": [
+    {
+      "FirstComponent": 1,
+      "\"SecondComponent: 2,": null,
+      "FirstComponentConnector": 1,
+      "SecondComponentConnector": 1
+    }
+  ]
+}

@@ -80,6 +80,8 @@
     <ClCompile Include="drawing.cxx" />
     <ClCompile Include="ELEC.cpp" />
     <ClCompile Include="file.cxx" />
+    <ClCompile Include="Classes\Helpers\JsonHelper\JsonHelper.cpp" />
+    <ClCompile Include="Classes\Helpers\FileHelper\FileHelper.cpp" />
     <ClCompile Include="misc.cxx" />
     <ClCompile Include="mouse.cxx" />
     <ClCompile Include="palette.cxx" />
@@ -94,6 +96,7 @@
     <ClCompile Include="Classes\Components\ZennerDiode\ZennerDiode.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Classes\Wrappers\CircuitDetails\CircuitDetails.h" />
     <ClInclude Include="Classes\Components\BaseComponent\Resources\BaseComponentResources.h" />
     <ClInclude Include="Classes\CartesianPlane\CartesianPoint\CartesianPoint.h" />
     <ClInclude Include="Classes\Components\Battery\Resources\BatteryResources.h" />
@@ -117,10 +120,15 @@
     <ClInclude Include="Classes\Helpers\CartesianPointsHelper\CartesianPointsHelper.h" />
     <ClInclude Include="Classes\Helpers\GraphicsHelper\GraphicsHelper.h" />
     <ClInclude Include="Classes\Components\Condenser\Resources\CondenserResources.h" />
+    <ClInclude Include="Classes\Wrappers\ComponentDetails\ComponentDetails.h" />
     <ClInclude Include="dibutil.h" />
+    <ClInclude Include="Classes\Helpers\FileHelper\FileHelper.h" />
     <ClInclude Include="graphics.h" />
     <ClInclude Include="Classes\CartesianPlane\CartesianCoordinate\CartesianCoordinate.h" />
     <ClInclude Include="Classes\Components\Resistor\Resistor.h" />
+    <ClInclude Include="Classes\Helpers\JsonHelper\JsonHelper.h" />
+    <ClInclude Include="Classes\Wrappers\Link\Link.h" />
+    <ClInclude Include="Classes\Wrappers\PositionDetails\PositionDetails.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Classes\Components\NpnTransistor\NpnTransistor.h" />
     <ClInclude Include="Classes\Components\PnpTransistor\PnpTransistor.h" />
@@ -131,6 +139,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
+    <None Include="circuit.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
