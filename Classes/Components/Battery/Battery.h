@@ -1,10 +1,11 @@
 #pragma once
 #include "../BaseComponent/BaseComponent.h"
+#include "Resources/BatteryResources.h"
 
 class Battery :
 	public BaseComponent
 {
-	std::string name = "Battery";
+	std::string name = BatteryResources::Name;
 	int numberOfConnectors = 2;
 public:
 	Battery();

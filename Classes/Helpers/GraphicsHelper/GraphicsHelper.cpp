@@ -27,7 +27,6 @@ void GraphicsHelper::ComputeCoordinates(CartesianPoint& point)
 
 void GraphicsHelper::DrawTriangle(CartesianPoint A, CartesianPoint B, CartesianPoint C)
 {
-	auto center = GetViewportCenter();
 	ComputeCoordinates(A);
 	ComputeCoordinates(B);
 	ComputeCoordinates(C);
@@ -52,14 +51,12 @@ void GraphicsHelper::DrawArc(CartesianPoint centerPoint, int startAngle, int end
 
 void GraphicsHelper::DrawCircle(CartesianPoint midPoint, int radius)
 {
-	auto center = GetViewportCenter();
 	ComputeCoordinates(midPoint);
 	circle(midPoint.GetX(), midPoint.GetY(), radius);
 }
 
 void GraphicsHelper::DrawRectangle(CartesianPoint bottomLeft, CartesianPoint topRight)
 {
-	auto center = GetViewportCenter();
 	ComputeCoordinates(bottomLeft);
 	ComputeCoordinates(topRight);
 	rectangle(bottomLeft.GetX(), topRight.GetY(), topRight.GetX(), bottomLeft.GetY());
@@ -67,7 +64,6 @@ void GraphicsHelper::DrawRectangle(CartesianPoint bottomLeft, CartesianPoint top
 
 void GraphicsHelper::DrawLine(CartesianPoint pointA, CartesianPoint pointB)
 {
-	auto center = GetViewportCenter();
 	ComputeCoordinates(pointA);
 	ComputeCoordinates(pointB);
 	line(pointA.GetX(), pointA.GetY(), pointB.GetX(), pointB.GetY());
@@ -75,7 +71,6 @@ void GraphicsHelper::DrawLine(CartesianPoint pointA, CartesianPoint pointB)
 
 void GraphicsHelper::DrawSegmnentOfWidth(CartesianPoint startingPoint, int width)
 {
-	auto center = GetViewportCenter();
 	CartesianPoint computedPoint(startingPoint.GetX() + width, startingPoint.GetY());
 
 	ComputeCoordinates(startingPoint);
@@ -86,7 +81,6 @@ void GraphicsHelper::DrawSegmnentOfWidth(CartesianPoint startingPoint, int width
 
 void GraphicsHelper::DrawSegmnentOfHeight(CartesianPoint startingPoint, int height)
 {
-	auto center = GetViewportCenter();
 	CartesianPoint computedPoint(startingPoint.GetX(), startingPoint.GetY() + height);
 
 	ComputeCoordinates(startingPoint);

@@ -1,9 +1,11 @@
 #pragma once
 #include "../BaseComponent/BaseComponent.h"
+#include "Resources/NpnTransistorResources.h"
+
 class NpnTransistor :
 	public BaseComponent
 {
-	std::string name = "Tranzistor NPN";
+	std::string name = NpnTransistorResources::Name;
 	int numberOfConnectors = 3;
 public:
 	NpnTransistor();

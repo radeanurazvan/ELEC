@@ -1,9 +1,12 @@
 #pragma once
-class NandGateResources
+#include <string>
+
+static class NandGateResources
 {
 private:
 	NandGateResources();
 public:
+	static std::string Name;
 	static const int length = 25;
 	static const int height = 35;
 	static const int arcStartAngle = 270;
@@ -13,4 +16,3 @@ public:
 	static const int connectorWidth = 15;
 	static const int circleRadius = 5;
 };
-

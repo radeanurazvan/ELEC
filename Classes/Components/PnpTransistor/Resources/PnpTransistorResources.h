@@ -1,9 +1,12 @@
 #pragma once
-class PnpTransistorResources
+#include <string>
+
+static class PnpTransistorResources
 {
 private:
 	PnpTransistorResources();
 public:
+	static std::string Name;
 	static const int Radius = 12;
 	static const int DistanceBetweenCondcutors = 15;
 	static const int DistanceFromMidPoint = 7;

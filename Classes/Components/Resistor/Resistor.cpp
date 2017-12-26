@@ -1,7 +1,6 @@
 #include "Resistor.h"
 #include "Resources/ResistorResources.h"
 #include "../../Helpers/GraphicsHelper/GraphicsHelper.h"
-#include "../../Helpers/CartesianPointsHelper/CartesianPointsHelper.h"
 
 
 Resistor::Resistor()

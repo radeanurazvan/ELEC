@@ -1,9 +1,11 @@
 #pragma once
 #include "../BaseComponent/BaseComponent.h"
+#include "Resources/ServoMotorResources.h"
+
 class ServoMotor :
 	public BaseComponent
 {
-	std::string name = "ServoMotor";
+	std::string name = ServoMotorResources::Name;
 	int numberOfConnectors = 2;
 public:
 	ServoMotor();

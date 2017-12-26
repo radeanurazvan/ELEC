@@ -1,20 +1,59 @@
 {
-  "Components": [
+  "components": [
     {
-      "Type": "Resistor",
-      "Position": {
-        "x": 2,
-        "y": 7
+      "type": "Battery",
+      "position": {
+        "x": -90,
+        "y": 0
+      }
+    },
+    {
+      "type": "Condenser",
+      "position": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "type": "Resistor",
+      "position": {
+        "x": 50,
+        "y": -50
+      }
+    },
+    {
+      "type": "NandGate",
+      "position": {
+        "x": 150,
+        "y": 0
       }
     }
   ],
 
-  "Links": [
+  "links": [
     {
-      "FirstComponent": 1,
-      "\"SecondComponent: 2,": null,
-      "FirstComponentConnector": 1,
-      "SecondComponentConnector": 1
+      "firstComponent": 1,
+      "secondComponent": 3,
+      "firstComponentConnector": 2,
+      "secondComponentConnector": 1
+    },
+    {
+      "firstComponent": 1,
+      "secondComponent": 3,
+      "firstComponentConnector": 2,
+      "secondComponentConnector": 1
+    },
+    {
+      "firstComponent": 2,
+      "secondComponent": 4,
+      "firstComponentConnector": 2,
+      "secondComponentConnector": 2
+    },
+    {
+      "firstComponent": 3,
+      "secondComponent": 4,
+      "firstComponentConnector": 2,
+      "secondComponentConnector": 1
     }
   ]
 }

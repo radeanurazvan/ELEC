@@ -1,8 +1,11 @@
 #pragma once
-class NpnTransistorResources{
+#include <string>
+
+static class NpnTransistorResources{
 private:
 	NpnTransistorResources();
 public:
+	static std::string Name;
 	static const int Radius = 14;
 	static const int DistanceBetweenCondcutors = 15;
 	static const int DistanceFromMidPoint = 7;
@@ -11,3 +14,5 @@ public:
 	static const int DistanceFromaPoint = 10;
 	static const int EntriLine = 4;
 };
+
+

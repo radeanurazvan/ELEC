@@ -1,10 +1,17 @@
 #pragma once
-class Link
+#include "../../../3rdParties/json-develop/src/json.hpp"
+
+namespace JsonObjects
 {
-public:
-	int FirstComponent;
-	int SecondComponent;
-	int FirstComponentConnector;
-	int SecondComponentConnector;
-};
+	class Link
+	{
+	public:
+		Link();
+		int FirstComponent;
+		int SecondComponent;
+		int FirstComponentConnector;
+		int SecondComponentConnector;
+	};
+	void from_json(const nlohmann::json& j, Link& link);
+}
 

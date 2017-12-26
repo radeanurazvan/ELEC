@@ -1,9 +1,11 @@
 #pragma once
 #include "../BaseComponent/BaseComponent.h"
+#include "Resources/ResistorResources.h"
 
-class Resistor : BaseComponent
+class Resistor : 
+	public BaseComponent
 {
-	std::string name = "Resistor";
+	std::string name = ResistorResources::Name;
 	int numberOfConnectors = 2;
 public:
 	Resistor();

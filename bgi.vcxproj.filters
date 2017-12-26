@@ -102,13 +102,64 @@
     <ClCompile Include="Classes\Components\ZennerDiode\ZennerDiode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Classes\Components\SiNuGate\NandGate.cpp">
+    <ClCompile Include="Classes\Helpers\FileHelper\FileHelper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Classes\Helpers\JsonHelper\JsonHelper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Classes\Helpers\FileHelper\FileHelper.cpp">
+    <ClCompile Include="Classes\Components\Battery\Resources\BatteryResources.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Components\Condenser\Resources\CondenserResources.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Components\Diode\Resources\DiodeResources.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Components\NandGate\Resources\NandGateResources.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Components\NandGate\NandGate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Components\Node\Resources\NodeResources.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Components\NpnTransistor\Resources\NpnTransistorResources.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Factories\ComponentFactory\ComponentFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Helpers\CircuitReader\CircuitReader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Wrappers\CircuitDetails\CircuitDetails.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Wrappers\ComponentDetails\ComponentDetails.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Wrappers\Link\Link.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Wrappers\PositionDetails\PositionDetails.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Components\OperationalAmplifier\Resources\OperationalAmplifierResources.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Components\PnpTransistor\Resources\PnpTransistorResources.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Components\Resistor\Resources\ResistorResources.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Components\ServoMotor\Resources\ServoMotorResources.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Components\ZennerDiode\Resources\ZennerDiodeResources.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -209,15 +260,6 @@
     <ClInclude Include="Classes\Components\Node\Resources\NodeResources.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Classes\Components\SiNuGate\NandGate.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Classes\Components\SiNuGate\Resources\NandGateResources.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Classes\Helpers\JsonHelper\JsonHelper.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Classes\Helpers\FileHelper\FileHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -231,6 +273,27 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Classes\Wrappers\PositionDetails\PositionDetails.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Helpers\JsonHelper\JsonHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Components\SiNuGate\NandGate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Components\SiNuGate\Resources\NandGateResources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Components\NandGate\Resources\NandGateResources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Components\NandGate\NandGate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Factories\ComponentFactory\ComponentFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Helpers\CircuitReader\CircuitReader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
