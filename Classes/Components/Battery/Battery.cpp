@@ -16,10 +16,14 @@ void Battery::Draw()
 		rightConductorPoint.MoveToRight(BatteryResources::spaceBetweenConductors);
 		rightConductorPoint.MoveUpwards(BatteryResources::conductorRightHeight * 1.5);
 
+		auto leftConductorPointLine = leftConductorPoint;
+		leftConductorPointLine.MoveDownwards(BatteryResources::conductorLeftHeight);
+		GraphicsHelper::DrawLine(leftConductorPoint, leftConductorPointLine);
 
-		GraphicsHelper::DrawLine(leftConductorPoint, BatteryResources::conductorLeftHeight);
-		GraphicsHelper::DrawLine(rightConductorPoint, -BatteryResources::conductorRightHeight);
-
+		auto rightConductorPointLine = rightConductorPoint;
+		rightConductorPointLine.MoveDownwards (-BatteryResources::conductorRightHeight);
+		GraphicsHelper::DrawLine(rightConductorPoint, rightConductorPointLine);
+		
 		auto connectorsDrawReferencePoint = leftConductorPoint;
 		connectorsDrawReferencePoint
 			.MoveToRight(BatteryResources::spaceBetweenConductors)
@@ -30,7 +34,32 @@ void Battery::Draw()
 	else if(Orientation== Degrees90)
 	{ }
 	else if(Orientation== Degrees180)
-	{}
+	{
+		leftConductorPoint.MoveToLeft(BatteryResources::spaceBetweenConductors);
+		leftConductorPoint.MoveUpwards(BatteryResources::conductorRightHeight * 1.5);
+
+		auto leftConductorPointLine = leftConductorPoint;
+		leftConductorPointLine.MoveDownwards(BatteryResources::conductorLeftHeight);
+		GraphicsHelper::DrawLine(leftConductorPoint, leftConductorPointLine);
+
+		auto rightConductorPointLine = rightConductorPoint;
+		rightConductorPointLine.MoveDownwards(-BatteryResources::conductorRightHeight);
+		GraphicsHelper::DrawLine(rightConductorPoint, rightConductorPointLine);
+
+		auto connectorsDrawReferencePoint = leftConductorPoint;
+		connectorsDrawReferencePoint
+			.MoveToLeft(BatteryResources::spaceBetweenConductors)
+			->MoveUpwards(BatteryResources::conductorLeftHeight);
+
+		DrawMiddleConnectors(rightConductorPoint, connectorsDrawReferencePoint);
+	
+	
+	
+	
+	
+	
+	
+	}
 	else if(Orientation== Degrees270)
 	{ }
 

@@ -39,3 +39,8 @@ CartesianPoint* CartesianPoint::MoveDownwards(const int distance)
 	_coordinates.SetY(_coordinates.GetY() - distance);
 	return this;
 }
+CartesianPoint* CartesianPoint::MoveToLeft(const int distance)
+{
+	_coordinates.SetX(_coordinates.GetX() - distance);
+	return this;
+}
