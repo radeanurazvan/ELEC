@@ -1,6 +1,7 @@
 #include "BaseComponent.h"
 #include "../../Helpers/GraphicsHelper/GraphicsHelper.h"
 #include "../../Helpers/CartesianPointsHelper/CartesianPointsHelper.h"
+#include "Resources/BaseComponentResources.h"
 
 void BaseComponent::DrawMiddleConnectors(CartesianPoint bottomLeftLimit, CartesianPoint topRightLimit)
 {

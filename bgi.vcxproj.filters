@@ -296,6 +296,9 @@
     <ClInclude Include="Classes\Helpers\CircuitReader\CircuitReader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Classes\Enums\Orientation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />

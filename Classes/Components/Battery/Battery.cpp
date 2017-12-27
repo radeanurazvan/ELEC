@@ -11,7 +11,7 @@ void Battery::Draw()
 {
 	const auto leftConductorPoint = GetReferencePoint();
 	auto rightConductorPoint = GetReferencePoint();
-	if (Orientation == 1)
+	if (Orientation == Normal)
 	{
 		rightConductorPoint.MoveToRight(BatteryResources::spaceBetweenConductors);
 		rightConductorPoint.MoveUpwards(BatteryResources::conductorRightHeight * 1.5);
@@ -27,11 +27,11 @@ void Battery::Draw()
 
 		DrawMiddleConnectors(leftConductorPoint, connectorsDrawReferencePoint);
 	}
-	else if(Orientation==2)
+	else if(Orientation== Degrees90)
 	{ }
-	else if(Orientation==3)
+	else if(Orientation== Degrees180)
 	{}
-	else if(Orientation==4)
+	else if(Orientation== Degrees270)
 	{ }
 
 }

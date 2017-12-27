@@ -1,8 +1,8 @@
 #pragma once
 #include <string>
-#include "Resources/BaseComponentResources.h"
 #include "../../CartesianPlane/CartesianCoordinate/CartesianCoordinate.h"
 #include "../../CartesianPlane/CartesianPoint/CartesianPoint.h"
+#include "../../Enums/Orientation.h"
 
 class BaseComponent
 {
@@ -13,7 +13,7 @@ private:
 protected:
 	void DrawMiddleConnectors(CartesianPoint bottomLeftLimit, CartesianPoint topRightLimit);
 	CartesianPoint GetReferencePoint();
-	int Orientation;
+	Orientation Orientation;
 public:
 	BaseComponent();
 	~BaseComponent();
