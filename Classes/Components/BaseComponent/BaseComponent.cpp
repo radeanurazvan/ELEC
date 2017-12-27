@@ -11,9 +11,12 @@ void BaseComponent::DrawMiddleConnectors(CartesianPoint bottomLeftLimit, Cartesi
 
 	const auto middleLeft = CartesianPointsHelper::GetMiddlePointBetween(topLeft, bottomLeftLimit);
 	const auto middleRight = CartesianPointsHelper::GetMiddlePointBetween(topRightLimit, bottomRight);
-
-	GraphicsHelper::DrawLine(middleLeft, -BaseComponentResources::connectorWidth);
-	GraphicsHelper::DrawLine(middleRight, BaseComponentResources::connectorWidth);
+	auto middleLeftLine = middleLeft;
+	auto middleRightLine = middleRight;
+		middleLeftLine.MoveToRight(-BaseComponentResources::connectorWidth);
+	middleRightLine.MoveToRight(BaseComponentResources::connectorWidth);
+	GraphicsHelper::DrawLine(middleLeft, middleLeftLine);
+	GraphicsHelper::DrawLine(middleRight, middleRightLine);
 }
 
 CartesianPoint BaseComponent::GetReferencePoint()

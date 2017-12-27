@@ -30,14 +30,19 @@ void NandGate::Draw()
 	auto circleCenterPoint = arcCenterPoint->MoveToRight(NandGateResources::arcRadius + NandGateResources::circleRadius);
 	GraphicsHelper::DrawCircle(*circleCenterPoint, NandGateResources::circleRadius);
 
-	const auto topConnnectorPoint = topLeftPoint.MoveDownwards(NandGateResources::distanceBetweenConnectorAndCorner);
+	const auto topConnectorPoint = topLeftPoint.MoveDownwards(NandGateResources::distanceBetweenConnectorAndCorner);
 	const auto bottomConnectorPoint = bottomLeftPoint.MoveUpwards(NandGateResources::distanceBetweenConnectorAndCorner);
 
 	auto middleConnectorPoint = circleCenterPoint->MoveToRight(NandGateResources::circleRadius);
-	GraphicsHelper::DrawLine(*middleConnectorPoint, NandGateResources::connectorWidth);
-
-	GraphicsHelper::DrawLine(*topConnnectorPoint, -NandGateResources::connectorWidth);
-	GraphicsHelper::DrawLine(*bottomConnectorPoint, -NandGateResources::connectorWidth);
+	auto middleConnectorPointLine = *middleConnectorPoint;
+		middleConnectorPointLine.MoveToRight(NandGateResources::connectorWidth);
+	auto topConnectorPointLine = *topConnectorPoint;
+		topConnectorPointLine.MoveToRight(-NandGateResources::connectorWidth);
+	auto bottomConnectorPointLine = *bottomConnectorPoint;
+		bottomConnectorPointLine.MoveToRight(-NandGateResources::connectorWidth);
+	GraphicsHelper::DrawLine(*middleConnectorPoint, middleConnectorPointLine);
+	GraphicsHelper::DrawLine(*topConnectorPoint, topConnectorPointLine);
+	GraphicsHelper::DrawLine(*bottomConnectorPoint, bottomConnectorPointLine);
 
 
 }

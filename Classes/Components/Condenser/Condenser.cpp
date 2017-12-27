@@ -17,8 +17,12 @@ void Condenser::Draw()
 		.MoveToRight(CondenserResources::spaceBetweenConductors)
 		->MoveUpwards(CondenserResources::conductorsHeight);
 
-	GraphicsHelper::DrawLine(leftConductorPoint, CondenserResources::conductorsHeight);
-	GraphicsHelper::DrawLine(rightConductorPoint, -CondenserResources::conductorsHeight);
+	auto rightConductorPointLine = rightConductorPoint;
+		rightConductorPointLine.MoveDownwards(CondenserResources::conductorsHeight);
+	auto leftConductorPointLine = leftConductorPoint;
+		leftConductorPointLine.MoveDownwards(-CondenserResources::conductorsHeight);
+	GraphicsHelper::DrawLine(leftConductorPoint, leftConductorPointLine);
+	GraphicsHelper::DrawLine(rightConductorPoint, rightConductorPointLine);
 
 	DrawMiddleConnectors(leftConductorPoint, rightConductorPoint);
 }

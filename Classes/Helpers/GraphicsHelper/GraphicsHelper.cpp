@@ -55,11 +55,11 @@ void GraphicsHelper::DrawCircle(CartesianPoint midPoint, int radius)
 	circle(midPoint.GetX(), midPoint.GetY(), radius);
 }
 
-void GraphicsHelper::DrawRectangle(CartesianPoint bottomLeft, CartesianPoint topRight)
+void GraphicsHelper::DrawRectangle(CartesianPoint bottomLeft, CartesianPoint topRight,int Height,int Width)
 {
 	ComputeCoordinates(bottomLeft);
 	ComputeCoordinates(topRight);
-	rectangle(bottomLeft.GetX(), topRight.GetY(), topRight.GetX(), bottomLeft.GetY());
+	rectangle(bottomLeft.GetX(), topRight.GetY(), topRight.GetX()+Width, bottomLeft.GetY()+Height);
 }
 
 void GraphicsHelper::DrawLine(CartesianPoint pointA, CartesianPoint pointB)

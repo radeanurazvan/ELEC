@@ -14,4 +14,5 @@ void Node::Draw()
 		GraphicsHelper::DrawCircle(StartPoint, Val);
 		Val--;
 	}
+	DrawMiddleConnectors(StartPoint, StartPoint);
 }
