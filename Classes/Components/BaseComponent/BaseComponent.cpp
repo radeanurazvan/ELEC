@@ -65,5 +65,10 @@ void BaseComponent::SetCoordinates(CartesianCoordinate coords)
 	coordinates = coords;
 }
 
+void BaseComponent::SetOrientation(::Orientation orientation)
+{
+	Orientation = orientation;
+}
+
 
 

@@ -26,7 +26,6 @@
 BaseComponent* ComponentFactory::GetComponentByDetails(const JsonObjects::ComponentDetails details)
 {
 	BaseComponent* component = nullptr;
-	auto componentCoordinates = new CartesianCoordinate(details.Position.x, details.Position.y);
 	if(details.Type == BatteryResources::Name)
 	{
 		component =  new Battery();
@@ -71,6 +70,8 @@ BaseComponent* ComponentFactory::GetComponentByDetails(const JsonObjects::Compon
 	{
 		component = new ZennerDiode();
 	}
+	auto componentCoordinates = new CartesianCoordinate(details.Position.x, details.Position.y);
 	component->SetCoordinates(*componentCoordinates);
+	component->SetOrientation(details.Orientation);
 	return component;
 }

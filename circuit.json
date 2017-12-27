@@ -5,28 +5,32 @@
       "position": {
         "x": -90,
         "y": 0
-      }
+      },
+      "orientation": 3
     },
     {
       "type": "Condenser",
       "position": {
         "x": 50,
         "y": 50
-      }
+      },
+      "orientation": 1
     },
     {
       "type": "Resistor",
       "position": {
         "x": 50,
         "y": -50
-      }
+      },
+      "orientation": 1
     },
     {
       "type": "NandGate",
       "position": {
         "x": 150,
         "y": 0
-      }
+      },
+      "orientation": 1
     }
   ],
 

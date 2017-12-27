@@ -23,5 +23,6 @@ public:
 	void SetName(std::string _name);
 	CartesianCoordinate GetCoordinates();
 	void SetCoordinates(CartesianCoordinate coords);
+	void SetOrientation(::Orientation orientation);
 	virtual void Draw() = 0;
 };
