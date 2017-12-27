@@ -21,7 +21,7 @@ void NpnTransistor::Draw()
 	auto MidConductor = StartPoint;
 	MidConductor.MoveToRight(-NpnTransistorResources::DistanceFromMidPoint);
 	MidConductor.MoveDownwards(NpnTransistorResources::Radius);
-	GraphicsHelper::DrawSegmnentOfHeight(MidConductor,NpnTransistorResources::Height);
+	GraphicsHelper::DrawLine(MidConductor,NpnTransistorResources::Height);
 	MidConductor.MoveUpwards(NpnTransistorResources::Radius);
 	auto Line = MidConductor;
 	Line.MoveToRight(-NpnTransistorResources::Lenght);
@@ -34,5 +34,5 @@ void NpnTransistor::Draw()
 	PointA.MoveDownwards(NpnTransistorResources::DistanceFromaPoint);
 	PointB.MoveToRight(-NpnTransistorResources::DistanceFromaPoint);
 	GraphicsHelper::DrawTriangle(PointA, PointB, PointC);
-	GraphicsHelper::DrawSegmnentOfHeight(UpperConductor, -NpnTransistorResources::EntriLine);
+	GraphicsHelper::DrawLine(UpperConductor, -NpnTransistorResources::EntriLine);
 }

@@ -13,6 +13,7 @@ private:
 protected:
 	void DrawMiddleConnectors(CartesianPoint bottomLeftLimit, CartesianPoint topRightLimit);
 	CartesianPoint GetReferencePoint();
+	int Orientation;
 public:
 	BaseComponent();
 	~BaseComponent();

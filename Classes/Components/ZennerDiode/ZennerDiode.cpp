@@ -11,7 +11,7 @@ void ZennerDiode::Draw()
 	const auto ConductorPoint = GetReferencePoint();
 	 auto StartUpDrawPoint = ConductorPoint;
 	 auto StartDownDrawPoint = ConductorPoint;
-	GraphicsHelper::DrawSegmnentOfHeight(ConductorPoint, ZennerDiodeResources::ConductorHeight);
+	GraphicsHelper::DrawLine(ConductorPoint, ZennerDiodeResources::ConductorHeight);
 	auto EndConductorPoint = ConductorPoint;
 	auto UpperConductor = StartUpDrawPoint;
 	UpperConductor.MoveToRight(-ZennerDiodeResources::ConductorCurve);

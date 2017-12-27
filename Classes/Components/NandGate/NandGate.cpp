@@ -34,10 +34,10 @@ void NandGate::Draw()
 	const auto bottomConnectorPoint = bottomLeftPoint.MoveUpwards(NandGateResources::distanceBetweenConnectorAndCorner);
 
 	auto middleConnectorPoint = circleCenterPoint->MoveToRight(NandGateResources::circleRadius);
-	GraphicsHelper::DrawSegmnentOfWidth(*middleConnectorPoint, NandGateResources::connectorWidth);
+	GraphicsHelper::DrawLine(*middleConnectorPoint, NandGateResources::connectorWidth);
 
-	GraphicsHelper::DrawSegmnentOfWidth(*topConnnectorPoint, -NandGateResources::connectorWidth);
-	GraphicsHelper::DrawSegmnentOfWidth(*bottomConnectorPoint, -NandGateResources::connectorWidth);
+	GraphicsHelper::DrawLine(*topConnnectorPoint, -NandGateResources::connectorWidth);
+	GraphicsHelper::DrawLine(*bottomConnectorPoint, -NandGateResources::connectorWidth);
 
 
 }

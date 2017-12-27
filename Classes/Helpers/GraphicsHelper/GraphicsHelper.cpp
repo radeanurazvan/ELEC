@@ -69,22 +69,3 @@ void GraphicsHelper::DrawLine(CartesianPoint pointA, CartesianPoint pointB)
 	line(pointA.GetX(), pointA.GetY(), pointB.GetX(), pointB.GetY());
 }
 
-void GraphicsHelper::DrawSegmnentOfWidth(CartesianPoint startingPoint, int width)
-{
-	CartesianPoint computedPoint(startingPoint.GetX() + width, startingPoint.GetY());
-
-	ComputeCoordinates(startingPoint);
-	ComputeCoordinates(computedPoint);
-
-	line(startingPoint.GetX(), startingPoint.GetY(), computedPoint.GetX(), computedPoint.GetY());
-}
-
-void GraphicsHelper::DrawSegmnentOfHeight(CartesianPoint startingPoint, int height)
-{
-	CartesianPoint computedPoint(startingPoint.GetX(), startingPoint.GetY() + height);
-
-	ComputeCoordinates(startingPoint);
-	ComputeCoordinates(computedPoint);
-
-	line(startingPoint.GetX(), startingPoint.GetY(), computedPoint.GetX(), computedPoint.GetY());
-}

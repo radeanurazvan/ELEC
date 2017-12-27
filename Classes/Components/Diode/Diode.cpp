@@ -9,7 +9,7 @@ Diode::Diode()
 void Diode::Draw()
 {
 	const auto ConductorPoint = GetReferencePoint();
-	GraphicsHelper::DrawSegmnentOfHeight(ConductorPoint,DiodeResources::ConductorHeight);
+	GraphicsHelper::DrawLine(ConductorPoint,DiodeResources::ConductorHeight);
 		 auto EndConductorPoint =	ConductorPoint;
 		 EndConductorPoint.MoveToRight(DiodeResources::TriangleWidth);
 		 auto PointA = ConductorPoint;
