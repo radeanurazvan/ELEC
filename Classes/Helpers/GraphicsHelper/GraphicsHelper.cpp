@@ -19,7 +19,7 @@ void GraphicsHelper::ComputeCoordinates(CartesianPoint& point)
 	auto center = GetViewportCenter();
 
 	const auto computedX = center.GetX() + point.GetX();
-	const auto computedY = center.GetY() + point.GetY();
+	const auto computedY = center.GetY() - point.GetY();
 
 	const CartesianCoordinate computedCoordinates(computedX, computedY);
 	point.SetCoordinates(computedCoordinates);
@@ -55,11 +55,11 @@ void GraphicsHelper::DrawCircle(CartesianPoint midPoint, int radius)
 	circle(midPoint.GetX(), midPoint.GetY(), radius);
 }
 
-void GraphicsHelper::DrawRectangle(CartesianPoint bottomLeft, CartesianPoint topRight,int Height,int Width)
+void GraphicsHelper::DrawRectangle(CartesianPoint bottomLeft, CartesianPoint topRight)
 {
 	ComputeCoordinates(bottomLeft);
 	ComputeCoordinates(topRight);
-	rectangle(bottomLeft.GetX(), topRight.GetY(), topRight.GetX()+Width, bottomLeft.GetY()+Height);
+	rectangle(bottomLeft.GetX(), topRight.GetY(), topRight.GetX(), bottomLeft.GetY());
 }
 
 void GraphicsHelper::DrawLine(CartesianPoint pointA, CartesianPoint pointB)

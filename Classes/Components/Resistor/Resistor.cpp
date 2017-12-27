@@ -11,14 +11,16 @@ void Resistor::Draw() {
 	auto referencePoint = GetReferencePoint();
 
 	const CartesianPoint bottomLeft(referencePoint.GetX(), referencePoint.GetY());
-	const CartesianPoint topRight(referencePoint.GetX(), referencePoint.GetY());
+	CartesianPoint topRight(referencePoint.GetX(), referencePoint.GetY());
 
-GraphicsHelper::DrawRectangle(bottomLeft,topRight,ResistorResources::figureHeight,ResistorResources::figureWidth);
+	auto topRightCoordinates = new CartesianCoordinate(
+		referencePoint.GetX() + ResistorResources::figureWidth, 
+		referencePoint.GetY() + ResistorResources::figureHeight);
+	topRight.SetCoordinates(*topRightCoordinates);
+
+	GraphicsHelper::DrawRectangle(bottomLeft,topRight);
 	auto LeftConductor = bottomLeft;
 	auto RightConductor = topRight;
-		RightConductor.MoveToRight(ResistorResources::figureWidth);
-		LeftConductor.MoveUpwards(ResistorResources::figureHeight /2 );
-		RightConductor.MoveUpwards(ResistorResources::figureHeight / 2 );
 	DrawMiddleConnectors(LeftConductor,RightConductor );
 
 }
