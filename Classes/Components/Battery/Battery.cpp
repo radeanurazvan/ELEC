@@ -17,11 +17,11 @@ void Battery::Draw()
 		rightConductorPoint.MoveUpwards(BatteryResources::conductorRightHeight * 1.5);
 
 		auto leftConductorPointLine = leftConductorPoint;
-		leftConductorPointLine.MoveDownwards(BatteryResources::conductorLeftHeight);
+		leftConductorPointLine.MoveUpwards(BatteryResources::conductorLeftHeight);
 		GraphicsHelper::DrawLine(leftConductorPoint, leftConductorPointLine);
 
 		auto rightConductorPointLine = rightConductorPoint;
-		rightConductorPointLine.MoveDownwards (-BatteryResources::conductorRightHeight);
+		rightConductorPointLine.MoveUpwards (-BatteryResources::conductorRightHeight);
 		GraphicsHelper::DrawLine(rightConductorPoint, rightConductorPointLine);
 		
 		auto connectorsDrawReferencePoint = leftConductorPoint;
@@ -35,23 +35,33 @@ void Battery::Draw()
 	{ }
 	else if(Orientation== Degrees180)
 	{
-		leftConductorPoint.MoveToLeft(BatteryResources::spaceBetweenConductors);
-		leftConductorPoint.MoveUpwards(BatteryResources::conductorRightHeight * 1.5);
+		rightConductorPoint.MoveToLeft(BatteryResources::spaceBetweenConductors);
+		rightConductorPoint.MoveUpwards(BatteryResources::conductorRightHeight * 1.5);
+		
 
 		auto leftConductorPointLine = leftConductorPoint;
-		leftConductorPointLine.MoveDownwards(BatteryResources::conductorLeftHeight);
+		leftConductorPointLine.MoveUpwards(BatteryResources::conductorLeftHeight);
 		GraphicsHelper::DrawLine(leftConductorPoint, leftConductorPointLine);
 
 		auto rightConductorPointLine = rightConductorPoint;
-		rightConductorPointLine.MoveDownwards(-BatteryResources::conductorRightHeight);
+		rightConductorPointLine.MoveUpwards(-BatteryResources::conductorRightHeight);
 		GraphicsHelper::DrawLine(rightConductorPoint, rightConductorPointLine);
 
-		auto connectorsDrawReferencePoint = leftConductorPoint;
+		auto connectorsDrawReferencePoint = rightConductorPoint;
 		connectorsDrawReferencePoint
-			.MoveToLeft(BatteryResources::spaceBetweenConductors)
-			->MoveUpwards(BatteryResources::conductorLeftHeight);
-
+			.MoveToRight(BatteryResources::spaceBetweenConductors)
+			->MoveDownwards(BatteryResources::conductorRightHeight);
 		DrawMiddleConnectors(rightConductorPoint, connectorsDrawReferencePoint);
+
+
+		
+	
+		
+	
+		
+
+		
+		
 	
 	}
 	else if(Orientation== Degrees270)
