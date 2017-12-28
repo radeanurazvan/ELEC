@@ -8,16 +8,16 @@ ServoMotor::ServoMotor()
 
 void ServoMotor::Draw()
 {
-	const auto StartPoint = GetReferencePoint();
-	auto DrawPoint = StartPoint;
-		DrawPoint.MoveToRight(-ServoMotorResources::Radius / 2);
-		DrawPoint.MoveUpwards(-ServoMotorResources::Radius / 2);
-	GraphicsHelper::DrawCircle(StartPoint, ServoMotorResources::Radius);
-	GraphicsHelper::DrawCharacter(DrawPoint, ServoMotorResources::Signature);
+	const auto startPoint = GetReferencePoint();
+	auto drawPoint = startPoint;
+		drawPoint.MoveToRight(-ServoMotorResources::Radius / 2);
+		drawPoint.MoveUpwards(-ServoMotorResources::Radius / 2);
+	GraphicsHelper::DrawCircle(startPoint, ServoMotorResources::Radius);
+	GraphicsHelper::DrawCharacter(drawPoint, ServoMotorResources::Signature);
 	
-	auto ConnectorStartPoint = StartPoint;
-	auto ConnectorEndPoint = StartPoint;
-		ConnectorStartPoint.MoveToRight(-ServoMotorResources::Radius);
-		ConnectorEndPoint.MoveToRight(ServoMotorResources::Radius);
-	DrawMiddleConnectors(ConnectorStartPoint, ConnectorEndPoint);
+	auto connectorStartPoint = startPoint;
+	auto connectorEndPoint = startPoint;
+		connectorStartPoint.MoveToRight(-ServoMotorResources::Radius);
+		connectorEndPoint.MoveToRight(ServoMotorResources::Radius);
+	DrawMiddleConnectors(connectorStartPoint, connectorEndPoint);
 }

@@ -8,34 +8,34 @@ ZennerDiode::ZennerDiode()
 
 void ZennerDiode::Draw()
 {
-	const auto ConductorPoint = GetReferencePoint();
-	auto StartUpDrawPoint = ConductorPoint;
-	auto StartDownDrawPoint = ConductorPoint;
-	auto ConductorPointLine = ConductorPoint;
-		ConductorPointLine.MoveUpwards(ZennerDiodeResources::ConductorHeight);
-	GraphicsHelper::DrawLine(ConductorPoint, ConductorPointLine);
+	const auto conductorPoint = GetReferencePoint();
+	auto startUpDrawPoint = conductorPoint;
+	auto startDownDrawPoint = conductorPoint;
+	auto conductorPointLine = conductorPoint;
+		conductorPointLine.MoveUpwards(ZennerDiodeResources::ConductorHeight);
+	GraphicsHelper::DrawLine(conductorPoint, conductorPointLine);
 	
-	auto EndConductorPoint = ConductorPoint;
-	auto UpperConductor = StartUpDrawPoint;
-		UpperConductor.MoveToRight(-ZennerDiodeResources::ConductorCurve);
-		UpperConductor.MoveDownwards(ZennerDiodeResources::ConductorCurveHeight);
-	GraphicsHelper::DrawLine(StartUpDrawPoint, UpperConductor);
+	auto endConductorPoint = conductorPoint;
+	auto upperConductor = startUpDrawPoint;
+		upperConductor.MoveToRight(-ZennerDiodeResources::ConductorCurve);
+		upperConductor.MoveDownwards(ZennerDiodeResources::ConductorCurveHeight);
+	GraphicsHelper::DrawLine(startUpDrawPoint, upperConductor);
 	
-		StartDownDrawPoint.MoveUpwards(ZennerDiodeResources::ConductorHeight);
-	auto LowerConductor = StartDownDrawPoint;
-		LowerConductor.MoveUpwards(ZennerDiodeResources::ConductorCurveHeight);
-		LowerConductor.MoveToRight(ZennerDiodeResources::ConductorCurve);
-	GraphicsHelper::DrawLine(StartDownDrawPoint, LowerConductor);
+		startDownDrawPoint.MoveUpwards(ZennerDiodeResources::ConductorHeight);
+	auto lowerConductor = startDownDrawPoint;
+		lowerConductor.MoveUpwards(ZennerDiodeResources::ConductorCurveHeight);
+		lowerConductor.MoveToRight(ZennerDiodeResources::ConductorCurve);
+	GraphicsHelper::DrawLine(startDownDrawPoint, lowerConductor);
 	
-		EndConductorPoint.MoveToRight(ZennerDiodeResources::TriangleWidth);
-	auto PointA = ConductorPoint;
-	auto PointB = EndConductorPoint;
-	auto PointC = EndConductorPoint;
-		PointA.MoveUpwards(ZennerDiodeResources::ConductorHeight / 2);
-		PointB.MoveUpwards(ZennerDiodeResources::ConductorHeight);
-		PointC.MoveDownwards(ZennerDiodeResources::ConductorHeight / 4);
-	GraphicsHelper::DrawTriangle(PointA, PointB, PointC);
+		endConductorPoint.MoveToRight(ZennerDiodeResources::TriangleWidth);
+	auto pointA = conductorPoint;
+	auto pointB = endConductorPoint;
+	auto pointC = endConductorPoint;
+		pointA.MoveUpwards(ZennerDiodeResources::ConductorHeight / 2);
+		pointB.MoveUpwards(ZennerDiodeResources::ConductorHeight);
+		pointC.MoveDownwards(ZennerDiodeResources::ConductorHeight / 4);
+	GraphicsHelper::DrawTriangle(pointA, pointB, pointC);
 	
-		EndConductorPoint.MoveUpwards(ZennerDiodeResources::ConductorHeight);
-		DrawMiddleConnectors(ConductorPoint, EndConductorPoint);
+		endConductorPoint.MoveUpwards(ZennerDiodeResources::ConductorHeight);
+		DrawMiddleConnectors(conductorPoint, endConductorPoint);
 }

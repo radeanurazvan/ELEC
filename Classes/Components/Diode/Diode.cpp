@@ -8,22 +8,22 @@ Diode::Diode()
 
 void Diode::Draw()
 {
-	const auto ConductorPoint = GetReferencePoint();
-	auto ConductorPointLine = ConductorPoint;
-	ConductorPointLine.MoveUpwards(DiodeResources::ConductorHeight);
-	GraphicsHelper::DrawLine(ConductorPoint,ConductorPointLine);
+	const auto conductorPoint = GetReferencePoint();
+	auto conductorPointLine = conductorPoint;
+	conductorPointLine.MoveUpwards(DiodeResources::ConductorHeight);
+	GraphicsHelper::DrawLine(conductorPoint,conductorPointLine);
 		 
-	auto EndConductorPoint =	ConductorPoint;
-		 EndConductorPoint.MoveToRight(DiodeResources::TriangleWidth);
-	auto PointA = ConductorPoint;
-	auto PointB = EndConductorPoint;
-	auto PointC = EndConductorPoint;
-		 PointA.MoveUpwards(DiodeResources::ConductorHeight / 2);
-		 PointB.MoveUpwards(DiodeResources::ConductorHeight);
-		 PointC.MoveDownwards(DiodeResources::ConductorHeight / 4);
+	auto endConductorPoint =	conductorPoint;
+		 endConductorPoint.MoveToRight(DiodeResources::TriangleWidth);
+	auto pointA = conductorPoint;
+	auto pointB = endConductorPoint;
+	auto pointC = endConductorPoint;
+		 pointA.MoveUpwards(DiodeResources::ConductorHeight / 2);
+		 pointB.MoveUpwards(DiodeResources::ConductorHeight);
+		 pointC.MoveDownwards(DiodeResources::ConductorHeight / 4);
 	
-	GraphicsHelper::DrawTriangle(PointA, PointB, PointC);
-	 EndConductorPoint.MoveUpwards(DiodeResources::ConductorHeight);
-	 DrawMiddleConnectors(ConductorPoint, EndConductorPoint);
+	GraphicsHelper::DrawTriangle(pointA, pointB, pointC);
+	 endConductorPoint.MoveUpwards(DiodeResources::ConductorHeight);
+	 DrawMiddleConnectors(conductorPoint, endConductorPoint);
 
 }

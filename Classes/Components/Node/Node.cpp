@@ -7,12 +7,12 @@ Node::Node()
 
 void Node::Draw()
 {
-	const auto StartPoint = GetReferencePoint();
-	auto Val = NodeResources::Radius;
-	while (Val)
+	const auto startPoint = GetReferencePoint();
+	auto val = NodeResources::Radius;
+	while (val)
 	{
-		GraphicsHelper::DrawCircle(StartPoint, Val);
-		Val--;
+		GraphicsHelper::DrawCircle(startPoint, val);
+		val--;
 	}
-	DrawMiddleConnectors(StartPoint, StartPoint);
+	DrawMiddleConnectors(startPoint, startPoint);
 }

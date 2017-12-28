@@ -10,36 +10,36 @@ NpnTransistor::NpnTransistor()
 
 void NpnTransistor::Draw()
 {
-	const auto StartPoint = GetReferencePoint();
-	GraphicsHelper::DrawCircle(StartPoint, NpnTransistorResources::Radius);
+	const auto startPoint = GetReferencePoint();
+	GraphicsHelper::DrawCircle(startPoint, NpnTransistorResources::Radius);
 	
-	auto UpperConductor = StartPoint;
-		UpperConductor.MoveDownwards(NpnTransistorResources::DistanceBetweenCondcutors);
-		UpperConductor.MoveToRight(NpnTransistorResources::DistanceFromMidPoint);
-	auto LowerConductor = StartPoint;
-		LowerConductor.MoveUpwards(NpnTransistorResources::DistanceBetweenCondcutors);
-		LowerConductor.MoveToRight(NpnTransistorResources::DistanceFromMidPoint);
-	auto MidConductor = StartPoint;
-		MidConductor.MoveToRight(-NpnTransistorResources::DistanceFromMidPoint);
-		MidConductor.MoveDownwards(NpnTransistorResources::Radius);
-	auto MidLine = MidConductor;
-		MidLine.MoveUpwards(NpnTransistorResources::Height);
-	GraphicsHelper::DrawLine(MidConductor,MidLine);
+	auto upperConductor = startPoint;
+		upperConductor.MoveDownwards(NpnTransistorResources::DistanceBetweenCondcutors);
+		upperConductor.MoveToRight(NpnTransistorResources::DistanceFromMidPoint);
+	auto lowerConductor = startPoint;
+		lowerConductor.MoveUpwards(NpnTransistorResources::DistanceBetweenCondcutors);
+		lowerConductor.MoveToRight(NpnTransistorResources::DistanceFromMidPoint);
+	auto midConductor = startPoint;
+		midConductor.MoveToRight(-NpnTransistorResources::DistanceFromMidPoint);
+		midConductor.MoveDownwards(NpnTransistorResources::Radius);
+	auto midLine = midConductor;
+		midLine.MoveUpwards(NpnTransistorResources::Height);
+	GraphicsHelper::DrawLine(midConductor,midLine);
 		
-		MidConductor.MoveUpwards(NpnTransistorResources::Radius);
-	auto Line = MidConductor;
+		midConductor.MoveUpwards(NpnTransistorResources::Radius);
+	auto Line = midConductor;
 		Line.MoveToRight(-NpnTransistorResources::Lenght);
-	GraphicsHelper::DrawLine(MidConductor, Line);
-	GraphicsHelper::DrawLine(MidConductor, UpperConductor);
-	GraphicsHelper::DrawLine(MidConductor, LowerConductor);
+	GraphicsHelper::DrawLine(midConductor, Line);
+	GraphicsHelper::DrawLine(midConductor, upperConductor);
+	GraphicsHelper::DrawLine(midConductor, lowerConductor);
 	
-	auto PointA = LowerConductor;
-	auto PointB = LowerConductor;
-	auto PointC = LowerConductor;
+	auto PointA = lowerConductor;
+	auto PointB = lowerConductor;
+	auto PointC = lowerConductor;
 		PointA.MoveDownwards(NpnTransistorResources::DistanceFromaPoint);
 		PointB.MoveToRight(-NpnTransistorResources::DistanceFromaPoint);
-	auto UpperLine = UpperConductor;
-		UpperLine.MoveDownwards(NpnTransistorResources::EntriLine);
+	auto upperLine = upperConductor;
+		upperLine.MoveDownwards(NpnTransistorResources::EntriLine);
 	GraphicsHelper::DrawTriangle(PointA, PointB, PointC);
-	GraphicsHelper::DrawLine(UpperConductor, UpperLine);
+	GraphicsHelper::DrawLine(upperConductor, upperLine);
 }

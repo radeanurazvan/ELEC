@@ -9,32 +9,32 @@ OperationalAmplifier::OperationalAmplifier()
 
 void OperationalAmplifier::Draw()
 {
-	const auto StartPoint = GetReferencePoint();
-	auto EndPoint = StartPoint;
-		EndPoint.MoveToRight(OperationalAmplifierResources::TriangleWidth);
-	auto PointA = StartPoint;
-	auto PointB = EndPoint;
-	auto PointC = StartPoint;
-		PointA.MoveDownwards(OperationalAmplifierResources::TriangleHeight / 2);
-		PointC.MoveUpwards(OperationalAmplifierResources::TriangleHeight / 2);
-	GraphicsHelper::DrawTriangle(PointA, PointB, PointC);
+	const auto startPoint = GetReferencePoint();
+	auto endPoint = startPoint;
+		endPoint.MoveToRight(OperationalAmplifierResources::TriangleWidth);
+	auto pointA = startPoint;
+	auto pointB = endPoint;
+	auto pointC = startPoint;
+		pointA.MoveDownwards(OperationalAmplifierResources::TriangleHeight / 2);
+		pointC.MoveUpwards(OperationalAmplifierResources::TriangleHeight / 2);
+	GraphicsHelper::DrawTriangle(pointA, pointB, pointC);
 	
-	auto line1 = PointA;
-	auto line2 = PointC;
+	auto line1 = pointA;
+	auto line2 = pointC;
 		line1.MoveUpwards(OperationalAmplifierResources::LeftConnectors);
 		line2.MoveDownwards(OperationalAmplifierResources::LeftConnectors);
-	auto EndLine = EndPoint;
-	auto LineOfline1 = line1;
-	auto LineOfline2 = line2;
-		LineOfline1.MoveToRight(OperationalAmplifierResources::LeftLine);
-		LineOfline2.MoveToRight(OperationalAmplifierResources::LeftLine);
-		EndLine.MoveToRight(OperationalAmplifierResources::RightLine);
-	GraphicsHelper::DrawLine(EndPoint, EndLine);
-	GraphicsHelper::DrawLine(line1, LineOfline1);
-	GraphicsHelper::DrawLine(line2, LineOfline2);
+	auto endLine = endPoint;
+	auto lineOfline1 = line1;
+	auto lineOfline2 = line2;
+		lineOfline1.MoveToRight(OperationalAmplifierResources::LeftLine);
+		lineOfline2.MoveToRight(OperationalAmplifierResources::LeftLine);
+		endLine.MoveToRight(OperationalAmplifierResources::RightLine);
+	GraphicsHelper::DrawLine(endPoint, endLine);
+	GraphicsHelper::DrawLine(line1, lineOfline1);
+	GraphicsHelper::DrawLine(line2, lineOfline2);
 	
-	auto plus = PointA;
-	auto minus = PointC;
+	auto plus = pointA;
+	auto minus = pointC;
 		plus.MoveToRight(-OperationalAmplifierResources::LeftConnectors);
 		minus.MoveDownwards(OperationalAmplifierResources::LeftConnectors / 2);
 		minus.MoveToRight(-OperationalAmplifierResources::LeftConnectors);
