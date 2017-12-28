@@ -14,7 +14,7 @@
         "x": 50,
         "y": 50
       },
-      "orientation": 1
+      "orientation": 3
     },
     {
       "type": "Resistor",
@@ -22,7 +22,7 @@
         "x": 100,
         "y": -50
       },
-      "orientation": 1
+      "orientation": 3
     },
     {
       "type": "NandGate",
@@ -30,7 +30,7 @@
         "x": 150,
         "y": 0
       },
-      "orientation": 1
+      "orientation": 3
     }
   ],
 

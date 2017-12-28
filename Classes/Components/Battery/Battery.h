@@ -10,4 +10,8 @@ class Battery :
 public:
 	Battery();
 	void Draw() override;
+private:
+	void PrepareReferencePointsForDrawing(CartesianPoint rightPoint, CartesianPoint leftPoint);
+	void ChangeTheMove(CartesianPoint rightConductorPoint);
+
 };
