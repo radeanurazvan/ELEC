@@ -22,7 +22,7 @@
         "x": 100,
         "y": -50
       },
-      "orientation": 1
+      "orientation": 3
     },
     {
       "type": "NandGate",

@@ -3,6 +3,7 @@
 #include "../../Helpers/CartesianPointsHelper/CartesianPointsHelper.h"
 #include "Resources/BaseComponentResources.h"
 
+
 void BaseComponent::DrawMiddleConnectors(CartesianPoint bottomLeftLimit, CartesianPoint topRightLimit)
 {
 
@@ -69,6 +70,5 @@ void BaseComponent::SetOrientation(::Orientation orientation)
 {
 	Orientation = orientation;
 }
-
 
 
