@@ -10,5 +10,7 @@ class NandGate :
 public:
 	NandGate();
 	void Draw() override;
+private:
+	void PrepareReferencePointsForDrawing();
 };
 
