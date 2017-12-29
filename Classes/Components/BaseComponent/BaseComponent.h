@@ -12,6 +12,7 @@ private:
 	CartesianCoordinate coordinates;
 protected:
 	void DrawMiddleConnectors(CartesianPoint bottomLeftLimit, CartesianPoint topRightLimit);
+	void DrawMiddleConnectors90Degrees(CartesianPoint bottomLeftLimit, CartesianPoint topRightLimit);
 	CartesianPoint GetReferencePoint();
 	Orientation Orientation;
 public:

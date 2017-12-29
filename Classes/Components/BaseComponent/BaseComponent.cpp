@@ -14,12 +14,27 @@ void BaseComponent::DrawMiddleConnectors(CartesianPoint bottomLeftLimit, Cartesi
 	const auto middleRight = CartesianPointsHelper::GetMiddlePointBetween(topRightLimit, bottomRight);
 	auto middleLeftLine = middleLeft;
 	auto middleRightLine = middleRight;
-		middleLeftLine.MoveToRight(-BaseComponentResources::connectorWidth);
+		middleLeftLine.MoveToLeft(BaseComponentResources::connectorWidth);
 	middleRightLine.MoveToRight(BaseComponentResources::connectorWidth);
 	GraphicsHelper::DrawLine(middleLeft, middleLeftLine);
 	GraphicsHelper::DrawLine(middleRight, middleRightLine);
 }
 
+void BaseComponent::DrawMiddleConnectors90Degrees(CartesianPoint bottomLeftLimit, CartesianPoint topRightLimit)
+{
+
+	const CartesianPoint topLeft(bottomLeftLimit.GetX(), bottomLeftLimit.GetY());
+	const CartesianPoint bottomRight(topRightLimit.GetX(), topRightLimit.GetY());
+
+	const auto middleLeft = CartesianPointsHelper::GetMiddlePointBetween(topLeft, bottomLeftLimit);
+	const auto middleRight = CartesianPointsHelper::GetMiddlePointBetween(topRightLimit, bottomRight);
+	auto middleLeftLine = middleLeft;
+	auto middleRightLine = middleRight;
+	middleLeftLine.MoveUpwards(BaseComponentResources::connectorWidth);
+	middleRightLine.MoveDownwards(BaseComponentResources::connectorWidth);
+	GraphicsHelper::DrawLine(middleLeft, middleLeftLine);
+	GraphicsHelper::DrawLine(middleRight, middleRightLine);
+}
 CartesianPoint BaseComponent::GetReferencePoint()
 {
 	return CartesianPoint (GetCoordinates().GetX(), GetCoordinates().GetY());

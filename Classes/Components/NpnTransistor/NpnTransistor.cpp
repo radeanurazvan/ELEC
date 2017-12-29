@@ -28,142 +28,183 @@ void NpnTransistor::Draw()
 	
 	if (Orientation == Normal)
 	{
-		upperConductor.MoveDownwards(NpnTransistorResources::DistanceBetweenCondcutors);
-		upperConductor.MoveToRight(NpnTransistorResources::DistanceFromMidPoint);
+		upperConductor
+			.MoveDownwards(NpnTransistorResources::DistanceBetweenCondcutors)
+				->MoveToRight(NpnTransistorResources::DistanceFromMidPoint);
 
-		lowerConductor.MoveUpwards(NpnTransistorResources::DistanceBetweenCondcutors);
-		lowerConductor.MoveToRight(NpnTransistorResources::DistanceFromMidPoint);
+		lowerConductor
+			.MoveUpwards(NpnTransistorResources::DistanceBetweenCondcutors)
+				->MoveToRight(NpnTransistorResources::DistanceFromMidPoint);
 
 		midConductor.MoveToLeft(NpnTransistorResources::DistanceFromMidPoint);
 
-		midStartPoint.MoveToLeft(NpnTransistorResources::DistanceFromMidPoint);
-		midStartPoint.MoveDownwards(NpnTransistorResources::Radius);
+		midStartPoint
+			.MoveToLeft(NpnTransistorResources::DistanceFromMidPoint)
+				->MoveDownwards(NpnTransistorResources::Radius);
 
-		midLine.MoveUpwards(NpnTransistorResources::Height - NpnTransistorResources::Radius);
-		midLine.MoveToLeft(NpnTransistorResources::DistanceFromMidPoint);
+		midLine
+			.MoveUpwards(NpnTransistorResources::Height - NpnTransistorResources::Radius)
+				->MoveToLeft(NpnTransistorResources::DistanceFromMidPoint);
 
 		line.MoveToLeft(NpnTransistorResources::DistanceFromMidPoint);
 		lineStartPoint.MoveToLeft(NpnTransistorResources::Lenght );
 
-		lowerStartPoint.MoveToLeft(NpnTransistorResources::DistanceFromMidPoint);
-		lowerStartPoint.MoveUpwards(NpnTransistorResources::EntriLine);
-		upperStartPoint.MoveToLeft(NpnTransistorResources::DistanceFromMidPoint);
-		upperStartPoint.MoveDownwards(NpnTransistorResources::EntriLine);
+		lowerStartPoint
+			.MoveToLeft(NpnTransistorResources::DistanceFromMidPoint)
+				->MoveUpwards(NpnTransistorResources::EntriLine);
+		upperStartPoint
+			.MoveToLeft(NpnTransistorResources::DistanceFromMidPoint)
+				->MoveDownwards(NpnTransistorResources::EntriLine);
 
-		pointA.MoveDownwards(NpnTransistorResources::DistanceFromaPoint - NpnTransistorResources::DistanceBetweenCondcutors);
-		pointA.MoveToRight(NpnTransistorResources::DistanceFromMidPoint);
-		pointB.MoveToLeft(NpnTransistorResources::DistanceFromaPoint - NpnTransistorResources::DistanceFromMidPoint );
-		pointB.MoveUpwards(NpnTransistorResources::DistanceBetweenCondcutors);
-		pointC.MoveUpwards(NpnTransistorResources::DistanceBetweenCondcutors);
-		pointC.MoveToRight(NpnTransistorResources::DistanceFromMidPoint);
+		pointA
+			.MoveDownwards(NpnTransistorResources::DistanceFromaPoint - NpnTransistorResources::DistanceBetweenCondcutors)
+				->MoveToRight(NpnTransistorResources::DistanceFromMidPoint);
+		pointB
+			.MoveToLeft(NpnTransistorResources::DistanceFromaPoint - NpnTransistorResources::DistanceFromMidPoint )
+				->MoveUpwards(NpnTransistorResources::DistanceBetweenCondcutors);
+		pointC
+			.MoveUpwards(NpnTransistorResources::DistanceBetweenCondcutors)
+				->MoveToRight(NpnTransistorResources::DistanceFromMidPoint);
 
-		upperLine.MoveDownwards(NpnTransistorResources::EntriLine + NpnTransistorResources::DistanceBetweenCondcutors);
-		upperLine.MoveToRight(NpnTransistorResources::DistanceFromMidPoint);
+		upperLine
+			.MoveDownwards(NpnTransistorResources::EntriLine + NpnTransistorResources::DistanceBetweenCondcutors)
+				->MoveToRight(NpnTransistorResources::DistanceFromMidPoint);
 	}
 	else
 	if(Orientation == Degrees90)
 	{	
-		upperConductor.MoveToLeft(NpnTransistorResources::DistanceBetweenCondcutors);
-		upperConductor.MoveDownwards(NpnTransistorResources::DistanceFromMidPoint);
+		upperConductor
+			.MoveToLeft(NpnTransistorResources::DistanceBetweenCondcutors)
+				->MoveDownwards(NpnTransistorResources::DistanceFromMidPoint);
 
-		lowerConductor.MoveToRight(NpnTransistorResources::DistanceBetweenCondcutors);
-		lowerConductor.MoveDownwards(NpnTransistorResources::DistanceFromMidPoint);
+		lowerConductor
+			.MoveToRight(NpnTransistorResources::DistanceBetweenCondcutors)
+				->MoveDownwards(NpnTransistorResources::DistanceFromMidPoint);
 
 		midConductor.MoveUpwards(NpnTransistorResources::DistanceFromMidPoint);
 
-		midStartPoint.MoveUpwards(NpnTransistorResources::DistanceFromMidPoint);
-		midStartPoint.MoveToLeft(NpnTransistorResources::Radius);
+		midStartPoint
+			.MoveUpwards(NpnTransistorResources::DistanceFromMidPoint)
+				->MoveToLeft(NpnTransistorResources::Radius);
 
-		midLine.MoveToRight(NpnTransistorResources::Height - NpnTransistorResources::Radius);
-		midLine.MoveUpwards(NpnTransistorResources::DistanceFromMidPoint);
+		midLine
+			.MoveToRight(NpnTransistorResources::Height - NpnTransistorResources::Radius)
+				->MoveUpwards(NpnTransistorResources::DistanceFromMidPoint);
 
 		line.MoveUpwards(NpnTransistorResources::DistanceFromMidPoint);
 		lineStartPoint.MoveUpwards(NpnTransistorResources::Lenght);
 
-		lowerStartPoint.MoveUpwards(NpnTransistorResources::DistanceFromMidPoint);
-		lowerStartPoint.MoveToRight(NpnTransistorResources::EntriLine);
-		upperStartPoint.MoveUpwards(NpnTransistorResources::DistanceFromMidPoint);
-		upperStartPoint.MoveToLeft(NpnTransistorResources::EntriLine);
+		lowerStartPoint
+			.MoveUpwards(NpnTransistorResources::DistanceFromMidPoint)
+				->MoveToRight(NpnTransistorResources::EntriLine);
 
-		pointA.MoveToLeft(NpnTransistorResources::DistanceFromaPoint - NpnTransistorResources::DistanceBetweenCondcutors);
-		pointA.MoveDownwards(NpnTransistorResources::DistanceFromMidPoint);
-		pointB.MoveUpwards(NpnTransistorResources::DistanceFromaPoint - NpnTransistorResources::DistanceFromMidPoint);
-		pointB.MoveToRight(NpnTransistorResources::DistanceBetweenCondcutors);
-		pointC.MoveToRight(NpnTransistorResources::DistanceBetweenCondcutors);
-		pointC.MoveDownwards(NpnTransistorResources::DistanceFromMidPoint);
+		upperStartPoint
+			.MoveUpwards(NpnTransistorResources::DistanceFromMidPoint)
+				->MoveToLeft(NpnTransistorResources::EntriLine);
 
-		upperLine.MoveToLeft(NpnTransistorResources::EntriLine + NpnTransistorResources::DistanceBetweenCondcutors);
-		upperLine.MoveDownwards(NpnTransistorResources::DistanceFromMidPoint);
+		pointA
+			.MoveToLeft(NpnTransistorResources::DistanceFromaPoint - NpnTransistorResources::DistanceBetweenCondcutors)
+					->MoveDownwards(NpnTransistorResources::DistanceFromMidPoint);
+		pointB
+			.MoveUpwards(NpnTransistorResources::DistanceFromaPoint - NpnTransistorResources::DistanceFromMidPoint)
+				->MoveToRight(NpnTransistorResources::DistanceBetweenCondcutors);
+		pointC
+			.MoveToRight(NpnTransistorResources::DistanceBetweenCondcutors)
+				->MoveDownwards(NpnTransistorResources::DistanceFromMidPoint);
+
+		upperLine
+			.MoveToLeft(NpnTransistorResources::EntriLine + NpnTransistorResources::DistanceBetweenCondcutors)
+				->MoveDownwards(NpnTransistorResources::DistanceFromMidPoint);
 	}
 	else
 	if(Orientation == Degrees180)
 	{
-		upperConductor.MoveUpwards(NpnTransistorResources::DistanceBetweenCondcutors);
-		upperConductor.MoveToLeft(NpnTransistorResources::DistanceFromMidPoint);
+		upperConductor
+			.MoveUpwards(NpnTransistorResources::DistanceBetweenCondcutors)
+				->MoveToLeft(NpnTransistorResources::DistanceFromMidPoint);
 
-		lowerConductor.MoveDownwards(NpnTransistorResources::DistanceBetweenCondcutors);
-		lowerConductor.MoveToLeft(NpnTransistorResources::DistanceFromMidPoint);
+		lowerConductor
+			.MoveDownwards(NpnTransistorResources::DistanceBetweenCondcutors)
+				->MoveToLeft(NpnTransistorResources::DistanceFromMidPoint);
 
 		midConductor.MoveToRight(NpnTransistorResources::DistanceFromMidPoint);
 
-		midStartPoint.MoveToRight(NpnTransistorResources::DistanceFromMidPoint);
-		midStartPoint.MoveUpwards(NpnTransistorResources::Radius);
+		midStartPoint
+			.MoveToRight(NpnTransistorResources::DistanceFromMidPoint)
+				->MoveUpwards(NpnTransistorResources::Radius);
 
-		midLine.MoveDownwards(NpnTransistorResources::Height - NpnTransistorResources::Radius);
-		midLine.MoveToRight(NpnTransistorResources::DistanceFromMidPoint);
+		midLine
+			.MoveDownwards(NpnTransistorResources::Height - NpnTransistorResources::Radius)
+				->MoveToRight(NpnTransistorResources::DistanceFromMidPoint);
 
 		line.MoveToRight(NpnTransistorResources::DistanceFromMidPoint);
 		lineStartPoint.MoveToRight(NpnTransistorResources::Lenght);
 
-		lowerStartPoint.MoveToRight(NpnTransistorResources::DistanceFromMidPoint);
-		lowerStartPoint.MoveDownwards(NpnTransistorResources::EntriLine);
-		upperStartPoint.MoveToRight(NpnTransistorResources::DistanceFromMidPoint);
-		upperStartPoint.MoveUpwards(NpnTransistorResources::EntriLine);
+		lowerStartPoint
+			.MoveToRight(NpnTransistorResources::DistanceFromMidPoint)
+				->MoveDownwards(NpnTransistorResources::EntriLine);
+		upperStartPoint
+			.MoveToRight(NpnTransistorResources::DistanceFromMidPoint)
+				->MoveUpwards(NpnTransistorResources::EntriLine);
 
-		pointA.MoveUpwards(NpnTransistorResources::DistanceFromaPoint - NpnTransistorResources::DistanceBetweenCondcutors);
-		pointA.MoveToLeft(NpnTransistorResources::DistanceFromMidPoint);
-		pointB.MoveToRight(NpnTransistorResources::DistanceFromaPoint - NpnTransistorResources::DistanceFromMidPoint);
-		pointB.MoveDownwards(NpnTransistorResources::DistanceBetweenCondcutors);
-		pointC.MoveDownwards(NpnTransistorResources::DistanceBetweenCondcutors);
-		pointC.MoveToLeft(NpnTransistorResources::DistanceFromMidPoint);
+		pointA
+			.MoveUpwards(NpnTransistorResources::DistanceFromaPoint - NpnTransistorResources::DistanceBetweenCondcutors)
+				->MoveToLeft(NpnTransistorResources::DistanceFromMidPoint);
+		pointB
+			.MoveToRight(NpnTransistorResources::DistanceFromaPoint - NpnTransistorResources::DistanceFromMidPoint)
+				->MoveDownwards(NpnTransistorResources::DistanceBetweenCondcutors);
+		pointC
+			.MoveDownwards(NpnTransistorResources::DistanceBetweenCondcutors)
+				->MoveToLeft(NpnTransistorResources::DistanceFromMidPoint);
 
-		upperLine.MoveUpwards(NpnTransistorResources::EntriLine + NpnTransistorResources::DistanceBetweenCondcutors);
-		upperLine.MoveToLeft(NpnTransistorResources::DistanceFromMidPoint);
+		upperLine
+			.MoveUpwards(NpnTransistorResources::EntriLine + NpnTransistorResources::DistanceBetweenCondcutors)
+				->MoveToLeft(NpnTransistorResources::DistanceFromMidPoint);
 	}
 	else
 	if(Orientation == Degrees270)
 	{
-		upperConductor.MoveToRight(NpnTransistorResources::DistanceBetweenCondcutors);
-		upperConductor.MoveUpwards(NpnTransistorResources::DistanceFromMidPoint);
+		upperConductor
+			.MoveToRight(NpnTransistorResources::DistanceBetweenCondcutors)
+				->MoveUpwards(NpnTransistorResources::DistanceFromMidPoint);
 
-		lowerConductor.MoveToLeft(NpnTransistorResources::DistanceBetweenCondcutors);
-		lowerConductor.MoveUpwards(NpnTransistorResources::DistanceFromMidPoint);
+		lowerConductor
+			.MoveToLeft(NpnTransistorResources::DistanceBetweenCondcutors)
+				->MoveUpwards(NpnTransistorResources::DistanceFromMidPoint);
 
 		midConductor.MoveDownwards(NpnTransistorResources::DistanceFromMidPoint);
 
-		midStartPoint.MoveDownwards(NpnTransistorResources::DistanceFromMidPoint);
-		midStartPoint.MoveToRight(NpnTransistorResources::Radius);
+		midStartPoint
+			.MoveDownwards(NpnTransistorResources::DistanceFromMidPoint)
+				->MoveToRight(NpnTransistorResources::Radius);
 
-		midLine.MoveToLeft(NpnTransistorResources::Height - NpnTransistorResources::Radius);
-		midLine.MoveDownwards(NpnTransistorResources::DistanceFromMidPoint);
+		midLine
+			.MoveToLeft(NpnTransistorResources::Height - NpnTransistorResources::Radius)
+				->MoveDownwards(NpnTransistorResources::DistanceFromMidPoint);
 
 		line.MoveDownwards(NpnTransistorResources::DistanceFromMidPoint);
 		lineStartPoint.MoveDownwards(NpnTransistorResources::Lenght);
 
-		lowerStartPoint.MoveDownwards(NpnTransistorResources::DistanceFromMidPoint);
-		lowerStartPoint.MoveToLeft(NpnTransistorResources::EntriLine);
-		upperStartPoint.MoveDownwards(NpnTransistorResources::DistanceFromMidPoint);
-		upperStartPoint.MoveToRight(NpnTransistorResources::EntriLine);
+		lowerStartPoint
+			.MoveDownwards(NpnTransistorResources::DistanceFromMidPoint)
+				->MoveToLeft(NpnTransistorResources::EntriLine);
+		upperStartPoint
+			.MoveDownwards(NpnTransistorResources::DistanceFromMidPoint)
+				->MoveToRight(NpnTransistorResources::EntriLine);
 
-		pointA.MoveToRight(NpnTransistorResources::DistanceFromaPoint - NpnTransistorResources::DistanceBetweenCondcutors);
-		pointA.MoveUpwards(NpnTransistorResources::DistanceFromMidPoint);
-		pointB.MoveDownwards(NpnTransistorResources::DistanceFromaPoint - NpnTransistorResources::DistanceFromMidPoint);
-		pointB.MoveToLeft(NpnTransistorResources::DistanceBetweenCondcutors);
-		pointC.MoveToLeft(NpnTransistorResources::DistanceBetweenCondcutors);
-		pointC.MoveUpwards(NpnTransistorResources::DistanceFromMidPoint);
+		pointA
+			.MoveToRight(NpnTransistorResources::DistanceFromaPoint - NpnTransistorResources::DistanceBetweenCondcutors)
+				->MoveUpwards(NpnTransistorResources::DistanceFromMidPoint);
+		pointB
+			.MoveDownwards(NpnTransistorResources::DistanceFromaPoint - NpnTransistorResources::DistanceFromMidPoint)
+				->MoveToLeft(NpnTransistorResources::DistanceBetweenCondcutors);
+		pointC
+			.MoveToLeft(NpnTransistorResources::DistanceBetweenCondcutors)
+				->MoveUpwards(NpnTransistorResources::DistanceFromMidPoint);
 
-		upperLine.MoveToRight(NpnTransistorResources::EntriLine + NpnTransistorResources::DistanceBetweenCondcutors);
-		upperLine.MoveUpwards(NpnTransistorResources::DistanceFromMidPoint);
+		upperLine
+			.MoveToRight(NpnTransistorResources::EntriLine + NpnTransistorResources::DistanceBetweenCondcutors)
+				->MoveUpwards(NpnTransistorResources::DistanceFromMidPoint);
 	}
 	GraphicsHelper::DrawCircle(startPoint, NpnTransistorResources::Radius);
 	GraphicsHelper::DrawLine(midStartPoint, midLine);
