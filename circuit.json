@@ -17,7 +17,7 @@
       "orientation": 3
     },
     {
-      "type": "Resistor",
+      "type": "ZennerDiode",
       "position": {
         "x": 100,
         "y": -50

@@ -1,4 +1,4 @@
-#include "Resistor.h"
+	#include "Resistor.h"
 #include "Resources/ResistorResources.h"
 #include "../../Helpers/GraphicsHelper/GraphicsHelper.h"
 

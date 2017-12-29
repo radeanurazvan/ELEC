@@ -10,14 +10,28 @@ void ServoMotor::Draw()
 {
 	const auto startPoint = GetReferencePoint();
 	auto drawPoint = startPoint;
-		drawPoint.MoveToRight(-ServoMotorResources::Radius / 2);
-		drawPoint.MoveUpwards(-ServoMotorResources::Radius / 2);
-	GraphicsHelper::DrawCircle(startPoint, ServoMotorResources::Radius);
-	GraphicsHelper::DrawCharacter(drawPoint, ServoMotorResources::Signature);
-	
 	auto connectorStartPoint = startPoint;
 	auto connectorEndPoint = startPoint;
-		connectorStartPoint.MoveToRight(-ServoMotorResources::Radius);
+		
+		drawPoint
+			.MoveToLeft(ServoMotorResources::Radius / 2)
+				->MoveUpwards(ServoMotorResources::Radius /2);
+	
+	
+	
+	GraphicsHelper::DrawCircle(startPoint, ServoMotorResources::Radius);
+	GraphicsHelper::DrawCharacter(drawPoint, ServoMotorResources::Signature);
+	if (Orientation == Normal || Orientation == Degrees180)
+	{
+		connectorStartPoint.MoveToLeft(ServoMotorResources::Radius);
 		connectorEndPoint.MoveToRight(ServoMotorResources::Radius);
-	DrawMiddleConnectors(connectorStartPoint, connectorEndPoint);
+		DrawMiddleConnectors(connectorStartPoint, connectorEndPoint);
+	}
+		else
+	if (Orientation == Degrees90 || Orientation == Degrees270)
+		{
+			connectorStartPoint.MoveUpwards(ServoMotorResources::Radius);
+			connectorEndPoint.MoveDownwards(ServoMotorResources::Radius);
+			DrawMiddleConnectors90Degrees(connectorStartPoint, connectorEndPoint);
+		}
 }
