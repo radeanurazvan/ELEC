@@ -6,7 +6,7 @@
         "x": -90,
         "y": 0
       },
-      "orientation": 3
+      "orientation": 4
     },
     {
       "type": "Condenser",
@@ -14,15 +14,15 @@
         "x": 50,
         "y": 50
       },
-      "orientation": 3
+      "orientation": 1
     },
     {
-      "type": "ZennerDiode",
+      "type": "Resistor",
       "position": {
         "x": 100,
         "y": -50
       },
-      "orientation": 3
+      "orientation": 1
     },
     {
       "type": "NandGate",

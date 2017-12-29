@@ -17,7 +17,6 @@ protected:
 	Orientation Orientation;
 public:
 	BaseComponent();
-	~BaseComponent();
 	int GetNumberOfConnectors();
 	void SetNumberOfConnectors(int number);
 	std::string GetName();

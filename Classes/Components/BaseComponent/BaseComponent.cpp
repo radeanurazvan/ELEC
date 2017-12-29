@@ -46,11 +46,6 @@ BaseComponent::BaseComponent(): coordinates()
 	name = "Base Component";
 }
 
-BaseComponent::~BaseComponent()
-{
-	delete this;
-}
-
 int BaseComponent::GetNumberOfConnectors()
 {
 	return numberOfConnectors;

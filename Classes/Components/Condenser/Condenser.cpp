@@ -12,7 +12,7 @@ void Condenser::Draw()
 {
 	const auto leftConductorPoint = GetReferencePoint();
 	auto rightConductorPoint = GetReferencePoint();
-	if ((Orientation == Normal)&&(Orientation ==Degrees180))
+	if (Orientation == Normal || Orientation ==Degrees180)
 	{
 		rightConductorPoint
 			.MoveToRight(CondenserResources::spaceBetweenConductors)

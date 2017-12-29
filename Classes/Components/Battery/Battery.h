@@ -10,5 +10,6 @@ class Battery :
 public:
 	Battery();
 	void Draw() override;
-
+	void PrepareConnectorPointsForDrawing(CartesianPoint& leftConductorPoint, CartesianPoint& leftConductorPointLine, CartesianPoint& rightConductorPoint, CartesianPoint& rightConductorPointLine);
+	void DrawConnectors(CartesianPoint leftConnector, CartesianPoint rightConnector);
 };

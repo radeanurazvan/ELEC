@@ -22,7 +22,7 @@ int CartesianPoint::GetY()
 	return _coordinates.GetY();
 }
 
-CartesianPoint* CartesianPoint::MoveToRight(const int distance)
+CartesianPoint * CartesianPoint::MoveToRight(const int distance)
 {
 	_coordinates.SetX(_coordinates.GetX() + distance);
 	return this;
@@ -39,8 +39,21 @@ CartesianPoint* CartesianPoint::MoveDownwards(const int distance)
 	_coordinates.SetY(_coordinates.GetY() - distance);
 	return this;
 }
+
 CartesianPoint* CartesianPoint::MoveToLeft(const int distance)
 {
 	_coordinates.SetX(_coordinates.GetX() - distance);
+	return this;
+}
+
+CartesianPoint* CartesianPoint::MoveToSide(const int distance)
+{
+	_coordinates.SetX(_coordinates.GetX() + distance);
+	return this;
+}
+
+CartesianPoint* CartesianPoint::MoveInHeight(const int distance)
+{
+	_coordinates.SetY(_coordinates.GetY() + distance);
 	return this;
 }
