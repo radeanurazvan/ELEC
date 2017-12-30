@@ -6,7 +6,7 @@
         "x": -90,
         "y": 0
       },
-      "orientation": 4
+      "orientation": 2
     },
     {
       "type": "Condenser",
@@ -17,7 +17,7 @@
       "orientation": 1
     },
     {
-      "type": "Resistor",
+      "type": "NpnTransistor",
       "position": {
         "x": 100,
         "y": -50
@@ -31,6 +31,14 @@
         "y": 0
       },
       "orientation": 1
+    },
+    {
+      "type": "Battery",
+      "position": {
+        "x": -90,
+        "y": 100
+      },
+      "orientation": 2
     }
   ],
 
@@ -39,25 +47,36 @@
       "firstComponent": 1,
       "secondComponent": 3,
       "firstComponentConnector": 2,
-      "secondComponentConnector": 1
+      "secondComponentConnector": 1,
+      "type": 1
     },
     {
       "firstComponent": 1,
       "secondComponent": 3,
       "firstComponentConnector": 2,
-      "secondComponentConnector": 1
+      "secondComponentConnector": 1,
+      "type": 1
     },
     {
       "firstComponent": 2,
       "secondComponent": 4,
       "firstComponentConnector": 2,
-      "secondComponentConnector": 2
+      "secondComponentConnector": 2,
+      "type": 1
     },
     {
       "firstComponent": 3,
       "secondComponent": 4,
       "firstComponentConnector": 2,
-      "secondComponentConnector": 1
+      "secondComponentConnector": 1,
+      "type": 2
+    },
+    {
+      "firstComponent": 1,
+      "secondComponent": 5,
+      "firstComponentConnector": 1,
+      "secondComponentConnector": 2,
+      "type": 1
     }
   ]
 }

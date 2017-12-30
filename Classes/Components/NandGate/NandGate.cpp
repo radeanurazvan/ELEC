@@ -212,4 +212,9 @@ void NandGate::Draw()
 	GraphicsHelper::DrawLine(topConnectorPointLine,	topLine);
 	GraphicsHelper::DrawLine(bottomConnectorPointLine, bottomLine);
 	GraphicsHelper::DrawLine(topConnectorPointLine, bottomConnectorPointLine);
+
+	PushConnectorPoint(leftLowerLine);
+	PushConnectorPoint(middleConnectorPointLine);
+	PushConnectorPoint(upperLeftPoint);
+
 }

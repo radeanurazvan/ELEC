@@ -243,5 +243,8 @@ void OperationalAmplifier::Draw()
 	GraphicsHelper::DrawLine(plus, plusline1);
 	GraphicsHelper::DrawLine(line2StartPoint,  plusline2);
 
+	PushConnectorPoint(lineOfline1);
+	PushConnectorPoint(lineOfline2);
+	PushConnectorPoint(endLine);
 
 }

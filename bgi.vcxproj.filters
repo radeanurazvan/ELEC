@@ -93,12 +93,6 @@
     <ClCompile Include="Classes\Helpers\CartesianPointsHelper\CartesianPointsHelper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Classes\CartesianPlane\CartesianCoordinate\CartesianCoordinate.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Classes\CartesianPlane\CartesianPoint\CartesianPoint.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Classes\Components\ZennerDiode\ZennerDiode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -162,6 +156,18 @@
     <ClCompile Include="Classes\Components\ZennerDiode\Resources\ZennerDiodeResources.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Classes\CartesianPlane\CartesianCoordinate\CartesianCoordinate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\CartesianPlane\CartesianPoint\CartesianPoint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Circuit\Circuit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Enums\LinkType.h">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="winbgim.h">
@@ -219,12 +225,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Classes\Helpers\CartesianPointsHelper\CartesianPointsHelper.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Classes\CartesianPlane\CartesianCoordinate\CartesianCoordinate.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Classes\CartesianPlane\CartesianPoint\CartesianPoint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Classes\Components\BaseComponent\Resources\BaseComponentResources.h">
@@ -297,6 +297,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Classes\Enums\Orientation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\CartesianPlane\CartesianCoordinate\CartesianCoordinate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\CartesianPlane\CartesianPoint\CartesianPoint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Circuit\Circuit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

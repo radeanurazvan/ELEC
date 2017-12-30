@@ -64,6 +64,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Classes\Circuit\Circuit.cpp" />
     <ClCompile Include="Classes\CartesianPlane\CartesianPoint\CartesianPoint.cpp" />
     <ClCompile Include="Classes\Components\Battery\Resources\BatteryResources.cpp" />
     <ClCompile Include="Classes\Components\Condenser\Resources\CondenserResources.cpp" />
@@ -77,6 +78,7 @@
     <ClCompile Include="Classes\Components\Resistor\Resources\ResistorResources.cpp" />
     <ClCompile Include="Classes\Components\ServoMotor\Resources\ServoMotorResources.cpp" />
     <ClCompile Include="Classes\Components\ZennerDiode\Resources\ZennerDiodeResources.cpp" />
+    <ClCompile Include="Classes\Enums\LinkType.h" />
     <ClCompile Include="Classes\Factories\ComponentFactory\ComponentFactory.cpp" />
     <ClCompile Include="Classes\Helpers\CartesianPointsHelper\CartesianPointsHelper.cpp" />
     <ClCompile Include="Classes\Components\OperationalAmplifier\OperationalAmplifier.cpp" />
@@ -113,6 +115,7 @@
     <ClCompile Include="Classes\Components\ZennerDiode\ZennerDiode.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Classes\Circuit\Circuit.h" />
     <ClInclude Include="Classes\Components\NandGate\NandGate.h" />
     <ClInclude Include="Classes\Components\NandGate\Resources\NandGateResources.h" />
     <ClInclude Include="Classes\Enums\Orientation.h" />

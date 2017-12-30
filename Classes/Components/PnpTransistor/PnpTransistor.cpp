@@ -205,4 +205,8 @@ void PnpTransistor::Draw()
 	GraphicsHelper::DrawLine(lowerStartPoint, lowerConductor);
 	GraphicsHelper::DrawTriangle(pointA, pointB, pointC);
 	GraphicsHelper::DrawLine(lowerConductor, lowerLine);
+
+	PushConnectorPoint(lowerLine);
+	PushConnectorPoint(lowerConductor);
+	PushConnectorPoint(pointC);
 }

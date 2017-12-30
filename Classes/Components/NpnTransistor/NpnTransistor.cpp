@@ -213,4 +213,9 @@ void NpnTransistor::Draw()
 	GraphicsHelper::DrawLine(lowerStartPoint, lowerConductor);
 	GraphicsHelper::DrawTriangle(pointA, pointB, pointC);
 	GraphicsHelper::DrawLine(upperConductor, upperLine);
+
+	PushConnectorPoint(upperLine);
+	PushConnectorPoint(lowerConductor);
+	PushConnectorPoint(pointC);
+
 }

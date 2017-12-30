@@ -4,6 +4,16 @@
 #include "Resources/BaseComponentResources.h"
 
 
+void BaseComponent::DrawConnectorLines(CartesianPoint leftStart, CartesianPoint leftEnd, CartesianPoint rightStart,
+	CartesianPoint rightEnd)
+{
+	GraphicsHelper::DrawLine(leftStart, leftEnd);
+	GraphicsHelper::DrawLine(rightStart, rightEnd);
+
+	connectorPoints.push_back(CartesianPoint(leftEnd.GetX(), leftEnd.GetY()));
+	connectorPoints.push_back(CartesianPoint(rightEnd.GetX(), rightEnd.GetY()));
+}
+
 void BaseComponent::DrawMiddleConnectors(CartesianPoint bottomLeftLimit, CartesianPoint topRightLimit)
 {
 
@@ -16,8 +26,7 @@ void BaseComponent::DrawMiddleConnectors(CartesianPoint bottomLeftLimit, Cartesi
 	auto middleRightLine = middleRight;
 		middleLeftLine.MoveToLeft(BaseComponentResources::connectorWidth);
 	middleRightLine.MoveToRight(BaseComponentResources::connectorWidth);
-	GraphicsHelper::DrawLine(middleLeft, middleLeftLine);
-	GraphicsHelper::DrawLine(middleRight, middleRightLine);
+	DrawConnectorLines(middleLeft, middleLeftLine, middleRight, middleRightLine);
 }
 
 void BaseComponent::DrawMiddleConnectors90Degrees(CartesianPoint bottomLeftLimit, CartesianPoint topRightLimit)
@@ -32,12 +41,17 @@ void BaseComponent::DrawMiddleConnectors90Degrees(CartesianPoint bottomLeftLimit
 	auto middleRightLine = middleRight;
 	middleLeftLine.MoveUpwards(BaseComponentResources::connectorWidth);
 	middleRightLine.MoveDownwards(BaseComponentResources::connectorWidth);
-	GraphicsHelper::DrawLine(middleLeft, middleLeftLine);
-	GraphicsHelper::DrawLine(middleRight, middleRightLine);
+	DrawConnectorLines(middleLeft, middleLeftLine, middleRight, middleRightLine);
+
 }
 CartesianPoint BaseComponent::GetReferencePoint()
 {
 	return CartesianPoint (GetCoordinates().GetX(), GetCoordinates().GetY());
+}
+
+void BaseComponent::PushConnectorPoint(CartesianPoint connectorPoint)
+{
+	connectorPoints.push_back(connectorPoint);
 }
 
 BaseComponent::BaseComponent(): coordinates()
@@ -79,6 +93,11 @@ void BaseComponent::SetCoordinates(CartesianCoordinate coords)
 void BaseComponent::SetOrientation(::Orientation orientation)
 {
 	Orientation = orientation;
+}
+
+CartesianPoint BaseComponent::GetConnector(int index)
+{
+	return connectorPoints.at(index-1);
 }
 
 
