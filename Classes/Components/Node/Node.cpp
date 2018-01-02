@@ -3,6 +3,7 @@
 #include "Resources/NodeResources.h"
 Node::Node()
 {
+	SetName(name);
 }
 
 void Node::Draw()

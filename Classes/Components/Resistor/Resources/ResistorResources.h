@@ -7,7 +7,7 @@ private:
 	ResistorResources();
 public:
 	static std::string ResistorResources::Name;
-	static const int figureWidth = 50;
-	static const int figureHeight = 20;
+	static const int figureWidth = 30;
+	static const int figureHeight = 10;
 };
 

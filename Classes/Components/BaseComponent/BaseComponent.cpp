@@ -57,7 +57,7 @@ void BaseComponent::PushConnectorPoint(CartesianPoint connectorPoint)
 BaseComponent::BaseComponent(): coordinates()
 {
 	numberOfConnectors = 0;
-	name = "Base Component";
+	orientation = Normal;
 }
 
 int BaseComponent::GetNumberOfConnectors()
@@ -72,7 +72,7 @@ void BaseComponent::SetNumberOfConnectors(int number)
 
 std::string BaseComponent::GetName()
 {
-	return name;
+	return this->name;
 }
 
 void BaseComponent::SetName(std::string _name)
@@ -90,9 +90,9 @@ void BaseComponent::SetCoordinates(CartesianCoordinate coords)
 	coordinates = coords;
 }
 
-void BaseComponent::SetOrientation(::Orientation orientation)
+void BaseComponent::SetOrientation(::Orientation _orientation)
 {
-	Orientation = orientation;
+	orientation = _orientation;
 }
 
 CartesianPoint BaseComponent::GetConnector(int index)

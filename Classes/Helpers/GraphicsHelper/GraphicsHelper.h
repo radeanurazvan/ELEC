@@ -14,5 +14,9 @@ public:
 	static void DrawCircle(CartesianPoint MidPoint, int radius);
 	static void DrawCharacter(CartesianPoint Point, const char character);
 	static void DrawArc(CartesianPoint centerPoint, int startAngle, int endAngle, int radius);
+	static int GetWindowWidth();
+	static int GetMaxX();
+	static int GetMaxY();
+
 };
 

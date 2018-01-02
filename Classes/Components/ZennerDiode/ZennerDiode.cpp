@@ -5,6 +5,7 @@
 
 ZennerDiode::ZennerDiode()
 {
+	SetName(name);
 }
 
 void ZennerDiode::Draw()
@@ -20,7 +21,7 @@ void ZennerDiode::Draw()
 	auto pointB = endConductorPoint;
 	auto pointC = endConductorPoint;
 		
-	if (Orientation == Normal)
+	if (orientation == Normal)
 	{
 		conductorPointLine.MoveUpwards(ZennerDiodeResources::ConductorHeight);
 
@@ -49,7 +50,7 @@ void ZennerDiode::Draw()
 		
 	}
 	else
-	if(Orientation == Degrees90)
+	if(orientation == Degrees90)
 	{
 		conductorPointLine.MoveToRight(ZennerDiodeResources::ConductorHeight);
 
@@ -79,7 +80,7 @@ void ZennerDiode::Draw()
 		
 	}
 	else
-	if(Orientation == Degrees180)
+	if(orientation == Degrees180)
 	{
 		conductorPointLine.MoveDownwards(ZennerDiodeResources::ConductorHeight);
 
@@ -107,7 +108,7 @@ void ZennerDiode::Draw()
 		endConductorPoint.MoveDownwards(ZennerDiodeResources::ConductorHeight);
 	}
 	else
-	if(Orientation == Degrees270)
+	if(orientation == Degrees270)
 	{
 		conductorPointLine.MoveToLeft(ZennerDiodeResources::ConductorHeight);
 
@@ -140,16 +141,16 @@ void ZennerDiode::Draw()
 	GraphicsHelper::DrawLine(startDownDrawPoint, lowerConductor);
 	GraphicsHelper::DrawTriangle(pointA, pointB, pointC);
 
-	if(Orientation == Normal)
+	if(orientation == Normal)
 		DrawMiddleConnectors(conductorPoint, endConductorPoint);
 	else
-	if(Orientation == Degrees180)
+	if(orientation == Degrees180)
 		DrawMiddleConnectors(endConductorPoint, conductorPoint);
 	else
 	{
 		auto startConductorPoint = pointA;
 		auto endConductPoint = pointB;
-		if (Orientation == Degrees90)
+		if (orientation == Degrees90)
 		{
 			endConductorPoint.MoveToLeft(ZennerDiodeResources::ConductorHeight / 2);
 			DrawMiddleConnectors90Degrees(startConductorPoint, endConductorPoint);

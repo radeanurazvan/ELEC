@@ -4,6 +4,7 @@
 
 ServoMotor::ServoMotor()
 {
+	SetName(name);
 }
 
 void ServoMotor::Draw()
@@ -21,14 +22,14 @@ void ServoMotor::Draw()
 	
 	GraphicsHelper::DrawCircle(startPoint, ServoMotorResources::Radius);
 	GraphicsHelper::DrawCharacter(drawPoint, ServoMotorResources::Signature);
-	if (Orientation == Normal || Orientation == Degrees180)
+	if (orientation == Normal || orientation == Degrees180)
 	{
 		connectorStartPoint.MoveToLeft(ServoMotorResources::Radius);
 		connectorEndPoint.MoveToRight(ServoMotorResources::Radius);
 		DrawMiddleConnectors(connectorStartPoint, connectorEndPoint);
 	}
 		else
-	if (Orientation == Degrees90 || Orientation == Degrees270)
+	if (orientation == Degrees90 || orientation == Degrees270)
 		{
 			connectorStartPoint.MoveUpwards(ServoMotorResources::Radius);
 			connectorEndPoint.MoveDownwards(ServoMotorResources::Radius);

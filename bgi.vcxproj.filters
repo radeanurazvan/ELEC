@@ -168,6 +168,12 @@
     <ClCompile Include="Classes\Enums\LinkType.h">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Classes\Menu\Menu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Menu\Models\MenuOption\MenuOption.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="winbgim.h">
@@ -306,6 +312,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Classes\Circuit\Circuit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Menu\Resources\MenuResources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Menu\Menu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Menu\Models\MenuOption\MenuOption.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

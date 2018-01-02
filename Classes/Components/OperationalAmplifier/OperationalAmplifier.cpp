@@ -4,6 +4,7 @@
 
 OperationalAmplifier::OperationalAmplifier()
 {
+	SetName(name);
 }
 
 
@@ -25,7 +26,7 @@ void OperationalAmplifier::Draw()
 	auto plusline1 = plus;
 	auto plusline2 = plus;
 	auto line2StartPoint = plusline2;
-	if (Orientation == Normal) {
+	if (orientation == Normal) {
 		endPoint.MoveToRight(OperationalAmplifierResources::TriangleWidth);
 
 		pointA
@@ -77,7 +78,7 @@ void OperationalAmplifier::Draw()
 				->MoveToLeft(OperationalAmplifierResources::TriangleWidth + OperationalAmplifierResources::LeftConnectors + OperationalAmplifierResources::LeftConnectors / 2);
 	}
 	else
-	if(Orientation == Degrees90)
+	if(orientation == Degrees90)
 		{
 		endPoint.MoveDownwards(OperationalAmplifierResources::TriangleWidth);
 
@@ -130,7 +131,7 @@ void OperationalAmplifier::Draw()
 				->MoveUpwards(OperationalAmplifierResources::TriangleWidth + OperationalAmplifierResources::LeftConnectors + OperationalAmplifierResources::LeftConnectors / 2);
 		}
 	else
-	if (Orientation == Degrees180)
+	if (orientation == Degrees180)
 		{
 			endPoint.MoveToLeft(OperationalAmplifierResources::TriangleWidth);
 
@@ -183,7 +184,7 @@ void OperationalAmplifier::Draw()
 				->MoveToRight(OperationalAmplifierResources::TriangleWidth + OperationalAmplifierResources::LeftConnectors + OperationalAmplifierResources::LeftConnectors / 2);	
 		}
 	else
-	if (Orientation == Degrees270)
+	if (orientation == Degrees270)
 		{
 		endPoint.MoveUpwards(OperationalAmplifierResources::TriangleWidth);
 

@@ -62,14 +62,14 @@
       "secondComponent": 4,
       "firstComponentConnector": 2,
       "secondComponentConnector": 2,
-      "type": 1
+      "type": 2
     },
     {
       "firstComponent": 3,
       "secondComponent": 4,
       "firstComponentConnector": 2,
       "secondComponentConnector": 1,
-      "type": 2
+      "type": 1
     },
     {
       "firstComponent": 1,

@@ -2,7 +2,7 @@
 #include <string>
 #include "../PositionDetails/PositionDetails.h"
 #include "../../../3rdParties/json-develop/src/json.hpp"
-#include "../../Enums/Orientation.h"
+#include "../../Enums/orientation.h"
 
 namespace JsonObjects
 {
@@ -12,7 +12,7 @@ namespace JsonObjects
 		ComponentDetails();
 		std::string Type;
 		PositionDetails Position;
-		Orientation Orientation;
+		Orientation orientation;
 	};
 
 	void from_json(const nlohmann::json& j, ComponentDetails& componentDetails);

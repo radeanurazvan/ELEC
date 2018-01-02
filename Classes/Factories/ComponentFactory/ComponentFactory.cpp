@@ -25,53 +25,77 @@
 
 BaseComponent* ComponentFactory::GetComponentByDetails(const JsonObjects::ComponentDetails details)
 {
+	BaseComponent* component = GetComponentByName(details.Type);
+	auto componentCoordinates = new CartesianCoordinate(details.Position.x, details.Position.y);
+	component->SetCoordinates(*componentCoordinates);
+	component->SetOrientation(details.orientation);
+	return component;
+}
+
+BaseComponent* ComponentFactory::GetComponentByName(const std::string name)
+{
 	BaseComponent* component = nullptr;
-	if(details.Type == BatteryResources::Name)
+	if (name == BatteryResources::Name)
 	{
-		component =  new Battery();
+		component = new Battery();
 	}
-	if (details.Type == CondenserResources::Name)
+	if (name == CondenserResources::Name)
 	{
-		component =  new Condenser();
+		component = new Condenser();
 	}
-	if (details.Type == DiodeResources::Name)
+	if (name == DiodeResources::Name)
 	{
 		component = new Diode();
 	}
-	if (details.Type == NodeResources::Name)
+	if (name == NodeResources::Name)
 	{
 		component = new Node();
 	}
-	if (details.Type == NpnTransistorResources::Name)
+	if (name == NpnTransistorResources::Name)
 	{
 		component = new NpnTransistor();
 	}
-	if (details.Type == OperationalAmplifierResources::Name)
+	if (name == OperationalAmplifierResources::Name)
 	{
 		component = new OperationalAmplifier();
 	}
-	if (details.Type == PnpTransistorResources::Name)
+	if (name == PnpTransistorResources::Name)
 	{
 		component = new PnpTransistor();
 	}
-	if (details.Type == ResistorResources::Name)
+	if (name == ResistorResources::Name)
 	{
 		component = new Resistor();
 	}
-	if (details.Type == ServoMotorResources::Name)
+	if (name == ServoMotorResources::Name)
 	{
 		component = new ServoMotor();
 	}
-	if (details.Type == NandGateResources::Name)
+	if (name == NandGateResources::Name)
 	{
 		component = new NandGate();
 	}
-	if (details.Type == ZennerDiodeResources::Name)
+	if (name == ZennerDiodeResources::Name)
 	{
 		component = new ZennerDiode();
 	}
-	auto componentCoordinates = new CartesianCoordinate(details.Position.x, details.Position.y);
-	component->SetCoordinates(*componentCoordinates);
-	component->SetOrientation(details.Orientation);
 	return component;
+}
+
+std::vector<BaseComponent*> ComponentFactory::GetListOfComponents()
+{
+	std::vector<BaseComponent*> components;
+	components.push_back(new Battery());
+	components.push_back(new Condenser());
+	components.push_back(new Diode());
+	components.push_back(new NandGate());
+	components.push_back(new Node());
+	components.push_back(new NpnTransistor());
+	components.push_back(new OperationalAmplifier());
+	components.push_back(new PnpTransistor());
+	components.push_back(new Resistor());
+	components.push_back(new ServoMotor());
+	components.push_back(new ZennerDiode());
+
+	return components;
 }
