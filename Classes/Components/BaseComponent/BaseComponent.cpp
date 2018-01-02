@@ -32,8 +32,8 @@ void BaseComponent::DrawMiddleConnectors(CartesianPoint bottomLeftLimit, Cartesi
 void BaseComponent::DrawMiddleConnectors90Degrees(CartesianPoint bottomLeftLimit, CartesianPoint topRightLimit)
 {
 
-	const CartesianPoint topLeft(bottomLeftLimit.GetX(), bottomLeftLimit.GetY());
-	const CartesianPoint bottomRight(topRightLimit.GetX(), topRightLimit.GetY());
+	const CartesianPoint topLeft(topRightLimit.GetX(), bottomLeftLimit.GetY());
+	const CartesianPoint bottomRight(bottomLeftLimit.GetX(), topRightLimit.GetY());
 
 	const auto middleLeft = CartesianPointsHelper::GetMiddlePointBetween(topLeft, bottomLeftLimit);
 	const auto middleRight = CartesianPointsHelper::GetMiddlePointBetween(topRightLimit, bottomRight);

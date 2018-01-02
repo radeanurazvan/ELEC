@@ -14,7 +14,7 @@
         "x": 50,
         "y": 50
       },
-      "orientation": 1
+      "orientation": 2
     },
     {
       "type": "NpnTransistor",

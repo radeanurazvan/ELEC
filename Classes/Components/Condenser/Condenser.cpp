@@ -28,11 +28,7 @@ void Condenser::Draw()
 
 		DrawMiddleConnectors(leftConductorPoint, rightConductorPoint);
 	}
-<<<<<<< HEAD
-	else if (Orientation == Degrees90 || Orientation == Degrees270)
-=======
 	else if (orientation == Degrees90)
->>>>>>> 40a6dfdd955f80448c1f68d855d53fd57c5b9c1b
 	{
 		rightConductorPoint
 			.MoveDownwards(CondenserResources::spaceBetweenConductors)
