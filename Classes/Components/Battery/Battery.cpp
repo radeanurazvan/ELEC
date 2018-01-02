@@ -6,6 +6,7 @@
 
 Battery::Battery()
 {
+	SetName(name);
 }
 
 void Battery::Draw()
@@ -33,30 +34,30 @@ void Battery::PrepareConnectorPointsForDrawing(CartesianPoint& leftConductorPoin
 	auto leftLineDistance = BatteryResources::conductorLeftHeight - BatteryResources::conductorRightHeight / 2;
 	auto leftPointDistance = -((BatteryResources::conductorLeftHeight - BatteryResources::conductorRightHeight) / 2);
 
-	if(Orientation == Degrees90)
+	if(orientation == Degrees90)
 	{
 		std::swap(rightPointHeightDistance, rightPointSideDistance);
 	}
 
-	if(Orientation == Degrees270)
+	if(orientation == Degrees270)
 	{
 		rightPointHeightDistance = BatteryResources::spaceBetweenConductors;
 	}
 
-	if(Orientation == Degrees90 || Orientation == Degrees180)
+	if(orientation == Degrees90 || orientation == Degrees180)
 	{
 		rightLineDistance = -rightLineDistance;
 		rightPointHeightDistance = -rightPointHeightDistance;
 	}
 
-	if (Orientation == Degrees180 || Orientation == Degrees270)
+	if (orientation == Degrees180 || orientation == Degrees270)
 	{
 		rightPointSideDistance = -rightPointSideDistance;
 		leftLineDistance = -leftLineDistance;
 		leftPointDistance = -leftPointDistance;
 	}
 
-	if(Orientation == Normal || Orientation == Degrees180)
+	if(orientation == Normal || orientation == Degrees180)
 	{
 		rightConductorPointLine.MoveToSide(rightLineDistance);
 		leftConductorPointLine.MoveInHeight(leftLineDistance);
@@ -75,15 +76,15 @@ void Battery::PrepareConnectorPointsForDrawing(CartesianPoint& leftConductorPoin
 
 void Battery::DrawConnectors(CartesianPoint leftConnector, CartesianPoint rightConnector)
 {
-	if (Orientation == Normal)
+	if (orientation == Normal)
 	{
 		DrawMiddleConnectors(leftConnector, rightConnector);
 	}
-	else if (Orientation == Degrees90)
+	else if (orientation == Degrees90)
 	{
 		DrawMiddleConnectors90Degrees(leftConnector, rightConnector);
 	}
-	else if (Orientation == Degrees180)
+	else if (orientation == Degrees180)
 	{
 		DrawMiddleConnectors(rightConnector, leftConnector);
 	}

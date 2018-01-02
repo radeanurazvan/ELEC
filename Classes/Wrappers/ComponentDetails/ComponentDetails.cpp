@@ -8,5 +8,5 @@ void JsonObjects::from_json(const nlohmann::json & j, ComponentDetails & compone
 {
 	componentDetails.Type = j.at("type").get<std::string>();
 	componentDetails.Position = j.at("position").get<PositionDetails>();
-	componentDetails.Orientation = j.at("orientation").get<Orientation>();
+	componentDetails.orientation = j.at("orientation").get<Orientation>();
 }

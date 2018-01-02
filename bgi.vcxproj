@@ -91,6 +91,8 @@
     <ClCompile Include="Classes\Components\ServoMotor\ServoMotor.cpp" />
     <ClCompile Include="Classes\Helpers\CircuitReader\CircuitReader.cpp" />
     <ClCompile Include="Classes\Helpers\GraphicsHelper\GraphicsHelper.cpp" />
+    <ClCompile Include="Classes\Menu\Menu.cpp" />
+    <ClCompile Include="Classes\Menu\Models\MenuOption\MenuOption.cpp" />
     <ClCompile Include="Classes\Wrappers\CircuitDetails\CircuitDetails.cpp" />
     <ClCompile Include="Classes\Wrappers\ComponentDetails\ComponentDetails.cpp" />
     <ClCompile Include="Classes\Wrappers\Link\Link.cpp" />
@@ -121,6 +123,9 @@
     <ClInclude Include="Classes\Enums\Orientation.h" />
     <ClInclude Include="Classes\Factories\ComponentFactory\ComponentFactory.h" />
     <ClInclude Include="Classes\Helpers\CircuitReader\CircuitReader.h" />
+    <ClInclude Include="Classes\Menu\Menu.h" />
+    <ClInclude Include="Classes\Menu\Models\MenuOption\MenuOption.h" />
+    <ClInclude Include="Classes\Menu\Resources\MenuResources.h" />
     <ClInclude Include="Classes\Wrappers\CircuitDetails\CircuitDetails.h" />
     <ClInclude Include="Classes\Components\BaseComponent\Resources\BaseComponentResources.h" />
     <ClInclude Include="Classes\CartesianPlane\CartesianPoint\CartesianPoint.h" />

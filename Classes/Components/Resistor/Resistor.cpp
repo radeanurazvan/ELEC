@@ -1,10 +1,11 @@
-	#include "Resistor.h"
+#include "Resistor.h"
 #include "Resources/ResistorResources.h"
 #include "../../Helpers/GraphicsHelper/GraphicsHelper.h"
 
 
 Resistor::Resistor()
 {
+	SetName(name);
 }
 
 void Resistor::Draw() {
@@ -12,7 +13,7 @@ void Resistor::Draw() {
 
 	const CartesianPoint bottomLeft(referencePoint.GetX(), referencePoint.GetY());
 	CartesianPoint topRight(referencePoint.GetX(), referencePoint.GetY());
-	if (Orientation == Normal)
+	if (orientation == Normal)
 	{
 		auto topRightCoordinates = new CartesianCoordinate(
 			referencePoint.GetX() + ResistorResources::figureWidth,

@@ -49,6 +49,21 @@ void GraphicsHelper::DrawArc(CartesianPoint centerPoint, int startAngle, int end
 	arc(centerPoint.GetX(), centerPoint.GetY(), startAngle, endAngle, radius);
 }
 
+int GraphicsHelper::GetWindowWidth()
+{
+	return getmaxx();
+}
+
+int GraphicsHelper::GetMaxX()
+{
+	return getmaxx() / 2;
+}
+
+int GraphicsHelper::GetMaxY()
+{
+	return getmaxy() / 2;
+}
+
 void GraphicsHelper::DrawCircle(CartesianPoint midPoint, int radius)
 {
 	ComputeCoordinates(midPoint);

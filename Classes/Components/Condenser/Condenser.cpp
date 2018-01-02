@@ -5,6 +5,7 @@
 
 Condenser::Condenser()
 {
+	SetName(name);
 }
 
 
@@ -12,7 +13,7 @@ void Condenser::Draw()
 {
 	const auto leftConductorPoint = GetReferencePoint();
 	auto rightConductorPoint = GetReferencePoint();
-	if (Orientation == Normal || Orientation ==Degrees180)
+	if (orientation == Normal || orientation ==Degrees180)
 	{
 		rightConductorPoint
 			.MoveToRight(CondenserResources::spaceBetweenConductors)
@@ -27,7 +28,11 @@ void Condenser::Draw()
 
 		DrawMiddleConnectors(leftConductorPoint, rightConductorPoint);
 	}
+<<<<<<< HEAD
 	else if (Orientation == Degrees90 || Orientation == Degrees270)
+=======
+	else if (orientation == Degrees90)
+>>>>>>> 40a6dfdd955f80448c1f68d855d53fd57c5b9c1b
 	{
 		rightConductorPoint
 			.MoveDownwards(CondenserResources::spaceBetweenConductors)

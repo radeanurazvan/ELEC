@@ -4,6 +4,7 @@
 
 Diode::Diode()
 {
+	SetName(name);
 }
 
 void Diode::Draw()

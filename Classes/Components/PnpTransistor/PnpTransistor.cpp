@@ -4,6 +4,7 @@
 
 PnpTransistor::PnpTransistor()
 {
+	SetName(name);
 }
 
 void PnpTransistor::Draw()
@@ -22,7 +23,7 @@ void PnpTransistor::Draw()
 	auto upperStartPoint = upperConductor;
 	auto lowerStartPoint = lowerConductor;
 	
-	if (Orientation == Normal)
+	if (orientation == Normal)
 	{
 		upperConductor
 			.MoveDownwards(PnpTransistorResources::DistanceBetweenCondcutors)
@@ -67,7 +68,7 @@ void PnpTransistor::Draw()
 				->MoveToRight(PnpTransistorResources::DistanceFromMidPoint);
 	}
 	else
-	if(Orientation == Degrees90)
+	if(orientation == Degrees90)
 	{
 		upperConductor
 			.MoveToLeft(PnpTransistorResources::DistanceBetweenCondcutors)
@@ -111,7 +112,7 @@ void PnpTransistor::Draw()
 				->MoveDownwards(PnpTransistorResources::DistanceFromMidPoint);
 	}
 	else
-	if(Orientation == Degrees180)
+	if(orientation == Degrees180)
 	{
 		upperConductor
 			.MoveUpwards(PnpTransistorResources::DistanceBetweenCondcutors)
@@ -155,7 +156,7 @@ void PnpTransistor::Draw()
 				->MoveToLeft(PnpTransistorResources::DistanceFromMidPoint);
 	}
 	else
-	if(Orientation == Degrees270)
+	if(orientation == Degrees270)
 	{
 		upperConductor
 			.MoveToRight(PnpTransistorResources::DistanceBetweenCondcutors)
