@@ -1,11 +1,10 @@
 #include "GraphicsHelper.h"
-#include "../../graphics.h";
+#include "../../graphics.h"
 #include "../../CartesianPlane/CartesianPoint/CartesianPoint.h"
 
 GraphicsHelper::GraphicsHelper()
 {
 }
-
 CartesianPoint GraphicsHelper::GetViewportCenter()
 {
 	const auto maxX = getmaxx();
@@ -13,7 +12,18 @@ CartesianPoint GraphicsHelper::GetViewportCenter()
 	const CartesianPoint center(maxX / 2, maxY / 2);
 	return center;
 }
-
+void GraphicsHelper::TextAppereance(int font,int direction ,int charsize)
+{	
+	
+	settextstyle(font, direction, charsize);
+}
+void GraphicsHelper::TextOutPut(CartesianPoint point,char text[])
+{
+	ComputeCoordinates(point);
+	auto x = point.GetX();
+	auto y = point.GetY();
+	outtextxy(x, y, text);
+}
 void GraphicsHelper::ComputeCoordinates(CartesianPoint& point)
 {
 	auto center = GetViewportCenter();

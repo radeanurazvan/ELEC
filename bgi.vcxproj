@@ -93,6 +93,7 @@
     <ClCompile Include="Classes\Helpers\GraphicsHelper\GraphicsHelper.cpp" />
     <ClCompile Include="Classes\Menu\Menu.cpp" />
     <ClCompile Include="Classes\Menu\Models\MenuOption\MenuOption.cpp" />
+    <ClCompile Include="Classes\StartMenu\StartMenu.cpp" />
     <ClCompile Include="Classes\Wrappers\CircuitDetails\CircuitDetails.cpp" />
     <ClCompile Include="Classes\Wrappers\ComponentDetails\ComponentDetails.cpp" />
     <ClCompile Include="Classes\Wrappers\Link\Link.cpp" />
@@ -126,6 +127,8 @@
     <ClInclude Include="Classes\Menu\Menu.h" />
     <ClInclude Include="Classes\Menu\Models\MenuOption\MenuOption.h" />
     <ClInclude Include="Classes\Menu\Resources\MenuResources.h" />
+    <ClInclude Include="Classes\StartMenu\StartMenu.h" />
+    <ClInclude Include="Classes\StartMenu\StartMenuResources\StartMenuResources.h" />
     <ClInclude Include="Classes\Wrappers\CircuitDetails\CircuitDetails.h" />
     <ClInclude Include="Classes\Components\BaseComponent\Resources\BaseComponentResources.h" />
     <ClInclude Include="Classes\CartesianPlane\CartesianPoint\CartesianPoint.h" />

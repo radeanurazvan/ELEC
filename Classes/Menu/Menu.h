@@ -5,11 +5,11 @@
 class Menu
 {
 private:
-	Menu();
 	static std::vector<MenuOption> Options;
 	static void InitialiseFreeDrawOptions();
 	static void DrawSquares();
 public:
+	Menu();
 	static void Inititalise();
 
 };

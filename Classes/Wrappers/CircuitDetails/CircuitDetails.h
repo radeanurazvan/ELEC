@@ -1,7 +1,6 @@
 #pragma once
 #include <vector>
-
-#include "../Link/Link.h";
+#include "../Link/Link.h"
 #include "../ComponentDetails/ComponentDetails.h"
 
 namespace JsonObjects {
