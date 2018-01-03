@@ -1,7 +1,7 @@
 {
   "components": [
     {
-      "type": "Battery",
+      "type": "Resistor",
       "position": {
         "x": -90,
         "y": 0
@@ -33,12 +33,12 @@
       "orientation": 1
     },
     {
-      "type": "Battery",
+      "type": "Diode",
       "position": {
         "x": -90,
         "y": 100
       },
-      "orientation": 2
+      "orientation": 4
     }
   ],
 
@@ -76,7 +76,14 @@
       "secondComponent": 5,
       "firstComponentConnector": 1,
       "secondComponentConnector": 2,
-      "type": 1
+      "type": 2
+    },
+    {
+      "firstComponent": 5,
+      "secondComponent": 2,
+      "firstComponentConnector": 1,
+      "secondComponentConnector": 1,
+      "type": 2
     }
   ]
 }

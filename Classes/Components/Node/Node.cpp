@@ -15,5 +15,8 @@ void Node::Draw()
 		GraphicsHelper::DrawCircle(startPoint, val);
 		val--;
 	}
-	DrawMiddleConnectors(startPoint, startPoint);
+	if (orientation == Normal || orientation == Degrees180)
+		DrawMiddleConnectors(startPoint, startPoint);
+	else
+		DrawMiddleConnectors90Degrees(startPoint, startPoint);
 }
