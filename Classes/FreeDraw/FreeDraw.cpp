@@ -76,8 +76,11 @@ void FreeDraw::SelectOption(FreeDrawMenuOption option)
 
 void FreeDraw::DrawNewComponent(CartesianPoint referencePoint)
 {
-	componentToDraw->SetCoordinates(CartesianCoordinate(referencePoint.GetX(), referencePoint.GetY()));
-	componentToDraw->Draw();
+	if(componentToDraw)
+	{
+		componentToDraw->SetCoordinates(CartesianCoordinate(referencePoint.GetX(), referencePoint.GetY()));
+		componentToDraw->Draw();
+	}
 }
 
 void FreeDraw::Initialise()
