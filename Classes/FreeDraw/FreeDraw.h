@@ -15,11 +15,13 @@ private:
 	static std::string circuitLinksSubscriptionId;
 	static void SubscribeToMouseEvents();
 	static void BindOptionsEvents();
+	static bool TrySelectOption(const MouseClickPoint mouseClick);
 	static void BindCircuitEvents();
 	static void BindCircuitComponentsEvents();
 	static void BindCircuitLinksEvents();
 	static void PrepareDrawComponent(BaseComponent* targetComponent);
 	static void SelectOption(FreeDrawMenuOption option);
+	static void DrawNewComponent(CartesianPoint referencePoint);
 public:
 	static void Initialise();
 	static void Initialise(Circuit circuit);

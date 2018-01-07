@@ -24,15 +24,25 @@ void FreeDraw::BindOptionsEvents()
 		auto mouseClick = domHelper.GetLeftMouseClick();
 		if(mouseClick.IsValid())
 		{
-			for (auto option : FreeDrawMenu::GetOptions())
+			if(!TrySelectOption(mouseClick))
 			{
-				if(option.IsTargettedByMouseClick(mouseClick))
-				{
-					SelectOption(option);
-				}
+				DrawNewComponent(mouseClick.Point);
 			}
 		}
 	});
+}
+
+bool FreeDraw::TrySelectOption(const MouseClickPoint mouseClick)
+{
+	for (auto option : FreeDrawMenu::GetOptions())
+	{
+		if (option.IsTargettedByMouseClick(mouseClick))
+		{
+			SelectOption(option);
+			return true;
+		}
+	}
+	return false;
 }
 
 void FreeDraw::BindCircuitEvents()
@@ -62,6 +72,12 @@ void FreeDraw::SelectOption(FreeDrawMenuOption option)
 		menuOption.Unselect();
 	}
 	option.Select();
+}
+
+void FreeDraw::DrawNewComponent(CartesianPoint referencePoint)
+{
+	componentToDraw->SetCoordinates(CartesianCoordinate(referencePoint.GetX(), referencePoint.GetY()));
+	componentToDraw->Draw();
 }
 
 void FreeDraw::Initialise()
