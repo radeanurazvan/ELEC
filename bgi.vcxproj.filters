@@ -171,10 +171,19 @@
     <ClCompile Include="Classes\Menu\Menu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Classes\Menu\Models\MenuOption\MenuOption.cpp">
+    <ClCompile Include="Classes\Menu\StartMenu\StartMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Classes\StartMenu\StartMenu.cpp">
+    <ClCompile Include="Classes\Menu\FreeDrawMenu\FreeDrawMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Menu\StartMenu\StartMenuResources\StartMenuResources.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Menu\FreeDrawMenu\Models\MenuOption\FreeDrawMenuOption.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Menu\StartMenu\Models\MenuOption\StartMenuOption.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -317,19 +326,25 @@
     <ClInclude Include="Classes\Circuit\Circuit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Classes\Menu\Resources\MenuResources.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Classes\Menu\Menu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Classes\Menu\Models\MenuOption\MenuOption.h">
+    <ClInclude Include="Classes\Menu\StartMenu\StartMenuResources\StartMenuResources.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Classes\StartMenu\StartMenu.h">
+    <ClInclude Include="Classes\Menu\StartMenu\StartMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Classes\StartMenu\StartMenuResources\StartMenuResources.h">
+    <ClInclude Include="Classes\Menu\FreeDrawMenu\FreeDrawMenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Menu\FreeDrawMenu\Resources\FreeDrawMenuResources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Menu\FreeDrawMenu\Models\MenuOption\FreeDrawMenuOption.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Menu\StartMenu\Models\MenuOption\StartMenuOption.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

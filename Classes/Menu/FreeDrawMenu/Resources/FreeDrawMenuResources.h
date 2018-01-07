@@ -1,5 +1,5 @@
 #pragma once
-class MenuResources
+class FreeDrawMenuResources
 {
 public:
 	static const int RectangleHeight = 50;

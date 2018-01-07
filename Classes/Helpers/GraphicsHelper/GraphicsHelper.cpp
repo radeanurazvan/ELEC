@@ -12,17 +12,16 @@ CartesianPoint GraphicsHelper::GetViewportCenter()
 	const CartesianPoint center(maxX / 2, maxY / 2);
 	return center;
 }
-void GraphicsHelper::TextAppereance(int font,int direction ,int charsize)
+void GraphicsHelper::SetTextAppereance(int font,int direction ,int charsize)
 {	
-	
 	settextstyle(font, direction, charsize);
 }
-void GraphicsHelper::TextOutPut(CartesianPoint point,char text[])
+void GraphicsHelper::WriteText(CartesianPoint point, std::string text)
 {
+	char charText[255];
+	strcpy(charText, text.c_str());
 	ComputeCoordinates(point);
-	auto x = point.GetX();
-	auto y = point.GetY();
-	outtextxy(x, y, text);
+	outtextxy(point.GetX(), point.GetY(), charText);
 }
 void GraphicsHelper::ComputeCoordinates(CartesianPoint& point)
 {
@@ -72,6 +71,25 @@ int GraphicsHelper::GetMaxX()
 int GraphicsHelper::GetMaxY()
 {
 	return getmaxy() / 2;
+}
+
+void GraphicsHelper::GetDesktopResolution(int& horizontal, int& vertical)
+{
+	RECT desktop;
+	// Get a handle to the desktop window
+	const HWND hDesktop = GetDesktopWindow();
+	// Get the size of screen to the variable desktop
+	GetWindowRect(hDesktop, &desktop);
+	// The top left corner will have coordinates (0,0)
+	// and the bottom right corner will have coordinates
+	// (horizontal, vertical)
+	horizontal = desktop.right;
+	vertical = desktop.bottom;
+}
+
+CartesianPoint GraphicsHelper::GetPlaneCenter()
+{
+	return CartesianPoint(0, 0);
 }
 
 void GraphicsHelper::DrawCircle(CartesianPoint midPoint, int radius)
