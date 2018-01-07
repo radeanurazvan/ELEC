@@ -168,24 +168,6 @@
     <ClCompile Include="Classes\Enums\LinkType.h">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Classes\Menu\Menu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Classes\Menu\StartMenu\StartMenu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Classes\Menu\FreeDrawMenu\FreeDrawMenu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Classes\Menu\StartMenu\StartMenuResources\StartMenuResources.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Classes\Menu\FreeDrawMenu\Models\MenuOption\FreeDrawMenuOption.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Classes\Menu\StartMenu\Models\MenuOption\StartMenuOption.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Classes\Helpers\DOMHelper\DOMHelper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -193,6 +175,30 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Classes\CartesianPlane\Area\Area.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\FreeDraw\Menu\Models\MenuOption\FreeDrawMenuOption.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\FreeDraw\Menu\FreeDrawMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Menu\Models\MenuOption\StartMenuOption.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Menu\Menu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Menu\Resources\MenuResources.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\FreeDraw\FreeDraw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Helpers\DOMHelper\MouseClick\MouseClickPoint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseMenuOption.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -335,27 +341,6 @@
     <ClInclude Include="Classes\Circuit\Circuit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Classes\Menu\Menu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Classes\Menu\StartMenu\StartMenuResources\StartMenuResources.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Classes\Menu\StartMenu\StartMenu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Classes\Menu\FreeDrawMenu\FreeDrawMenu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Classes\Menu\FreeDrawMenu\Resources\FreeDrawMenuResources.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Classes\Menu\FreeDrawMenu\Models\MenuOption\FreeDrawMenuOption.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Classes\Menu\StartMenu\Models\MenuOption\StartMenuOption.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Classes\Helpers\DOMHelper\DOMHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -363,6 +348,36 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Classes\CartesianPlane\Area\Area.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\FreeDraw\Menu\Models\MenuOption\FreeDrawMenuOption.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\FreeDraw\Menu\Resources\FreeDrawMenuResources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\FreeDraw\Menu\FreeDrawMenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Menu\Models\MenuOption\StartMenuOption.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Menu\Menu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Menu\Resources\MenuResources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\FreeDraw\FreeDraw.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Helpers\DOMHelper\MouseClick\Resources\MouseClickResources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Helpers\DOMHelper\MouseClick\MouseClickPoint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseMenuOption.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

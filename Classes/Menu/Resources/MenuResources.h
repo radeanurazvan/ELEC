@@ -1,10 +1,10 @@
 #pragma once
 #include <string>
 
-class StartMenuResources
+class MenuResources
 {
 private:
-	StartMenuResources();
+	MenuResources();
 public:
 	static const int buttonWidth = 300;
 	static const int buttonHeight = 35;

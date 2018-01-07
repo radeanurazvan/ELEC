@@ -25,5 +25,7 @@ public:
 	static void DecomputeCoordinates(CartesianPoint& point);
 	static CartesianPoint GetPlaneCenter();
 	static void ClearScreen();
+	static void FillRectangle(CartesianPoint bottomLeft, CartesianPoint topRight, int color);
+	static void SetDrawColor(int color);
 };
 

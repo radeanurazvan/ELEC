@@ -12,5 +12,6 @@ private:
 public:
 	~FreeDrawMenu();
 	static void Initialise();
+	static std::vector<FreeDrawMenuOption> GetOptions();
 };
 

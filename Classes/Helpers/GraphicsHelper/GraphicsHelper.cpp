@@ -109,6 +109,24 @@ void GraphicsHelper::ClearScreen()
 	cleardevice();
 }
 
+void GraphicsHelper::FillRectangle(CartesianPoint bottomLeft, CartesianPoint topRight, int color)
+{
+	ComputeCoordinates(bottomLeft);
+	ComputeCoordinates(topRight);
+	for(int x = bottomLeft.GetX(); x <= topRight.GetX(); x++)
+	{
+		for(int y = bottomLeft.GetY(); y >= topRight.GetY(); y--)
+		{
+			putpixel(x, y, color);
+		}
+	}
+}
+
+void GraphicsHelper::SetDrawColor(int color)
+{
+	setcolor(color);
+}
+
 void GraphicsHelper::DrawCircle(CartesianPoint midPoint, int radius)
 {
 	ComputeCoordinates(midPoint);

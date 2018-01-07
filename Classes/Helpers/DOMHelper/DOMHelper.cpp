@@ -3,6 +3,7 @@
 #include "../../../graphics.h"
 #include <thread>
 #include "../GraphicsHelper/GraphicsHelper.h"
+#include "MouseClick/MouseClickPoint.h"
 
 std::map<std::string, bool> DOMHelper::mouseSubscriptions;
 DOMHelper::DOMHelper()
@@ -29,7 +30,7 @@ bool DOMHelper::IsSubscriptionActive(const std::string subscriptionId)
 	return mouseSubscriptions[subscriptionId];
 }
 
-std::string DOMHelper::SubscribeOnClick(std::function<void()> callback)
+std::string DOMHelper::SubscribeOnLeftClick(std::function<void()> callback)
 {
 	const auto subscriptionId = SubscribeToMouseEvent();
 	std::thread subscriptionThread(&DOMHelper::ApplySubscription, this, subscriptionId, callback);
@@ -42,21 +43,18 @@ void DOMHelper::Unsubscribe(std::string subscriptionId)
 	mouseSubscriptions[subscriptionId] = false;
 }
 
-CartesianPoint DOMHelper::GetLeftMouseClick()
+MouseClickPoint DOMHelper::GetLeftMouseClick()
 {
 	int x, y;
 	getmouseclick(WM_LBUTTONDOWN, x, y);
-	auto point = CartesianPoint(x, y);
-	if(point.GetX() != -1 && point.GetY() != -1)
+	if(x == -1 && y == -1)
 	{
-		GraphicsHelper::DecomputeCoordinates(point);
+		return MouseClickPoint::InvalidClick();
 	}
-	return point;
-}
 
-bool DOMHelper::IsValidMouseClick(CartesianPoint point)
-{
-	return point.GetX() != -1 && point.GetY() != -1;
+	auto click = MouseClickPoint(x, y);
+	GraphicsHelper::DecomputeCoordinates(click.Point);
+	return click;
 }
 
 

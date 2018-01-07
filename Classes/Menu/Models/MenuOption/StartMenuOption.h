@@ -1,13 +1,13 @@
 #pragma once
-#include "../../../../CartesianPlane/CartesianPoint/CartesianPoint.h"
 #include <string>
+#include "../../../CartesianPlane/CartesianPoint/CartesianPoint.h"
+#include "../../../../BaseMenuOption.h"
 
-class StartMenuOption
+class StartMenuOption :
+	public BaseMenuOption
 {
 public:
 	StartMenuOption(std::string targetDrawOption, CartesianPoint botttomLeftPoint, CartesianPoint topRightPoint);
 	std::string TargetDrawOption;
-	CartesianPoint BottomLeftPoint;
-	CartesianPoint TopRightPoint;
 };
 

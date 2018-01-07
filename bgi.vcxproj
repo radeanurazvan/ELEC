@@ -64,6 +64,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BaseMenuOption.cpp" />
     <ClCompile Include="Classes\CartesianPlane\Area\Area.cpp" />
     <ClCompile Include="Classes\Circuit\Circuit.cpp" />
     <ClCompile Include="Classes\CartesianPlane\CartesianPoint\CartesianPoint.cpp" />
@@ -92,10 +93,9 @@
     <ClCompile Include="Classes\Components\ServoMotor\ServoMotor.cpp" />
     <ClCompile Include="Classes\Helpers\CircuitReader\CircuitReader.cpp" />
     <ClCompile Include="Classes\Helpers\GraphicsHelper\GraphicsHelper.cpp" />
+    <ClCompile Include="Classes\FreeDraw\Menu\Models\MenuOption\FreeDrawMenuOption.cpp" />
     <ClCompile Include="Classes\Menu\Menu.cpp" />
-    <ClCompile Include="Classes\Menu\FreeDrawMenu\Models\MenuOption\FreeDrawMenuOption.cpp" />
-    <ClCompile Include="Classes\Menu\StartMenu\StartMenu.cpp" />
-    <ClCompile Include="Classes\Menu\StartMenu\StartMenuResources\StartMenuResources.cpp" />
+    <ClCompile Include="Classes\Menu\Resources\MenuResources.cpp" />
     <ClCompile Include="Classes\Wrappers\CircuitDetails\CircuitDetails.cpp" />
     <ClCompile Include="Classes\Wrappers\ComponentDetails\ComponentDetails.cpp" />
     <ClCompile Include="Classes\Wrappers\Link\Link.cpp" />
@@ -107,15 +107,17 @@
     <ClCompile Include="file.cxx" />
     <ClCompile Include="Classes\Helpers\JsonHelper\JsonHelper.cpp" />
     <ClCompile Include="Classes\Helpers\FileHelper\FileHelper.cpp" />
-    <ClCompile Include="Classes\Menu\FreeDrawMenu\FreeDrawMenu.cpp" />
+    <ClCompile Include="Classes\FreeDraw\Menu\FreeDrawMenu.cpp" />
     <ClCompile Include="Classes\Guid\Guid.cpp" />
+    <ClCompile Include="Classes\FreeDraw\FreeDraw.cpp" />
     <ClCompile Include="misc.cxx" />
     <ClCompile Include="mouse.cxx" />
+    <ClCompile Include="Classes\Helpers\DOMHelper\MouseClick\MouseClickPoint.cpp" />
     <ClCompile Include="palette.cxx" />
     <ClCompile Include="eyes.cpp" />
     <ClCompile Include="Classes\CartesianPlane\CartesianCoordinate\CartesianCoordinate.cpp" />
     <ClCompile Include="Classes\Components\Resistor\Resistor.cpp" />
-    <ClCompile Include="Classes\Menu\StartMenu\Models\MenuOption\StartMenuOption.cpp" />
+    <ClCompile Include="Classes\Menu\Models\MenuOption\StartMenuOption.cpp" />
     <ClCompile Include="text.cxx" />
     <ClCompile Include="Classes\Components\NpnTransistor\NpnTransistor.cpp" />
     <ClCompile Include="Classes\Components\PnpTransistor\PnpTransistor.cpp" />
@@ -124,6 +126,7 @@
     <ClCompile Include="Classes\Components\ZennerDiode\ZennerDiode.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BaseMenuOption.h" />
     <ClInclude Include="Classes\CartesianPlane\Area\Area.h" />
     <ClInclude Include="Classes\Circuit\Circuit.h" />
     <ClInclude Include="Classes\Components\NandGate\NandGate.h" />
@@ -131,11 +134,10 @@
     <ClInclude Include="Classes\Enums\Orientation.h" />
     <ClInclude Include="Classes\Factories\ComponentFactory\ComponentFactory.h" />
     <ClInclude Include="Classes\Helpers\CircuitReader\CircuitReader.h" />
+    <ClInclude Include="Classes\FreeDraw\Menu\Models\MenuOption\FreeDrawMenuOption.h" />
+    <ClInclude Include="Classes\FreeDraw\Menu\Resources\FreeDrawMenuResources.h" />
     <ClInclude Include="Classes\Menu\Menu.h" />
-    <ClInclude Include="Classes\Menu\FreeDrawMenu\Models\MenuOption\FreeDrawMenuOption.h" />
-    <ClInclude Include="Classes\Menu\FreeDrawMenu\Resources\FreeDrawMenuResources.h" />
-    <ClInclude Include="Classes\Menu\StartMenu\StartMenu.h" />
-    <ClInclude Include="Classes\Menu\StartMenu\StartMenuResources\StartMenuResources.h" />
+    <ClInclude Include="Classes\Menu\Resources\MenuResources.h" />
     <ClInclude Include="Classes\Wrappers\CircuitDetails\CircuitDetails.h" />
     <ClInclude Include="Classes\Components\BaseComponent\Resources\BaseComponentResources.h" />
     <ClInclude Include="Classes\CartesianPlane\CartesianPoint\CartesianPoint.h" />
@@ -163,16 +165,19 @@
     <ClInclude Include="Classes\Wrappers\ComponentDetails\ComponentDetails.h" />
     <ClInclude Include="dibutil.h" />
     <ClInclude Include="Classes\Helpers\FileHelper\FileHelper.h" />
-    <ClInclude Include="Classes\Menu\FreeDrawMenu\FreeDrawMenu.h" />
+    <ClInclude Include="Classes\FreeDraw\Menu\FreeDrawMenu.h" />
     <ClInclude Include="Classes\Helpers\DOMHelper\DOMHelper.h" />
+    <ClInclude Include="Classes\FreeDraw\FreeDraw.h" />
     <ClInclude Include="graphics.h" />
     <ClInclude Include="Classes\CartesianPlane\CartesianCoordinate\CartesianCoordinate.h" />
     <ClInclude Include="Classes\Components\Resistor\Resistor.h" />
     <ClInclude Include="Classes\Helpers\JsonHelper\JsonHelper.h" />
     <ClInclude Include="Classes\Wrappers\Link\Link.h" />
     <ClInclude Include="Classes\Wrappers\PositionDetails\PositionDetails.h" />
-    <ClInclude Include="Classes\Menu\StartMenu\Models\MenuOption\StartMenuOption.h" />
+    <ClInclude Include="Classes\Menu\Models\MenuOption\StartMenuOption.h" />
     <ClInclude Include="Classes\Guid\Guid.h" />
+    <ClInclude Include="Classes\Helpers\DOMHelper\MouseClick\MouseClickPoint.h" />
+    <ClInclude Include="Classes\Helpers\DOMHelper\MouseClick\Resources\MouseClickResources.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Classes\Components\NpnTransistor\NpnTransistor.h" />
     <ClInclude Include="Classes\Components\PnpTransistor\PnpTransistor.h" />

@@ -16,14 +16,10 @@ FreeDrawMenu::~FreeDrawMenu()
 
 void FreeDrawMenu::DrawSquares()
 {
-	for (auto i = 0; i < Options.size(); i++)
+	for (auto option : Options)
 	{
-		auto option = Options.at(i);
-		auto component = ComponentFactory::GetComponentByName(option.TargetComponent);
-		const CartesianCoordinate componentCoordinates(option.RectangleBottomLeft.GetX() + FreeDrawMenuResources::DistanceFromRectangleLine, option.RectangleBottomLeft.GetY() + FreeDrawMenuResources::DistanceAboveRectangleLine);
-		component->SetCoordinates(componentCoordinates);
-		GraphicsHelper::DrawRectangle(option.RectangleBottomLeft, option.RectangleTopRight);
-		component->Draw();
+		option.DrawComponent();
+		GraphicsHelper::DrawRectangle(option.BottomLeft, option.TopRight);
 	}
 }
 
@@ -42,7 +38,7 @@ void FreeDrawMenu::InitialiseOptions()
 		auto bottomLeftX = bottomLeftStartLine + i * squareWidth;
 		const CartesianPoint bottomLeft(bottomLeftX, rectangleBottomLeftY);
 		const CartesianPoint topRight(bottomLeftX + squareWidth, rectangleTopRightY);
-		const FreeDrawMenuOption option(component->GetName(), bottomLeft, topRight);
+		const FreeDrawMenuOption option(component, bottomLeft, topRight);
 
 		Options.push_back(option);
 	}
@@ -53,4 +49,9 @@ void FreeDrawMenu::Initialise()
 	GraphicsHelper::ClearScreen();
 	InitialiseOptions();
 	DrawSquares();
+}
+
+std::vector<FreeDrawMenuOption> FreeDrawMenu::GetOptions()
+{
+	return Options;
 }
