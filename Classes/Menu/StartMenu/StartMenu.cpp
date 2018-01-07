@@ -1,6 +1,10 @@
 #include "StartMenu.h"
 #include "StartMenuResources/StartMenuResources.h"
 #include "../../Helpers/GraphicsHelper/GraphicsHelper.h"
+#include "../../Helpers/DOMHelper/DOMHelper.h"
+#include "../../CartesianPlane/Area/Area.h"
+#include "../FreeDrawMenu/FreeDrawMenu.h"
+#include "../../Circuit/Circuit.h"
 
 
 /*void StartMenu::GetCoordinates(CartesianPoint upperPoint, CartesianPoint lowerPoint, CartesianPoint midPoint)
@@ -39,8 +43,9 @@
 	}
 }
 */
+std::string StartMenu::mouseEventSubscriptionId = "";
 std::vector<StartMenuOption> StartMenu::Options;
-
+DOMHelper StartMenu::domHelper;
 void StartMenu::WriteButtonText(CartesianPoint bottomLeftButtonCorner, std::string text)
 {
 	bottomLeftButtonCorner
@@ -74,9 +79,49 @@ void StartMenu::DrawButtons()
 
 }
 
+void StartMenu::SubscribeMouseEvents()
+{
+	mouseEventSubscriptionId = domHelper.SubscribeOnClick([&](){
+		HandleOptionClick(GetClickedOption());
+	});
+	auto a = mouseEventSubscriptionId;
+}
+
+std::string StartMenu::GetClickedOption()
+{
+	auto mouseClick = domHelper.GetLeftMouseClick();
+	if(domHelper.IsValidMouseClick(mouseClick))
+	{
+		for (auto option : Options)
+		{
+			if (Area::RectangleArea(option.BottomLeftPoint, option.TopRightPoint)->Contains(mouseClick))
+			{
+				return option.TargetDrawOption;
+			}
+		}
+	}
+	return "";
+}
+
+void StartMenu::HandleOptionClick(std::string option)
+{
+	if(option != "")
+	{
+		if(option == StartMenuResources::freeDrawText)
+		{
+			FreeDrawMenu::Initialise();
+		} else
+		{
+			Circuit().DrawFromFile("circuit.json");
+		}
+		domHelper.Unsubscribe(mouseEventSubscriptionId);
+	}
+}
+
 void StartMenu::Initialise()
 {
 	DrawButtons();
+	SubscribeMouseEvents();
 }
 
 

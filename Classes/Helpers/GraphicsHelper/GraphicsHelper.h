@@ -22,7 +22,8 @@ public:
 	static int GetMaxX();
 	static int GetMaxY();
 	static void GetDesktopResolution(int &horizontal, int &vertical);
+	static void DecomputeCoordinates(CartesianPoint& point);
 	static CartesianPoint GetPlaneCenter();
-
+	static void ClearScreen();
 };
 

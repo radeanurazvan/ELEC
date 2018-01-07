@@ -23,6 +23,7 @@ void GraphicsHelper::WriteText(CartesianPoint point, std::string text)
 	ComputeCoordinates(point);
 	outtextxy(point.GetX(), point.GetY(), charText);
 }
+
 void GraphicsHelper::ComputeCoordinates(CartesianPoint& point)
 {
 	auto center = GetViewportCenter();
@@ -31,6 +32,17 @@ void GraphicsHelper::ComputeCoordinates(CartesianPoint& point)
 	const auto computedY = center.GetY() - point.GetY();
 
 	const CartesianCoordinate computedCoordinates(computedX, computedY);
+	point.SetCoordinates(computedCoordinates);
+}
+
+void GraphicsHelper::DecomputeCoordinates(CartesianPoint& point)
+{
+	auto center = GetViewportCenter();
+
+	const auto decomputedX = point.GetX() - center.GetX();
+	const auto decomputedY = -(point.GetY() - center.GetY());
+
+	const CartesianCoordinate computedCoordinates(decomputedX, decomputedY);
 	point.SetCoordinates(computedCoordinates);
 }
 
@@ -90,6 +102,11 @@ void GraphicsHelper::GetDesktopResolution(int& horizontal, int& vertical)
 CartesianPoint GraphicsHelper::GetPlaneCenter()
 {
 	return CartesianPoint(0, 0);
+}
+
+void GraphicsHelper::ClearScreen()
+{
+	cleardevice();
 }
 
 void GraphicsHelper::DrawCircle(CartesianPoint midPoint, int radius)

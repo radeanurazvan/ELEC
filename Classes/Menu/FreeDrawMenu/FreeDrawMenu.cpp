@@ -27,7 +27,7 @@ void FreeDrawMenu::DrawSquares()
 	}
 }
 
-void FreeDrawMenu::Initialise()
+void FreeDrawMenu::InitialiseOptions()
 {
 	auto components = ComponentFactory::GetListOfComponents();
 	const auto squareWidth = GraphicsHelper::GetWindowWidth() / components.size();
@@ -46,4 +46,11 @@ void FreeDrawMenu::Initialise()
 
 		Options.push_back(option);
 	}
+}
+
+void FreeDrawMenu::Initialise()
+{
+	GraphicsHelper::ClearScreen();
+	InitialiseOptions();
+	DrawSquares();
 }

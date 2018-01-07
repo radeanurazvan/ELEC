@@ -64,6 +64,7 @@ Circuit::Circuit()
 
 void Circuit::DrawFromFile(char* fileName)
 {
+	GraphicsHelper::ClearScreen();
 	std::vector<BaseComponent> circuitComponents;
 	auto circuit = CircuitReader::ReadFromJSON(fileName);
 	Initialise(circuit);
