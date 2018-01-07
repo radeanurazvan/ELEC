@@ -17,7 +17,7 @@ FreeDrawMenuOption::FreeDrawMenuOption(BaseComponent* targetComponent, const Car
 
 void FreeDrawMenuOption::DrawComponent()
 {
-	const CartesianCoordinate componentCoordinates(TopRight.GetX() + FreeDrawMenuResources::DistanceFromRectangleLine, BottomLeft.GetY() + FreeDrawMenuResources::DistanceAboveRectangleLine);
+	const CartesianCoordinate componentCoordinates(BottomLeft.GetX() + FreeDrawMenuResources::DistanceFromRectangleLine, BottomLeft.GetY() + FreeDrawMenuResources::DistanceAboveRectangleLine);
 	TargetComponent->SetCoordinates(componentCoordinates);
 	TargetComponent->Draw();
 

@@ -1,7 +1,6 @@
 #include "FreeDraw.h"
 #include "Menu/FreeDrawMenu.h"
 #include "../Helpers/GraphicsHelper/GraphicsHelper.h"
-#include "../Helpers/CartesianPointsHelper/CartesianPointsHelper.h"
 
 
 DOMHelper FreeDraw::domHelper;
