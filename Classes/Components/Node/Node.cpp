@@ -8,15 +8,19 @@ Node::Node()
 
 void Node::Draw()
 {
-	const auto startPoint = GetReferencePoint();
+	const auto middlePoint = GetReferencePoint();
+	auto endPoint = middlePoint;
+	auto startPoint = middlePoint;
+	startPoint.MoveToLeft(NodeResources::Radius);
+	endPoint.MoveToRight(NodeResources::Radius);
 	auto val = NodeResources::Radius;
 	while (val)
 	{
-		GraphicsHelper::DrawCircle(startPoint, val);
+		GraphicsHelper::DrawCircle(middlePoint, val);
 		val--;
 	}
 	if (orientation == Normal || orientation == Degrees180)
-		DrawMiddleConnectors(startPoint, startPoint);
+		DrawMiddleConnectors(startPoint, endPoint);
 	else
-		DrawMiddleConnectors90Degrees(startPoint, startPoint);
+		DrawMiddleConnectors90Degrees(startPoint, endPoint);
 }

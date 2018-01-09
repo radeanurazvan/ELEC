@@ -19,6 +19,5 @@ public:
 	static const int arcEndAngle270 = 180;
 	static const int arcRadius = 12;
 	static const int distanceBetweenConnectorAndCorner = 7;
-	static const int connectorWidth = 7;
 	static const int circleRadius = 5;
 };

@@ -26,8 +26,8 @@ void PnpTransistor::Draw()
 	if (orientation == Normal)
 	{
 		upperConductor
-			.MoveDownwards(PnpTransistorResources::DistanceBetweenCondcutors)
-				->MoveToRight(PnpTransistorResources::DistanceFromMidPoint);
+			.MoveDownwards(PnpTransistorResources::DistanceBetweenCondcutors )
+				->MoveToRight(PnpTransistorResources::DistanceFromMidPoint );
 
 		lowerConductor
 			.MoveUpwards(PnpTransistorResources::DistanceBetweenCondcutors)
@@ -37,7 +37,7 @@ void PnpTransistor::Draw()
 
 		midLine
 			.MoveToLeft(PnpTransistorResources::DistanceFromMidPoint)
-				->MoveUpwards(PnpTransistorResources::Height - PnpTransistorResources::Radius);
+				->MoveUpwards(PnpTransistorResources::Radius);
 
 		midStartPoint
 			.MoveToLeft(PnpTransistorResources::DistanceFromMidPoint)
@@ -45,26 +45,26 @@ void PnpTransistor::Draw()
 
 		lowerStartPoint
 			.MoveToLeft(PnpTransistorResources::DistanceFromMidPoint)
-				->MoveUpwards(PnpTransistorResources::EntriLine);
+				->MoveUpwards(PnpTransistorResources::TriangleDistance);
 		
 		upperStartPoint
 			.MoveToLeft(PnpTransistorResources::DistanceFromMidPoint)
-				->MoveDownwards(PnpTransistorResources::EntriLine);
+				->MoveDownwards(PnpTransistorResources::TriangleDistance);
 		
 		Line.MoveToLeft(PnpTransistorResources::Lenght);
 
 		pointC
-			.MoveToRight(PnpTransistorResources::EntriLine + PnpTransistorResources::DistanceFromMidPoint)
-				->MoveDownwards(PnpTransistorResources::EntriLine + PnpTransistorResources::DistanceBetweenCondcutors);
+			.MoveToRight(PnpTransistorResources::TriangleDistance + PnpTransistorResources::DistanceFromMidPoint)
+				->MoveDownwards(PnpTransistorResources::TriangleDistance + PnpTransistorResources::DistanceBetweenCondcutors);
 		pointA
-			.MoveToRight(PnpTransistorResources::EntriLine + PnpTransistorResources::DistanceFromMidPoint)
-				->MoveDownwards(PnpTransistorResources::EntriLine + PnpTransistorResources::DistanceBetweenCondcutors- PnpTransistorResources::DistanceFromaPoint);
+			.MoveToRight(PnpTransistorResources::TriangleDistance + PnpTransistorResources::DistanceFromMidPoint)
+				->MoveDownwards(PnpTransistorResources::TriangleDistance + PnpTransistorResources::DistanceBetweenCondcutors- PnpTransistorResources::DistanceFromaPoint);
 		pointB
-			.MoveToRight(PnpTransistorResources::EntriLine + PnpTransistorResources::DistanceFromMidPoint- PnpTransistorResources::DistanceFromaPoint)
-				->MoveDownwards(PnpTransistorResources::EntriLine + PnpTransistorResources::DistanceBetweenCondcutors);
+			.MoveToRight(PnpTransistorResources::TriangleDistance + PnpTransistorResources::DistanceFromMidPoint- PnpTransistorResources::DistanceFromaPoint)
+				->MoveDownwards(PnpTransistorResources::TriangleDistance + PnpTransistorResources::DistanceBetweenCondcutors);
 
 		lowerLine
-			.MoveUpwards(PnpTransistorResources::EntriLine + PnpTransistorResources::DistanceBetweenCondcutors)
+			.MoveUpwards(PnpTransistorResources::TriangleDistance + PnpTransistorResources::DistanceBetweenCondcutors)
 				->MoveToRight(PnpTransistorResources::DistanceFromMidPoint);
 	}
 	else
@@ -90,22 +90,22 @@ void PnpTransistor::Draw()
 
 		lowerStartPoint
 			.MoveUpwards(PnpTransistorResources::DistanceFromMidPoint)
-				->MoveToRight(PnpTransistorResources::EntriLine);
+				->MoveToRight(PnpTransistorResources::TriangleDistance);
 		upperStartPoint
 			.MoveUpwards(PnpTransistorResources::DistanceFromMidPoint)
-				->MoveToLeft(PnpTransistorResources::EntriLine);
+				->MoveToLeft(PnpTransistorResources::TriangleDistance);
 
 		Line.MoveUpwards(PnpTransistorResources::Lenght);
 
 		pointC
-			.MoveDownwards(PnpTransistorResources::EntriLine + PnpTransistorResources::DistanceFromMidPoint)
-				->MoveToLeft(PnpTransistorResources::EntriLine + PnpTransistorResources::DistanceBetweenCondcutors);
+			.MoveDownwards(PnpTransistorResources::TriangleDistance + PnpTransistorResources::DistanceFromMidPoint)
+				->MoveToLeft(PnpTransistorResources::TriangleDistance + PnpTransistorResources::DistanceBetweenCondcutors);
 		pointA
-			.MoveDownwards(PnpTransistorResources::EntriLine + PnpTransistorResources::DistanceFromMidPoint)
-				->MoveToLeft(PnpTransistorResources::EntriLine + PnpTransistorResources::DistanceBetweenCondcutors - PnpTransistorResources::DistanceFromaPoint);
+			.MoveDownwards(PnpTransistorResources::TriangleDistance + PnpTransistorResources::DistanceFromMidPoint)
+				->MoveToLeft(PnpTransistorResources::TriangleDistance + PnpTransistorResources::DistanceBetweenCondcutors - PnpTransistorResources::DistanceFromaPoint);
 		pointB
-			.MoveDownwards(PnpTransistorResources::EntriLine + PnpTransistorResources::DistanceFromMidPoint - PnpTransistorResources::DistanceFromaPoint)
-				->MoveToLeft(PnpTransistorResources::EntriLine + PnpTransistorResources::DistanceBetweenCondcutors);
+			.MoveDownwards(PnpTransistorResources::TriangleDistance + PnpTransistorResources::DistanceFromMidPoint - PnpTransistorResources::DistanceFromaPoint)
+				->MoveToLeft(PnpTransistorResources::TriangleDistance + PnpTransistorResources::DistanceBetweenCondcutors);
 
 		lowerLine
 			.MoveToRight(PnpTransistorResources::EntriLine + PnpTransistorResources::DistanceBetweenCondcutors)
@@ -134,22 +134,22 @@ void PnpTransistor::Draw()
 
 		lowerStartPoint
 			.MoveToRight(PnpTransistorResources::DistanceFromMidPoint)
-				->MoveDownwards(PnpTransistorResources::EntriLine);
+				->MoveDownwards(PnpTransistorResources::TriangleDistance);
 		upperStartPoint
 			.MoveToRight(PnpTransistorResources::DistanceFromMidPoint)
-				->MoveUpwards(PnpTransistorResources::EntriLine);
+				->MoveUpwards(PnpTransistorResources::TriangleDistance);
 
 		Line.MoveToRight(PnpTransistorResources::Lenght);
 
 		pointC
-			.MoveToLeft(PnpTransistorResources::EntriLine + PnpTransistorResources::DistanceFromMidPoint)
-				->MoveUpwards(PnpTransistorResources::EntriLine + PnpTransistorResources::DistanceBetweenCondcutors);
+			.MoveToLeft(PnpTransistorResources::TriangleDistance + PnpTransistorResources::DistanceFromMidPoint)
+				->MoveUpwards(PnpTransistorResources::TriangleDistance + PnpTransistorResources::DistanceBetweenCondcutors);
 		pointA
-			.MoveToLeft(PnpTransistorResources::EntriLine + PnpTransistorResources::DistanceFromMidPoint)
-				->MoveUpwards(PnpTransistorResources::EntriLine + PnpTransistorResources::DistanceBetweenCondcutors - PnpTransistorResources::DistanceFromaPoint);
+			.MoveToLeft(PnpTransistorResources::TriangleDistance + PnpTransistorResources::DistanceFromMidPoint)
+				->MoveUpwards(PnpTransistorResources::TriangleDistance + PnpTransistorResources::DistanceBetweenCondcutors - PnpTransistorResources::DistanceFromaPoint);
 		pointB
-			.MoveToLeft(PnpTransistorResources::EntriLine + PnpTransistorResources::DistanceFromMidPoint - PnpTransistorResources::DistanceFromaPoint)
-				->MoveUpwards(PnpTransistorResources::EntriLine + PnpTransistorResources::DistanceBetweenCondcutors);
+			.MoveToLeft(PnpTransistorResources::TriangleDistance + PnpTransistorResources::DistanceFromMidPoint - PnpTransistorResources::DistanceFromaPoint)
+				->MoveUpwards(PnpTransistorResources::TriangleDistance + PnpTransistorResources::DistanceBetweenCondcutors);
 
 		lowerLine
 			.MoveDownwards(PnpTransistorResources::EntriLine + PnpTransistorResources::DistanceBetweenCondcutors)
@@ -178,22 +178,22 @@ void PnpTransistor::Draw()
 
 		lowerStartPoint
 			.MoveDownwards(PnpTransistorResources::DistanceFromMidPoint)
-				->MoveToLeft(PnpTransistorResources::EntriLine);
+				->MoveToLeft(PnpTransistorResources::TriangleDistance);
 		upperStartPoint
 			.MoveDownwards(PnpTransistorResources::DistanceFromMidPoint)
-				->MoveToRight(PnpTransistorResources::EntriLine);
+				->MoveToRight(PnpTransistorResources::TriangleDistance);
 
 		Line.MoveDownwards(PnpTransistorResources::Lenght);
 
 		pointC
-			.MoveUpwards(PnpTransistorResources::EntriLine + PnpTransistorResources::DistanceFromMidPoint)
-				->MoveToRight(PnpTransistorResources::EntriLine + PnpTransistorResources::DistanceBetweenCondcutors);
+			.MoveUpwards(PnpTransistorResources::TriangleDistance + PnpTransistorResources::DistanceFromMidPoint)
+				->MoveToRight(PnpTransistorResources::TriangleDistance + PnpTransistorResources::DistanceBetweenCondcutors);
 		pointA
-			.MoveUpwards(PnpTransistorResources::EntriLine + PnpTransistorResources::DistanceFromMidPoint)
-				->MoveToRight(PnpTransistorResources::EntriLine + PnpTransistorResources::DistanceBetweenCondcutors - PnpTransistorResources::DistanceFromaPoint);
+			.MoveUpwards(PnpTransistorResources::TriangleDistance + PnpTransistorResources::DistanceFromMidPoint)
+				->MoveToRight(PnpTransistorResources::TriangleDistance + PnpTransistorResources::DistanceBetweenCondcutors - PnpTransistorResources::DistanceFromaPoint);
 		pointB
-			.MoveUpwards(PnpTransistorResources::EntriLine + PnpTransistorResources::DistanceFromMidPoint - PnpTransistorResources::DistanceFromaPoint)
-				->MoveToRight(PnpTransistorResources::EntriLine + PnpTransistorResources::DistanceBetweenCondcutors);
+			.MoveUpwards(PnpTransistorResources::TriangleDistance + PnpTransistorResources::DistanceFromMidPoint - PnpTransistorResources::DistanceFromaPoint)
+				->MoveToRight(PnpTransistorResources::TriangleDistance + PnpTransistorResources::DistanceBetweenCondcutors);
 
 		lowerLine
 			.MoveToLeft(PnpTransistorResources::EntriLine + PnpTransistorResources::DistanceBetweenCondcutors)
@@ -202,12 +202,12 @@ void PnpTransistor::Draw()
 	GraphicsHelper::DrawCircle(startPoint, PnpTransistorResources::Radius);
 	GraphicsHelper::DrawLine(midStartPoint, midLine);
 	GraphicsHelper::DrawLine(midConductor, Line);
-	GraphicsHelper::DrawLine(upperStartPoint, upperConductor);
+	GraphicsHelper::DrawLine(upperStartPoint, upperConductor); //// Linia din cerc spre Triunghi
 	GraphicsHelper::DrawLine(lowerStartPoint, lowerConductor);
 	GraphicsHelper::DrawTriangle(pointA, pointB, pointC);
 	GraphicsHelper::DrawLine(lowerConductor, lowerLine);
 
-	PushConnectorPoint(lowerLine);
-	PushConnectorPoint(lowerConductor);
 	PushConnectorPoint(pointC);
+	PushConnectorPoint(Line);
+	PushConnectorPoint(lowerLine);
 }

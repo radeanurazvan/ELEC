@@ -2,6 +2,7 @@
 #include "../../Helpers/GraphicsHelper/GraphicsHelper.h"
 #include "../../Helpers/CartesianPointsHelper/CartesianPointsHelper.h"
 #include "Resources/NandGateResources.h"
+#include "../BaseComponent/Resources/BaseComponentResources.h"
 
 
 NandGate::NandGate()
@@ -38,10 +39,10 @@ void NandGate::Draw()
 
 		leftLowerLine
 			.MoveUpwards(NandGateResources::distanceBetweenConnectorAndCorner)
-				->MoveToLeft(NandGateResources::connectorWidth);
+				->MoveToLeft(BaseComponentResources::connectorWidth);
 		leftUpperLine
 			.MoveDownwards(NandGateResources::distanceBetweenConnectorAndCorner)
-				->MoveToLeft(NandGateResources::connectorWidth );
+				->MoveToLeft(BaseComponentResources::connectorWidth );
 
 		topLeftPoint.MoveDownwards(NandGateResources::distanceBetweenConnectorAndCorner);
 		bottomLeftPoint.MoveUpwards(NandGateResources::distanceBetweenConnectorAndCorner);
@@ -52,7 +53,7 @@ void NandGate::Draw()
 		middleConnectorPoint = circleCenterPoint;
 		middleConnectorPoint.MoveToRight(NandGateResources::circleRadius);
 		middleConnectorPointLine = middleConnectorPoint;
-		middleConnectorPointLine.MoveToRight(NandGateResources::connectorWidth);
+		middleConnectorPointLine.MoveToRight(BaseComponentResources::connectorWidth);
 
 		topConnectorPointLine = arcCenterPoint;
 		topConnectorPointLine
@@ -84,10 +85,10 @@ void NandGate::Draw()
 
 		leftLowerLine
 			.MoveToRight(NandGateResources::distanceBetweenConnectorAndCorner)
-				->MoveUpwards(NandGateResources::connectorWidth);
+				->MoveUpwards(BaseComponentResources::connectorWidth);
 		leftUpperLine
 			.MoveToLeft(NandGateResources::distanceBetweenConnectorAndCorner)
-				->MoveUpwards(NandGateResources::connectorWidth);
+				->MoveUpwards(BaseComponentResources::connectorWidth);
 
 		topLeftPoint.MoveToLeft(NandGateResources::distanceBetweenConnectorAndCorner);
 		bottomLeftPoint.MoveToRight(NandGateResources::distanceBetweenConnectorAndCorner);
@@ -98,7 +99,7 @@ void NandGate::Draw()
 		middleConnectorPoint = circleCenterPoint;
 		middleConnectorPoint.MoveDownwards(NandGateResources::circleRadius);
 		middleConnectorPointLine = middleConnectorPoint;
-		middleConnectorPointLine.MoveDownwards(NandGateResources::connectorWidth);
+		middleConnectorPointLine.MoveDownwards(BaseComponentResources::connectorWidth);
 
 		topConnectorPointLine = arcCenterPoint;
 		topConnectorPointLine
@@ -128,10 +129,10 @@ void NandGate::Draw()
 
 		leftLowerLine
 			.MoveDownwards(NandGateResources::distanceBetweenConnectorAndCorner)
-				->MoveToRight(NandGateResources::connectorWidth);
+				->MoveToRight(BaseComponentResources::connectorWidth);
 		leftUpperLine
 			.MoveUpwards(NandGateResources::distanceBetweenConnectorAndCorner)
-				->MoveToRight(NandGateResources::connectorWidth);
+				->MoveToRight(BaseComponentResources::connectorWidth);
 
 		topLeftPoint.MoveUpwards(NandGateResources::distanceBetweenConnectorAndCorner);
 		bottomLeftPoint.MoveDownwards(NandGateResources::distanceBetweenConnectorAndCorner);
@@ -142,7 +143,7 @@ void NandGate::Draw()
 		middleConnectorPoint = circleCenterPoint;
 		middleConnectorPoint.MoveToLeft(NandGateResources::circleRadius);
 		middleConnectorPointLine = middleConnectorPoint;
-		middleConnectorPointLine.MoveToLeft(NandGateResources::connectorWidth);
+		middleConnectorPointLine.MoveToLeft(BaseComponentResources::connectorWidth);
 
 		topConnectorPointLine = arcCenterPoint;
 		topConnectorPointLine
@@ -173,10 +174,10 @@ void NandGate::Draw()
 
 		leftLowerLine
 			.MoveToLeft(NandGateResources::distanceBetweenConnectorAndCorner)
-				->MoveDownwards(NandGateResources::connectorWidth);
+				->MoveDownwards(BaseComponentResources::connectorWidth);
 		leftUpperLine
 			.MoveToRight(NandGateResources::distanceBetweenConnectorAndCorner)
-				->MoveDownwards(NandGateResources::connectorWidth);
+				->MoveDownwards(BaseComponentResources::connectorWidth);
 
 		topLeftPoint.MoveToRight(NandGateResources::distanceBetweenConnectorAndCorner);
 		bottomLeftPoint.MoveToLeft(NandGateResources::distanceBetweenConnectorAndCorner);
@@ -187,7 +188,7 @@ void NandGate::Draw()
 		middleConnectorPoint = circleCenterPoint;
 		middleConnectorPoint.MoveUpwards(NandGateResources::circleRadius);
 		middleConnectorPointLine = middleConnectorPoint;
-		middleConnectorPointLine.MoveUpwards(NandGateResources::connectorWidth);
+		middleConnectorPointLine.MoveUpwards(BaseComponentResources::connectorWidth);
 
 		topConnectorPointLine = arcCenterPoint;
 		topConnectorPointLine

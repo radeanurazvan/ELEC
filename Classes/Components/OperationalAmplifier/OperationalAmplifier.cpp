@@ -1,6 +1,7 @@
 #include "OperationalAmplifier.h"
 #include "Resources//OprerationalAmplifierResources.h"
 #include "../../Helpers/GraphicsHelper/GraphicsHelper.h"
+#include "../BaseComponent/Resources/BaseComponentResources.h"
 
 OperationalAmplifier::OperationalAmplifier()
 {
@@ -45,13 +46,13 @@ void OperationalAmplifier::Draw()
 				->MoveToLeft(OperationalAmplifierResources::TriangleWidth);
 
 		lineOfline1
-			.MoveToRight(OperationalAmplifierResources::LeftLine - OperationalAmplifierResources::TriangleWidth)
+			.MoveToLeft(BaseComponentResources::connectorWidth + OperationalAmplifierResources::TriangleWidth)
 				->MoveDownwards(OperationalAmplifierResources::TriangleHeight / 2 - OperationalAmplifierResources::LeftConnectors);
 		lineOfline2
-			.MoveToRight(OperationalAmplifierResources::LeftLine - OperationalAmplifierResources::TriangleWidth)
+			.MoveToLeft(BaseComponentResources::connectorWidth + OperationalAmplifierResources::TriangleWidth)
 				->MoveUpwards(OperationalAmplifierResources::TriangleHeight / 2 - OperationalAmplifierResources::LeftConnectors);
 
-		endLine.MoveToRight(OperationalAmplifierResources::RightLine + OperationalAmplifierResources::TriangleWidth);
+		endLine.MoveToRight(BaseComponentResources::connectorWidth + OperationalAmplifierResources::TriangleWidth);
 
 		plus
 			.MoveDownwards(OperationalAmplifierResources::TriangleHeight / 2)
@@ -98,13 +99,13 @@ void OperationalAmplifier::Draw()
 				->MoveUpwards(OperationalAmplifierResources::TriangleWidth);
 
 		lineOfline1
-			.MoveDownwards(OperationalAmplifierResources::LeftLine - OperationalAmplifierResources::TriangleWidth)
+			.MoveUpwards(BaseComponentResources::connectorWidth + OperationalAmplifierResources::TriangleWidth)
 				->MoveToLeft(OperationalAmplifierResources::TriangleHeight / 2 - OperationalAmplifierResources::LeftConnectors);
 		lineOfline2
-			.MoveDownwards(OperationalAmplifierResources::LeftLine - OperationalAmplifierResources::TriangleWidth)
+			.MoveUpwards(BaseComponentResources::connectorWidth + OperationalAmplifierResources::TriangleWidth)
 				->MoveToRight(OperationalAmplifierResources::TriangleHeight / 2 - OperationalAmplifierResources::LeftConnectors);
 
-		endLine.MoveDownwards(OperationalAmplifierResources::RightLine + OperationalAmplifierResources::TriangleWidth);
+		endLine.MoveDownwards(BaseComponentResources::connectorWidth + OperationalAmplifierResources::TriangleWidth);
 
 		plus
 			.MoveToLeft(OperationalAmplifierResources::TriangleHeight / 2)
@@ -151,13 +152,13 @@ void OperationalAmplifier::Draw()
 				->MoveToRight(OperationalAmplifierResources::TriangleWidth);
 
 		lineOfline1
-			.MoveToLeft(OperationalAmplifierResources::LeftLine - OperationalAmplifierResources::TriangleWidth)
+			.MoveToRight(BaseComponentResources::connectorWidth + OperationalAmplifierResources::TriangleWidth)
 				->MoveUpwards(OperationalAmplifierResources::TriangleHeight / 2 - OperationalAmplifierResources::LeftConnectors);
 		lineOfline2
-			.MoveToLeft(OperationalAmplifierResources::LeftLine - OperationalAmplifierResources::TriangleWidth)
+			.MoveToRight(BaseComponentResources::connectorWidth + OperationalAmplifierResources::TriangleWidth)
 				->MoveDownwards(OperationalAmplifierResources::TriangleHeight / 2 - OperationalAmplifierResources::LeftConnectors);
 
-		endLine.MoveToLeft(OperationalAmplifierResources::RightLine + OperationalAmplifierResources::TriangleWidth);
+		endLine.MoveToLeft(BaseComponentResources::connectorWidth + OperationalAmplifierResources::TriangleWidth);
 
 		plus
 			.MoveUpwards(OperationalAmplifierResources::TriangleHeight / 2)
@@ -204,13 +205,13 @@ void OperationalAmplifier::Draw()
 				->MoveDownwards(OperationalAmplifierResources::TriangleWidth);
 
 		lineOfline1
-			.MoveUpwards(OperationalAmplifierResources::LeftLine - OperationalAmplifierResources::TriangleWidth)
+			.MoveDownwards(BaseComponentResources::connectorWidth + OperationalAmplifierResources::TriangleWidth)
 				->MoveToRight(OperationalAmplifierResources::TriangleHeight / 2 - OperationalAmplifierResources::LeftConnectors);
 		lineOfline2
-			.MoveUpwards(OperationalAmplifierResources::LeftLine - OperationalAmplifierResources::TriangleWidth)
+			.MoveDownwards(BaseComponentResources::connectorWidth + OperationalAmplifierResources::TriangleWidth)
 				->MoveToLeft(OperationalAmplifierResources::TriangleHeight / 2 - OperationalAmplifierResources::LeftConnectors);
 
-		endLine.MoveUpwards(OperationalAmplifierResources::RightLine + OperationalAmplifierResources::TriangleWidth);
+		endLine.MoveUpwards(BaseComponentResources::connectorWidth + OperationalAmplifierResources::TriangleWidth);
 
 		plus
 			.MoveToRight(OperationalAmplifierResources::TriangleHeight / 2)

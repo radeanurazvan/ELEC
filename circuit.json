@@ -1,12 +1,12 @@
 {
   "components": [
     {
-      "type": "Resistor",
+      "type": "OperationalAmplifier",
       "position": {
         "x": -90,
         "y": 0
       },
-      "orientation": 2
+      "orientation": 3
     },
     {
       "type": "Condenser",
@@ -14,7 +14,7 @@
         "x": 50,
         "y": 50
       },
-      "orientation": 4
+      "orientation": 1
     },
     {
       "type": "NpnTransistor",
@@ -22,7 +22,7 @@
         "x": 100,
         "y": -50
       },
-      "orientation": 1
+      "orientation": 3
     },
     {
       "type": "NandGate",
@@ -51,13 +51,6 @@
       "type": 1
     },
     {
-      "firstComponent": 1,
-      "secondComponent": 3,
-      "firstComponentConnector": 2,
-      "secondComponentConnector": 1,
-      "type": 1
-    },
-    {
       "firstComponent": 2,
       "secondComponent": 4,
       "firstComponentConnector": 2,
@@ -67,7 +60,7 @@
     {
       "firstComponent": 3,
       "secondComponent": 4,
-      "firstComponentConnector": 2,
+      "firstComponentConnector": 3,
       "secondComponentConnector": 1,
       "type": 1
     },
@@ -76,7 +69,7 @@
       "secondComponent": 5,
       "firstComponentConnector": 1,
       "secondComponentConnector": 2,
-      "type": 2
+      "type": 1
     },
     {
       "firstComponent": 5,
