@@ -106,7 +106,7 @@ CartesianPoint GraphicsHelper::GetPlaneCenter()
 
 void GraphicsHelper::ClearScreen()
 {
-	cleardevice();
+	clearviewport();
 }
 
 void GraphicsHelper::FillRectangle(CartesianPoint bottomLeft, CartesianPoint topRight, int color)
@@ -122,7 +122,7 @@ void GraphicsHelper::FillRectangle(CartesianPoint bottomLeft, CartesianPoint top
 	}
 }
 
-void GraphicsHelper::SetDrawColor(int color)
+void GraphicsHelper::SetDrawColor(Colors color)
 {
 	setcolor(color);
 }

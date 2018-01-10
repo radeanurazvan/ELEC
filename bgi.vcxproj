@@ -80,6 +80,7 @@
     <ClCompile Include="Classes\Components\Resistor\Resources\ResistorResources.cpp" />
     <ClCompile Include="Classes\Components\ServoMotor\Resources\ServoMotorResources.cpp" />
     <ClCompile Include="Classes\Components\ZennerDiode\Resources\ZennerDiodeResources.cpp" />
+    <ClCompile Include="Classes\Enums\Colors.h" />
     <ClCompile Include="Classes\Enums\LinkType.h" />
     <ClCompile Include="Classes\Factories\ComponentFactory\ComponentFactory.cpp" />
     <ClCompile Include="Classes\Helpers\CartesianPointsHelper\CartesianPointsHelper.cpp" />

@@ -1,6 +1,7 @@
 #pragma once
 #include "../../CartesianPlane/CartesianPoint/CartesianPoint.h"
-#include <xstring>
+#include "../../Classes/Enums/Colors.h";
+#include <string>
 
 class GraphicsHelper
 {
@@ -26,6 +27,6 @@ public:
 	static CartesianPoint GetPlaneCenter();
 	static void ClearScreen();
 	static void FillRectangle(CartesianPoint bottomLeft, CartesianPoint topRight, int color);
-	static void SetDrawColor(int color);
+	static void SetDrawColor(Colors color);
 };
 

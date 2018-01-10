@@ -2,11 +2,11 @@
 #include "../../Resources/FreeDrawMenuResources.h"
 #include "../../../../Helpers/GraphicsHelper/GraphicsHelper.h"
 
-void FreeDrawMenuOption::Draw(int color)
+void FreeDrawMenuOption::Draw(Colors color)
 {
 	GraphicsHelper::SetDrawColor(color);
 	DrawComponent();
-	GraphicsHelper::SetDrawColor(1);
+	GraphicsHelper::SetDrawColor(White);
 }
 
 FreeDrawMenuOption::FreeDrawMenuOption(BaseComponent* targetComponent, const CartesianPoint bottomLeft, const CartesianPoint topRight):
@@ -25,10 +25,10 @@ void FreeDrawMenuOption::DrawComponent()
 
 void FreeDrawMenuOption::Select()
 {
-	Draw(4);
+	Draw(Red);
 }
 
 void FreeDrawMenuOption::Unselect()
 {
-	Draw(15);
+	Draw(White);
 }
