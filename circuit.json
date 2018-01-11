@@ -22,7 +22,7 @@
         "x": 100,
         "y": -50
       },
-      "orientation": 3
+      "orientation": 1
     },
     {
       "type": "NandGate",
@@ -47,7 +47,7 @@
       "firstComponent": 1,
       "secondComponent": 3,
       "firstComponentConnector": 2,
-      "secondComponentConnector": 1,
+      "secondComponentConnector": 2,
       "type": 1
     },
     {

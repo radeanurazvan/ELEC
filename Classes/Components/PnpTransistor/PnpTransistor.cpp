@@ -1,6 +1,7 @@
 #include "PnpTransistor.h"
 #include "../../Classes/Helpers/GraphicsHelper/GraphicsHelper.h"
 #include "Resources/PnpTransistorResources.h"
+#include "../BaseComponent/Resources/BaseComponentResources.h"
 
 PnpTransistor::PnpTransistor()
 {
@@ -51,7 +52,7 @@ void PnpTransistor::Draw()
 			.MoveToLeft(PnpTransistorResources::DistanceFromMidPoint)
 				->MoveDownwards(PnpTransistorResources::TriangleDistance);
 		
-		Line.MoveToLeft(PnpTransistorResources::Lenght);
+		Line.MoveToLeft(BaseComponentResources::connectorWidth);
 
 		pointC
 			.MoveToRight(PnpTransistorResources::TriangleDistance + PnpTransistorResources::DistanceFromMidPoint)
@@ -95,7 +96,7 @@ void PnpTransistor::Draw()
 			.MoveUpwards(PnpTransistorResources::DistanceFromMidPoint)
 				->MoveToLeft(PnpTransistorResources::TriangleDistance);
 
-		Line.MoveUpwards(PnpTransistorResources::Lenght);
+		Line.MoveUpwards(BaseComponentResources::connectorWidth);
 
 		pointC
 			.MoveDownwards(PnpTransistorResources::TriangleDistance + PnpTransistorResources::DistanceFromMidPoint)
@@ -139,7 +140,7 @@ void PnpTransistor::Draw()
 			.MoveToRight(PnpTransistorResources::DistanceFromMidPoint)
 				->MoveUpwards(PnpTransistorResources::TriangleDistance);
 
-		Line.MoveToRight(PnpTransistorResources::Lenght);
+		Line.MoveToRight(BaseComponentResources::connectorWidth);
 
 		pointC
 			.MoveToLeft(PnpTransistorResources::TriangleDistance + PnpTransistorResources::DistanceFromMidPoint)
@@ -183,7 +184,7 @@ void PnpTransistor::Draw()
 			.MoveDownwards(PnpTransistorResources::DistanceFromMidPoint)
 				->MoveToRight(PnpTransistorResources::TriangleDistance);
 
-		Line.MoveDownwards(PnpTransistorResources::Lenght);
+		Line.MoveDownwards(BaseComponentResources::connectorWidth);
 
 		pointC
 			.MoveUpwards(PnpTransistorResources::TriangleDistance + PnpTransistorResources::DistanceFromMidPoint)

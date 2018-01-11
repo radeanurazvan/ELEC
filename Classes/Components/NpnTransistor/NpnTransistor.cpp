@@ -1,6 +1,7 @@
 #include "NpnTransistor.h"
 #include "../../Helpers/GraphicsHelper/GraphicsHelper.h"
 #include "Resources/NpnTransistorResources.h"
+#include "../BaseComponent/Resources/BaseComponentResources.h"
 
 NpnTransistor::NpnTransistor()
 {
@@ -47,7 +48,7 @@ void NpnTransistor::Draw()
 				->MoveToLeft(NpnTransistorResources::DistanceFromMidPoint);
 
 		line.MoveToLeft(NpnTransistorResources::DistanceFromMidPoint);
-		lineStartPoint.MoveToLeft(NpnTransistorResources::Lenght );
+		lineStartPoint.MoveToLeft(BaseComponentResources::connectorWidth);
 
 		lowerStartPoint
 			.MoveToLeft(NpnTransistorResources::DistanceFromMidPoint)
@@ -92,7 +93,7 @@ void NpnTransistor::Draw()
 				->MoveUpwards(NpnTransistorResources::DistanceFromMidPoint);
 
 		line.MoveUpwards(NpnTransistorResources::DistanceFromMidPoint);
-		lineStartPoint.MoveUpwards(NpnTransistorResources::Lenght);
+		lineStartPoint.MoveUpwards(BaseComponentResources::connectorWidth);
 
 		lowerStartPoint
 			.MoveUpwards(NpnTransistorResources::DistanceFromMidPoint)
@@ -138,7 +139,7 @@ void NpnTransistor::Draw()
 				->MoveToRight(NpnTransistorResources::DistanceFromMidPoint);
 
 		line.MoveToRight(NpnTransistorResources::DistanceFromMidPoint);
-		lineStartPoint.MoveToRight(NpnTransistorResources::Lenght);
+		lineStartPoint.MoveToRight(BaseComponentResources::connectorWidth);
 
 		lowerStartPoint
 			.MoveToRight(NpnTransistorResources::DistanceFromMidPoint)
@@ -183,7 +184,7 @@ void NpnTransistor::Draw()
 				->MoveDownwards(NpnTransistorResources::DistanceFromMidPoint);
 
 		line.MoveDownwards(NpnTransistorResources::DistanceFromMidPoint);
-		lineStartPoint.MoveDownwards(NpnTransistorResources::Lenght);
+		lineStartPoint.MoveDownwards(BaseComponentResources::connectorWidth);
 
 		lowerStartPoint
 			.MoveDownwards(NpnTransistorResources::DistanceFromMidPoint)
@@ -215,7 +216,7 @@ void NpnTransistor::Draw()
 	GraphicsHelper::DrawLine(upperConductor, upperLine);
 
 	PushConnectorPoint(upperLine);
-	PushConnectorPoint(lowerConductor);
+	PushConnectorPoint(line);
 	PushConnectorPoint(pointC);
 
 }
