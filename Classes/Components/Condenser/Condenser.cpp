@@ -3,6 +3,41 @@
 #include "Resources/CondenserResources.h"
 
 
+void Condenser::PrepareConnectorPointsForDrawing(CartesianPoint& leftConnectorBottomPoint,
+	CartesianPoint& leftConnectorTopPoint, CartesianPoint& rightConnectorBottomPoint,
+	CartesianPoint& rightConnectorTopPoint)
+{
+	auto rightConnectorBottomPointSideDistance = CondenserResources::spaceBetweenConductors;
+	auto rightConnectorBottomPointHeightDistance = CondenserResources::conductorsHeight;
+
+	if (orientation == Normal || orientation == Degrees180)
+	{
+		leftConnectorTopPoint.MoveUpwards(CondenserResources::conductorsHeight);
+		rightConnectorBottomPoint.MoveToRight(CondenserResources::spaceBetweenConductors);
+		rightConnectorTopPoint.Copy(rightConnectorBottomPoint)->MoveUpwards(CondenserResources::conductorsHeight);
+	}
+	else if (orientation == Degrees90 || orientation == Degrees270)
+	{
+		leftConnectorTopPoint.MoveToRight(CondenserResources::conductorsHeight);
+		rightConnectorBottomPoint.MoveDownwards(CondenserResources::spaceBetweenConductors);
+		rightConnectorTopPoint.Copy(rightConnectorBottomPoint)->MoveToRight(CondenserResources::conductorsHeight);
+	}
+
+}
+
+void Condenser::DrawConnectors(CartesianPoint leftConnectorPoint, CartesianPoint rightConnectorPoint)
+{
+	if(orientation == Normal || orientation == Degrees180)
+	{
+		DrawMiddleConnectors(leftConnectorPoint, rightConnectorPoint);
+	} 
+	else
+	{
+		DrawMiddleConnectors90Degrees(leftConnectorPoint, rightConnectorPoint);
+
+	}
+}
+
 Condenser::Condenser()
 	: BaseComponent(CondenserResources::ActualContainerSize)
 {
@@ -12,37 +47,26 @@ Condenser::Condenser()
 
 void Condenser::Draw()
 {
-	const auto leftConductorPoint = GetReferencePoint();
-	auto rightConductorPoint = GetReferencePoint();
-	if (orientation == Normal || orientation ==Degrees180)
+	auto leftConductorBottomPoint = GetReferencePoint();
+	InitLeftConductoBottomPoint(leftConductorBottomPoint);
+	auto leftConductorTopPoint = leftConductorBottomPoint;
+	auto rightConductorBottomPoint = leftConductorBottomPoint;
+	auto rightConductorTopPoint = leftConductorBottomPoint;
+
+	PrepareConnectorPointsForDrawing(leftConductorBottomPoint, leftConductorTopPoint, rightConductorBottomPoint, rightConductorTopPoint);
+
+	DrawConnectors(leftConductorBottomPoint, rightConductorTopPoint);
+	GraphicsHelper::DrawLine(leftConductorBottomPoint, leftConductorTopPoint);
+	GraphicsHelper::DrawLine(rightConductorBottomPoint, rightConductorTopPoint);
+}
+
+void Condenser::InitLeftConductoBottomPoint(CartesianPoint& leftConductorBottomPoint)
+{
+	if(orientation == Normal || orientation == Degrees180)
 	{
-		rightConductorPoint
-			.MoveToRight(CondenserResources::spaceBetweenConductors)
-			->MoveUpwards(CondenserResources::conductorsHeight);
-
-		auto rightConductorPointLine = rightConductorPoint;
-		rightConductorPointLine.MoveDownwards(CondenserResources::conductorsHeight);
-		auto leftConductorPointLine = leftConductorPoint;
-		leftConductorPointLine.MoveUpwards(CondenserResources::conductorsHeight);
-		GraphicsHelper::DrawLine(leftConductorPoint, leftConductorPointLine);
-		GraphicsHelper::DrawLine(rightConductorPoint, rightConductorPointLine);
-
-		DrawMiddleConnectors(leftConductorPoint, rightConductorPoint);
-	}
-	else if (orientation == Degrees90 || orientation == Degrees270)
+		leftConductorBottomPoint.MoveToRight(BaseComponentResources::connectorWidth);
+	} else
 	{
-		rightConductorPoint
-			.MoveDownwards(CondenserResources::spaceBetweenConductors)
-			->MoveToRight(CondenserResources::conductorsHeight);
-
-		auto rightConductorPointLine = rightConductorPoint;
-		rightConductorPointLine.MoveToLeft(CondenserResources::conductorsHeight);
-		auto leftConductorPointLine = leftConductorPoint;
-		leftConductorPointLine.MoveToRight(CondenserResources::conductorsHeight);
-		GraphicsHelper::DrawLine(leftConductorPoint, leftConductorPointLine);
-		GraphicsHelper::DrawLine(rightConductorPoint, rightConductorPointLine);
-		
-		DrawMiddleConnectors90Degrees(leftConductorPoint, rightConductorPoint);
+		leftConductorBottomPoint.MoveUpwards(CondenserResources::spaceBetweenConductors + BaseComponentResources::connectorWidth);
 	}
-
 }
