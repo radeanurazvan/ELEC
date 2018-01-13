@@ -46,7 +46,8 @@ void BaseComponent::DrawMiddleConnectors90Degrees(CartesianPoint bottomLeftLimit
 }
 CartesianPoint BaseComponent::GetReferencePoint()
 {
-	return CartesianPoint (GetCoordinates().GetX(), GetCoordinates().GetY());
+	auto containerPadding = (resources.maxContainerSize - resources.actualContainerSize) / 2;
+	return CartesianPoint (GetCoordinates().GetX() + containerPadding, GetCoordinates().GetY() + containerPadding);
 }
 
 void BaseComponent::PushConnectorPoint(CartesianPoint connectorPoint)
@@ -54,10 +55,11 @@ void BaseComponent::PushConnectorPoint(CartesianPoint connectorPoint)
 	connectorPoints.push_back(connectorPoint);
 }
 
-BaseComponent::BaseComponent(): coordinates()
+BaseComponent::BaseComponent(const int actualContainerSize): coordinates()
 {
 	numberOfConnectors = 0;
-	orientation = Normal;
+	orientation = Degrees270;
+	resources.actualContainerSize = actualContainerSize;
 }
 
 int BaseComponent::GetNumberOfConnectors()

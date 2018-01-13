@@ -1,15 +1,18 @@
 #pragma once
 #include <string>
+#include "../../BaseComponent/Resources/BaseComponentResources.h"
 
-static class BatteryResources
+class BatteryResources
+	: public BaseComponentResources
 {
 private:
 	BatteryResources();
 public:
 	static std::string Name;
+	static const int actualContainerSize = 30;
 	static const int spaceBetweenConductors = 10;
-	static const int conductorRightHeight = 15;
-	static const int conductorLeftHeight = 2 * conductorRightHeight;
+	static const int rightConductorHeight = 15;
+	static const int leftConductorHeight = 2 * rightConductorHeight;
 };
 
 

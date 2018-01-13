@@ -11,4 +11,5 @@ public:
 	static const int ConductorCurveHeight = 4;
 	static const int TriangleWidth = 15;
 	static const int ConductorCurve = 5;
+	static const int ActualContainerSize = 20;
 };

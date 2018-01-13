@@ -4,6 +4,7 @@
 #include "../BaseComponent/Resources/BaseComponentResources.h"
 
 NpnTransistor::NpnTransistor()
+	: BaseComponent(NpnTransistorResources::ActualContainerSize)
 {
 	SetName(name);
 };

@@ -4,6 +4,7 @@
 #include "../BaseComponent/Resources/BaseComponentResources.h"
 
 PnpTransistor::PnpTransistor()
+	: BaseComponent(PnpTransistorResources::ActualContainerSize)
 {
 	SetName(name);
 }

@@ -4,6 +4,7 @@
 
 
 Resistor::Resistor()
+	: BaseComponent(ResistorResources::ActualContainerSize)
 {
 	SetName(name);
 }

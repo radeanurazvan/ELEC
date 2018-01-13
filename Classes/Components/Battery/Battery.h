@@ -5,6 +5,7 @@
 class Battery :
 	public BaseComponent
 {
+private:
 	std::string name = BatteryResources::Name;
 	int numberOfConnectors = 2;
 public:
@@ -12,4 +13,5 @@ public:
 	void Draw() override;
 	void PrepareConnectorPointsForDrawing(CartesianPoint& leftConductorPoint, CartesianPoint& leftConductorPointLine, CartesianPoint& rightConductorPoint, CartesianPoint& rightConductorPointLine);
 	void DrawConnectors(CartesianPoint leftConnector, CartesianPoint rightConnector);
+	void InitLeftConnectorBottomPoint(CartesianPoint& leftConnectorBottomPoint);
 };

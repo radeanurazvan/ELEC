@@ -5,73 +5,63 @@
 
 
 Battery::Battery()
+	: BaseComponent(BatteryResources::actualContainerSize)
 {
 	SetName(name);
 }
 
 void Battery::Draw()
 {
-	auto leftConductorPoint = GetReferencePoint();
-	auto rightConductorPoint = GetReferencePoint();
-	auto leftConductorPointLine = leftConductorPoint;
-	auto rightConductorPointLine = rightConductorPoint;
+	auto leftConductorBottomPoint = GetReferencePoint();
+	auto rightConductorBottomPoint = leftConductorBottomPoint;
+	auto leftConductorTopPoint = leftConductorBottomPoint;
+	auto rightConductorTopPoint = leftConductorBottomPoint;
 
-	PrepareConnectorPointsForDrawing(leftConductorPoint, leftConductorPointLine, rightConductorPoint, rightConductorPointLine);
+	PrepareConnectorPointsForDrawing(leftConductorBottomPoint, leftConductorTopPoint, rightConductorBottomPoint, rightConductorTopPoint);
 
-	auto leftConnector = CartesianPointsHelper::GetMiddlePointBetween(leftConductorPoint, leftConductorPointLine);
-	auto rightConnector = CartesianPointsHelper::GetMiddlePointBetween(rightConductorPoint, rightConductorPointLine);
-	GraphicsHelper::DrawLine(leftConductorPoint, leftConductorPointLine);
-	GraphicsHelper::DrawLine(rightConductorPoint, rightConductorPointLine);
+	const auto leftConnector = CartesianPointsHelper::GetMiddlePointBetween(leftConductorBottomPoint, leftConductorTopPoint);
+	const auto rightConnector = CartesianPointsHelper::GetMiddlePointBetween(rightConductorBottomPoint, rightConductorTopPoint);
+	GraphicsHelper::DrawLine(leftConductorBottomPoint, leftConductorTopPoint);
+	GraphicsHelper::DrawLine(rightConductorBottomPoint, rightConductorTopPoint);
 	DrawConnectors(leftConnector, rightConnector);
 }
 
-void Battery::PrepareConnectorPointsForDrawing(CartesianPoint& leftConductorPoint,
-	CartesianPoint& leftConductorPointLine, CartesianPoint& rightConductorPoint, CartesianPoint& rightConductorPointLine)
+void Battery::PrepareConnectorPointsForDrawing(CartesianPoint& leftConductorBottomPoint,
+	CartesianPoint& leftConductorTopPoint, CartesianPoint& rightConductorBottomPoint, CartesianPoint& rightConductorTopPoint)
 {
-	auto rightPointHeightDistance = BatteryResources::conductorRightHeight;
-	auto rightPointSideDistance = BatteryResources::spaceBetweenConductors;
-	auto rightLineDistance = BatteryResources::spaceBetweenConductors;
-	auto leftLineDistance = BatteryResources::conductorLeftHeight - BatteryResources::conductorRightHeight / 2;
-	auto leftPointDistance = -((BatteryResources::conductorLeftHeight - BatteryResources::conductorRightHeight) / 2);
+	InitLeftConnectorBottomPoint(leftConductorBottomPoint);
+	const auto rightConductorPadding = (BatteryResources::leftConductorHeight - BatteryResources::rightConductorHeight) / 2;
+	auto rightConductorBottomPointSideDistance = BatteryResources::spaceBetweenConductors;
+	auto rightConductorBottomPointHeightDistance = rightConductorPadding;
 
+	rightConductorBottomPoint = leftConductorBottomPoint;
+	leftConductorTopPoint = leftConductorBottomPoint;
+	rightConductorTopPoint = leftConductorBottomPoint;
+
+	if(orientation == Degrees180)
+	{
+		rightConductorBottomPointSideDistance = -rightConductorBottomPointSideDistance;
+	}
 	if(orientation == Degrees90)
 	{
-		std::swap(rightPointHeightDistance, rightPointSideDistance);
+		rightConductorBottomPointHeightDistance = -rightConductorBottomPointHeightDistance;
 	}
 
-	if(orientation == Degrees270)
-	{
-		rightPointHeightDistance = BatteryResources::spaceBetweenConductors;
-	}
+	rightConductorBottomPoint
+		.MoveToSide(rightConductorBottomPointSideDistance)
+		->MoveInHeight(rightConductorBottomPointHeightDistance);
+	rightConductorTopPoint.Copy(rightConductorBottomPoint);
 
-	if(orientation == Degrees90 || orientation == Degrees180)
+	if (orientation == Normal || orientation == Degrees180)
 	{
-		rightLineDistance = -rightLineDistance;
-		rightPointHeightDistance = -rightPointHeightDistance;
+		leftConductorTopPoint.MoveUpwards(BatteryResources::leftConductorHeight);
+		rightConductorTopPoint.MoveUpwards(BatteryResources::rightConductorHeight);
 	}
-
-	if (orientation == Degrees180 || orientation == Degrees270)
+	else
 	{
-		rightPointSideDistance = -rightPointSideDistance;
-		leftLineDistance = -leftLineDistance;
-		leftPointDistance = -leftPointDistance;
+		leftConductorTopPoint.MoveToRight(BatteryResources::leftConductorHeight);
+		rightConductorTopPoint.MoveToRight(BatteryResources::rightConductorHeight);
 	}
-
-	if(orientation == Normal || orientation == Degrees180)
-	{
-		rightConductorPointLine.MoveToSide(rightLineDistance);
-		leftConductorPointLine.MoveInHeight(leftLineDistance);
-		leftConductorPoint.MoveInHeight(leftPointDistance);
-	} else
-	{
-		rightConductorPointLine.MoveInHeight(rightLineDistance);
-		leftConductorPointLine.MoveToSide(leftLineDistance);
-		leftConductorPoint.MoveToSide(leftPointDistance);
-	}
-
-	rightConductorPoint
-		.MoveToSide(rightPointSideDistance)
-		->MoveInHeight(rightPointHeightDistance);
 }
 
 void Battery::DrawConnectors(CartesianPoint leftConnector, CartesianPoint rightConnector)
@@ -91,5 +81,25 @@ void Battery::DrawConnectors(CartesianPoint leftConnector, CartesianPoint rightC
 	else
 	{
 		DrawMiddleConnectors90Degrees(rightConnector, leftConnector);
+	}
+}
+
+void Battery::InitLeftConnectorBottomPoint(CartesianPoint& leftConnectorBottomPoint)
+{
+	auto leftConductorBottomPointDistance = BaseComponentResources::connectorWidth;
+
+	if (orientation == Degrees90 || orientation == Degrees180)
+	{
+		leftConductorBottomPointDistance += BatteryResources::spaceBetweenConductors;
+	}
+
+	if (orientation == Normal || orientation == Degrees180)
+	{
+		leftConnectorBottomPoint.MoveToRight(leftConductorBottomPointDistance);
+	}
+
+	if (orientation == Degrees90 || orientation == Degrees270)
+	{
+		leftConnectorBottomPoint.MoveUpwards(leftConductorBottomPointDistance);
 	}
 }

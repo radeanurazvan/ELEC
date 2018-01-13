@@ -1,9 +1,12 @@
 #pragma once
 class BaseComponentResources
 {
-private:
+protected:
 	BaseComponentResources();
 public:
+	int maxContainerSize = 50;
+	int actualContainerSize;
 	static const int connectorWidth = 10;
+	static BaseComponentResources GetInstance();
 };
 

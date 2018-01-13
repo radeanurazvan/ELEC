@@ -57,3 +57,10 @@ CartesianPoint* CartesianPoint::MoveInHeight(const int distance)
 	_coordinates.SetY(_coordinates.GetY() + distance);
 	return this;
 }
+
+CartesianPoint * CartesianPoint::Copy(CartesianPoint pointToCopy)
+{
+	_coordinates.SetX(pointToCopy.GetX());
+	_coordinates.SetY(pointToCopy.GetY());
+	return this;
+}

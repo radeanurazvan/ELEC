@@ -15,4 +15,5 @@ public:
 	static const int DistanceFromaPoint = 10;
 	static const int EntriLine = 10;
 	static const int TriangleDistance = 4;
+	static const int ActualContainerSize = Height + 10;
 };

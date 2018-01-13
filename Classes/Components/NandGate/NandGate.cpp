@@ -6,6 +6,7 @@
 
 
 NandGate::NandGate()
+	: BaseComponent(NandGateResources::ActualContainerSize)
 {
 	SetName(name);
 }

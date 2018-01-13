@@ -68,6 +68,7 @@
     <ClCompile Include="Classes\CartesianPlane\Area\Area.cpp" />
     <ClCompile Include="Classes\Circuit\Circuit.cpp" />
     <ClCompile Include="Classes\CartesianPlane\CartesianPoint\CartesianPoint.cpp" />
+    <ClCompile Include="Classes\Components\BaseComponent\Resources\BaseComponentResources.cpp" />
     <ClCompile Include="Classes\Components\Battery\Resources\BatteryResources.cpp" />
     <ClCompile Include="Classes\Components\Condenser\Resources\CondenserResources.cpp" />
     <ClCompile Include="Classes\Components\Diode\Resources\DiodeResources.cpp" />

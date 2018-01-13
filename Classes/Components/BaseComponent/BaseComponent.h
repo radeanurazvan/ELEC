@@ -4,12 +4,15 @@
 #include "../../CartesianPlane/CartesianPoint/CartesianPoint.h"
 #include "../../Enums/orientation.h"
 #include <vector>
+#include "Resources/BaseComponentResources.h"
 
 class BaseComponent
 {
 private:
 	void DrawConnectorLines(CartesianPoint leftStart, CartesianPoint leftEnd, CartesianPoint rightStart, CartesianPoint rightEnd);
 protected:
+	BaseComponent(const int actualContainerSize);
+	BaseComponent();
 	std::string name;
 	int numberOfConnectors;
 	CartesianCoordinate coordinates;
@@ -19,8 +22,8 @@ protected:
 	CartesianPoint GetReferencePoint();
 	Orientation orientation;
 	void PushConnectorPoint(CartesianPoint connectorPoint);
+	BaseComponentResources resources = BaseComponentResources::GetInstance();
 public:
-	BaseComponent();
 	int GetNumberOfConnectors();
 	void SetNumberOfConnectors(int number);
 	std::string GetName();

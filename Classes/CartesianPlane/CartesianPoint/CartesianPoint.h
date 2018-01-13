@@ -16,5 +16,6 @@ public:
 	CartesianPoint* MoveToLeft(const int distance);
 	CartesianPoint* MoveToSide(const int distance);
 	CartesianPoint* MoveInHeight(const int distance);
+	CartesianPoint* Copy(CartesianPoint pointToCopy);
 };
 

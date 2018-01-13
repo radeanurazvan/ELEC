@@ -4,6 +4,7 @@
 
 
 Condenser::Condenser()
+	: BaseComponent(CondenserResources::ActualContainerSize)
 {
 	SetName(name);
 }

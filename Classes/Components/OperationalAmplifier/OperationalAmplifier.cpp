@@ -4,6 +4,7 @@
 #include "../BaseComponent/Resources/BaseComponentResources.h"
 
 OperationalAmplifier::OperationalAmplifier()
+	: BaseComponent(OperationalAmplifierResources::ActualContainerSize)
 {
 	SetName(name);
 }

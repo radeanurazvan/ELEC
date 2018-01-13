@@ -4,6 +4,7 @@
 #include "../../Helpers/CartesianPointsHelper/CartesianPointsHelper.h"
 
 ZennerDiode::ZennerDiode()
+	: BaseComponent(ZennerDiodeResources::ActualContainerSize)
 {
 	SetName(name);
 }

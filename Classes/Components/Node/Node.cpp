@@ -2,6 +2,7 @@
 #include "../../Helpers/GraphicsHelper/GraphicsHelper.h"
 #include "Resources/NodeResources.h"
 Node::Node()
+	: BaseComponent(NodeResources::ActualContainerSize)
 {
 	SetName(name);
 }

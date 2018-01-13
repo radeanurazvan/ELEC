@@ -3,6 +3,7 @@
 #include "Resources//DiodeResources.h"
 
 Diode::Diode()
+	: BaseComponent(DiodeResources::ActualContainerSize)
 {
 	SetName(name);
 }

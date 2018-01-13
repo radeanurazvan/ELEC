@@ -20,4 +20,5 @@ public:
 	static const int arcRadius = 12;
 	static const int distanceBetweenConnectorAndCorner = 7;
 	static const int circleRadius = 5;
+	static const int ActualContainerSize = 45 ;
 };

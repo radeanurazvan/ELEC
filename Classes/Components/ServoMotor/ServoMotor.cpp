@@ -3,6 +3,7 @@
 #include "Resources/ServoMotorResources.h"
 
 ServoMotor::ServoMotor()
+	: BaseComponent(ServoMotorResources::ActualContainerSize)
 {
 	SetName(name);
 }
