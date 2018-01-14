@@ -7,6 +7,7 @@ class NandGate :
 {
 	std::string name = NandGateResources::Name;
 	int numberOfConnectors = 3;
+	CartesianPoint GetReferencePoint();
 public:
 	NandGate();
 	void Draw() override;

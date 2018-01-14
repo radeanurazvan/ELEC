@@ -7,6 +7,7 @@ class Diode :
 {
 	std::string name = DiodeResources::Name;
 	int numberOfConnectors = 2;
+	CartesianPoint GetReferencePoint();
 public:
 	Diode();
 	void Draw() override;
