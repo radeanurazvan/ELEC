@@ -5,6 +5,8 @@
 #include "../../Enums/orientation.h"
 #include <vector>
 #include "Resources/BaseComponentResources.h"
+#include "../../CartesianPlane/Area/Area.h"
+#include "../../Helpers/DOMHelper/MouseClick/MouseClickPoint.h"
 
 class BaseComponent
 {
@@ -33,4 +35,7 @@ public:
 	void SetOrientation(::Orientation orientation);
 	CartesianPoint GetConnector(int index);
 	virtual void Draw() = 0;
+	Area* GetContainerArea();
+	bool IsClicked(MouseClickPoint click);
+	void Rotate();
 };

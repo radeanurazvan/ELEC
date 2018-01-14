@@ -10,19 +10,44 @@ DOMHelper::DOMHelper()
 {
 }
 
-std::string DOMHelper::SubscribeToMouseEvent()
+std::string DOMHelper::GenerateSubscriptionId()
 {
 	auto subscriptionId = Guid::NewGuid();
 	mouseSubscriptions[subscriptionId] = true;
 	return subscriptionId;
 }
 
-void DOMHelper::ApplySubscription(std::string subscriptionId , std::function<void()> callback)
+void DOMHelper::ApplySubscription(std::string subscriptionId , std::function<void()> callback, MouseEvents mouseEvent)
 {
 	while (IsSubscriptionActive(subscriptionId))
 	{
-		callback();
+		if(ismouseclick(mouseEvent))
+		{
+			callback();
+		}
 	}
+}
+
+std::string DOMHelper::SubscribeOnMouseEvent(std::function<void()> callback, MouseEvents mouseEvent)
+{
+	const auto subscriptionId = GenerateSubscriptionId();
+	std::thread subscriptionThread(&DOMHelper::ApplySubscription, this, subscriptionId, callback, mouseEvent);
+	subscriptionThread.detach();
+	return subscriptionId;
+}
+
+MouseClickPoint DOMHelper::GetMouseEvent(MouseEvents mouseEvent)
+{
+	int x, y;
+	getmouseclick(mouseEvent, x, y);
+	if (x == -1 && y == -1)
+	{
+		return MouseClickPoint::InvalidClick();
+	}
+
+	auto click = MouseClickPoint(x, y);
+	GraphicsHelper::DecomputeCoordinates(click.Point);
+	return click;
 }
 
 bool DOMHelper::IsSubscriptionActive(const std::string subscriptionId)
@@ -32,10 +57,12 @@ bool DOMHelper::IsSubscriptionActive(const std::string subscriptionId)
 
 std::string DOMHelper::SubscribeOnLeftClick(std::function<void()> callback)
 {
-	const auto subscriptionId = SubscribeToMouseEvent();
-	std::thread subscriptionThread(&DOMHelper::ApplySubscription, this, subscriptionId, callback);
-	subscriptionThread.detach();
-	return subscriptionId;
+	return SubscribeOnMouseEvent(callback, LeftClick);
+}
+
+std::string DOMHelper::SubscribeOnRightClick(std::function<void()> callback)
+{
+	return SubscribeOnMouseEvent(callback, RightClick);
 }
 
 void DOMHelper::Unsubscribe(std::string subscriptionId)
@@ -45,16 +72,12 @@ void DOMHelper::Unsubscribe(std::string subscriptionId)
 
 MouseClickPoint DOMHelper::GetLeftMouseClick()
 {
-	int x, y;
-	getmouseclick(WM_LBUTTONDOWN, x, y);
-	if(x == -1 && y == -1)
-	{
-		return MouseClickPoint::InvalidClick();
-	}
+	return GetMouseEvent(LeftClick);
+}
 
-	auto click = MouseClickPoint(x, y);
-	GraphicsHelper::DecomputeCoordinates(click.Point);
-	return click;
+MouseClickPoint DOMHelper::GetRightMouseClick()
+{
+	return GetMouseEvent(RightClick);
 }
 
 

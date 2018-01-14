@@ -1,10 +1,11 @@
 #include "FreeDraw.h"
 #include "Menu/FreeDrawMenu.h"
 #include "../Helpers/GraphicsHelper/GraphicsHelper.h"
+#include "../Factories/ComponentFactory/ComponentFactory.h"
 
-
+Circuit FreeDraw::circuit;
 DOMHelper FreeDraw::domHelper;
-BaseComponent* FreeDraw::componentToDraw;
+std::string FreeDraw::componentToDraw = "";
 std::string FreeDraw::circuitComponentsSubscriptionId;
 std::string FreeDraw::optionsSubscriptionsId;
 FreeDraw::FreeDraw()
@@ -26,7 +27,7 @@ void FreeDraw::BindOptionsEvents()
 		{
 			if(!TrySelectOption(mouseClick))
 			{
-				DrawNewComponent(mouseClick.Point);
+				TryDrawNewComponent(mouseClick.Point);
 			}
 		}
 	});
@@ -53,20 +54,28 @@ void FreeDraw::BindCircuitEvents()
 
 void FreeDraw::BindCircuitComponentsEvents()
 {
+	domHelper.SubscribeOnRightClick([&]()
+	{
+		auto click = domHelper.GetRightMouseClick();
+		if(circuit.IsComponentClicked(click))
+		{
+			circuit.RotateClickedComponent(click);
+		}
+	});
 }
 
 void FreeDraw::BindCircuitLinksEvents()
 {
 }
 
-void FreeDraw::PrepareDrawComponent(BaseComponent* targetComponent)
+void FreeDraw::PrepareDrawComponent(std::string targetComponent)
 {
 	componentToDraw = targetComponent;
 }
 
 void FreeDraw::SelectOption(FreeDrawMenuOption option)
 {
-	PrepareDrawComponent(option.TargetComponent);
+	PrepareDrawComponent(option.TargetComponent->GetName());
 	for (auto menuOption : FreeDrawMenu::GetOptions())
 	{
 		menuOption.Unselect();
@@ -74,12 +83,17 @@ void FreeDraw::SelectOption(FreeDrawMenuOption option)
 	option.Select();
 }
 
-void FreeDraw::DrawNewComponent(CartesianPoint referencePoint)
+void FreeDraw::TryDrawNewComponent(CartesianPoint referencePoint)
 {
-	if(componentToDraw)
+	if (componentToDraw != "")
 	{
-		componentToDraw->SetCoordinates(CartesianCoordinate(referencePoint.GetX(), referencePoint.GetY()));
-		componentToDraw->Draw();
+		auto component = ComponentFactory::GetComponentByName(componentToDraw);
+		component->SetCoordinates(CartesianCoordinate(referencePoint.GetX(), referencePoint.GetY()));
+		if(!circuit.ComponentsOverlap(component))
+		{
+			circuit.PushComponent(component);
+			component->Draw();
+		}
 	}
 }
 

@@ -133,6 +133,7 @@
     <ClInclude Include="Classes\Circuit\Circuit.h" />
     <ClInclude Include="Classes\Components\NandGate\NandGate.h" />
     <ClInclude Include="Classes\Components\NandGate\Resources\NandGateResources.h" />
+    <ClInclude Include="Classes\Enums\MouseEvents.h" />
     <ClInclude Include="Classes\Enums\Orientation.h" />
     <ClInclude Include="Classes\Factories\ComponentFactory\ComponentFactory.h" />
     <ClInclude Include="Classes\Helpers\CircuitReader\CircuitReader.h" />

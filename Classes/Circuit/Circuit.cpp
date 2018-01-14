@@ -58,16 +58,61 @@ void Circuit::DrawLinkBetween(
 	GraphicsHelper::DrawLine(*inflectionPoint, secondComponentConnector);
 }
 
+BaseComponent* Circuit::GetClickedComponent(MouseClickPoint click)
+{
+	for (auto component : components)
+	{
+		if(component->IsClicked(click))
+		{
+			return component;
+		}
+	}
+	return nullptr;
+}
+
+void Circuit::Draw()
+{
+	GraphicsHelper::ClearScreen();
+	DrawComponents();
+	DrawLinks();
+}
+
 Circuit::Circuit()
 {
 }
 
 void Circuit::DrawFromFile(char* fileName)
 {
-	GraphicsHelper::ClearScreen();
-	std::vector<BaseComponent> circuitComponents;
 	auto circuit = CircuitReader::ReadFromJSON(fileName);
 	Initialise(circuit);
-	DrawComponents();
-	DrawLinks();
+	Draw();
+}
+
+void Circuit::PushComponent(BaseComponent* component)
+{
+	components.push_back(component);
+}
+
+bool Circuit::ComponentsOverlap(BaseComponent* component)
+{
+	for (auto circuitComponent : components)
+	{
+		if(circuitComponent->GetContainerArea()->Overlaps(*component->GetContainerArea()))
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+bool Circuit::IsComponentClicked(MouseClickPoint click)
+{
+	return GetClickedComponent(click) != nullptr ? true : false;
+}
+
+void Circuit::RotateClickedComponent(MouseClickPoint click)
+{
+	auto clickedComponent = GetClickedComponent(click);
+	clickedComponent->Rotate();
+	Draw();
 }

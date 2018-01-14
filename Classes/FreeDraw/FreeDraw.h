@@ -1,14 +1,14 @@
 #pragma once
 #include "../Helpers/DOMHelper/DOMHelper.h"
 #include "Menu/Models/MenuOption/FreeDrawMenuOption.h"
-
-class Circuit;
+#include "../Circuit/Circuit.h"
 
 class FreeDraw
 {
 private:
 	FreeDraw();
-	static BaseComponent* componentToDraw;
+	static Circuit circuit;
+	static std::string componentToDraw;
 	static DOMHelper domHelper;
 	static std::string optionsSubscriptionsId;
 	static std::string circuitComponentsSubscriptionId;
@@ -19,9 +19,9 @@ private:
 	static void BindCircuitEvents();
 	static void BindCircuitComponentsEvents();
 	static void BindCircuitLinksEvents();
-	static void PrepareDrawComponent(BaseComponent* targetComponent);
+	static void PrepareDrawComponent(std::string targetComponent);
 	static void SelectOption(FreeDrawMenuOption option);
-	static void DrawNewComponent(CartesianPoint referencePoint);
+	static void TryDrawNewComponent(CartesianPoint referencePoint);
 public:
 	static void Initialise();
 	static void Initialise(Circuit circuit);

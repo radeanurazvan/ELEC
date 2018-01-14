@@ -102,4 +102,23 @@ CartesianPoint BaseComponent::GetConnector(int index)
 	return connectorPoints.at(index-1);
 }
 
+Area* BaseComponent::GetContainerArea()
+{
+	auto bottomLeft = CartesianPoint(coordinates.GetX(), coordinates.GetY());
+	auto topRight = CartesianPoint(coordinates.GetX() + resources.maxContainerSize, coordinates.GetY() + resources.maxContainerSize);
+	return Area::RectangleArea(bottomLeft, topRight);
+}
+
+bool BaseComponent::IsClicked(MouseClickPoint click)
+{
+	return GetContainerArea()->Contains(click.Point);
+}
+
+void BaseComponent::Rotate()
+{
+	int currentOrientation = orientation;
+	auto nextOrientation = currentOrientation % 4 + 1;
+	orientation = static_cast<Orientation>(nextOrientation);
+}
+
 
