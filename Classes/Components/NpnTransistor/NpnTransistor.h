@@ -7,6 +7,7 @@ class NpnTransistor :
 {
 	std::string name = NpnTransistorResources::Name;
 	int numberOfConnectors = 3;
+	CartesianPoint GetReferencePoint();
 public:
 	NpnTransistor();
 	void Draw() override;

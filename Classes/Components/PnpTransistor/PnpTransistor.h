@@ -7,6 +7,7 @@ class PnpTransistor :
 {
 	std::string name = PnpTransistorResources::Name;
 	int numberOfConnectors = 3;
+	CartesianPoint GetReferencePoint();
 public:
 	PnpTransistor();
 	void Draw() override;

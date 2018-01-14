@@ -3,6 +3,14 @@
 #include "Resources/PnpTransistorResources.h"
 #include "../BaseComponent/Resources/BaseComponentResources.h"
 
+CartesianPoint PnpTransistor::GetReferencePoint()
+{
+	auto referencePoint = BaseComponent::GetReferencePoint();
+	referencePoint.MoveUpwards(BaseComponentResources::connectorWidth);
+	referencePoint.MoveToRight(BaseComponentResources::connectorWidth);
+	return  referencePoint;
+}
+
 PnpTransistor::PnpTransistor()
 	: BaseComponent(PnpTransistorResources::ActualContainerSize)
 {

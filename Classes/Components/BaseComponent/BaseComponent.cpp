@@ -58,7 +58,7 @@ void BaseComponent::PushConnectorPoint(CartesianPoint connectorPoint)
 BaseComponent::BaseComponent(const int actualContainerSize): coordinates()
 {
 	numberOfConnectors = 0;
-	orientation = Normal;
+	orientation = Degrees180;
 	resources.actualContainerSize = actualContainerSize;
 }
 
