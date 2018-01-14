@@ -3,6 +3,15 @@
 #include "../../Helpers/GraphicsHelper/GraphicsHelper.h"
 #include "../BaseComponent/Resources/BaseComponentResources.h"
 
+CartesianPoint OperationalAmplifier::GetReferencePoint()
+{
+	auto referencePoint = BaseComponent::GetReferencePoint();
+	referencePoint.MoveToRight(BaseComponentResources::connectorWidth);
+
+	referencePoint.MoveUpwards(BaseComponentResources::connectorWidth);
+	return referencePoint;
+}
+
 OperationalAmplifier::OperationalAmplifier()
 	: BaseComponent(OperationalAmplifierResources::ActualContainerSize)
 {
@@ -12,242 +21,87 @@ OperationalAmplifier::OperationalAmplifier()
 
 void OperationalAmplifier::Draw()
 {
-	const auto startPoint = GetReferencePoint();
-	auto endPoint = startPoint;
-	auto pointA = startPoint;
-	auto pointB = startPoint;
-	auto pointC = startPoint;
-	auto line1 = pointA;
-	auto line2 = pointC;
-	auto endLine = endPoint;
-	auto lineOfline1 = line1;
-	auto lineOfline2 = line2;
-	auto plus = pointA;
-	auto minus = pointC;
-	auto minusline = minus;
-	auto plusline1 = plus;
-	auto plusline2 = plus;
-	auto line2StartPoint = plusline2;
+	auto bottomTriangleCorner = GetReferencePoint();
+	auto topTriangleCorner = bottomTriangleCorner;
+	auto middleTriangleCorner = bottomTriangleCorner;
+	auto topConnectorStart = bottomTriangleCorner;
+	auto topConnectorEnd = bottomTriangleCorner;
+	auto bottomConnectorStart = bottomTriangleCorner;
+	auto bottomConnectorEnd = bottomTriangleCorner;
+	auto middleConnectorStart = bottomTriangleCorner;
+	auto middleConnectorEnd = bottomTriangleCorner;
+	auto minusPoint = bottomTriangleCorner;
+	auto plusPoint = bottomTriangleCorner;
+
 	if (orientation == Normal) {
-		endPoint.MoveToRight(OperationalAmplifierResources::TriangleWidth);
+		topTriangleCorner.MoveUpwards(OperationalAmplifierResources::TriangleHeight);
+		middleTriangleCorner.Copy(topTriangleCorner)->MoveToRight(OperationalAmplifierResources::TriangleHeight)->MoveDownwards(OperationalAmplifierResources::TriangleHeight / 2);
 
-		pointA
-			.MoveDownwards(OperationalAmplifierResources::TriangleHeight / 2)
-				->MoveToLeft(OperationalAmplifierResources::TriangleWidth);
-		pointB.MoveToRight(OperationalAmplifierResources::TriangleWidth);
-		pointC
-			.MoveUpwards(OperationalAmplifierResources::TriangleHeight / 2)
-				->MoveToLeft(OperationalAmplifierResources::TriangleWidth);
+		topConnectorStart.Copy(topTriangleCorner)->MoveDownwards(OperationalAmplifierResources::DistanceBetweenConnectorAndcorner);
+		topConnectorEnd.Copy(topConnectorStart)->MoveToLeft(BaseComponentResources::connectorWidth);
 
-		line1
-			.MoveDownwards(OperationalAmplifierResources::TriangleHeight / 2 - OperationalAmplifierResources::LeftConnectors)
-				->MoveToLeft(OperationalAmplifierResources::TriangleWidth);
-		line2
-			.MoveUpwards(OperationalAmplifierResources::TriangleHeight / 2 - OperationalAmplifierResources::LeftConnectors)
-				->MoveToLeft(OperationalAmplifierResources::TriangleWidth);
+		bottomConnectorStart.Copy(bottomTriangleCorner)->MoveUpwards(OperationalAmplifierResources::DistanceBetweenConnectorAndcorner);
+		bottomConnectorEnd.Copy(bottomConnectorStart)->MoveToLeft(BaseComponentResources::connectorWidth);
 
-		lineOfline1
-			.MoveToLeft(BaseComponentResources::connectorWidth + OperationalAmplifierResources::TriangleWidth)
-				->MoveDownwards(OperationalAmplifierResources::TriangleHeight / 2 - OperationalAmplifierResources::LeftConnectors);
-		lineOfline2
-			.MoveToLeft(BaseComponentResources::connectorWidth + OperationalAmplifierResources::TriangleWidth)
-				->MoveUpwards(OperationalAmplifierResources::TriangleHeight / 2 - OperationalAmplifierResources::LeftConnectors);
+		middleConnectorStart.Copy(middleTriangleCorner);
+		middleConnectorEnd.Copy(middleConnectorStart)->MoveToRight(BaseComponentResources::connectorWidth);
 
-		endLine.MoveToRight(BaseComponentResources::connectorWidth + OperationalAmplifierResources::TriangleWidth);
-
-		plus
-			.MoveDownwards(OperationalAmplifierResources::TriangleHeight / 2)
-				->MoveToLeft(OperationalAmplifierResources::TriangleWidth + OperationalAmplifierResources::LeftConnectors);
-
-		minus
-			.MoveUpwards(OperationalAmplifierResources::TriangleHeight / 2 - OperationalAmplifierResources::LeftConnectors / 2)
-				->MoveToLeft(OperationalAmplifierResources::TriangleWidth + OperationalAmplifierResources::LeftConnectors);
-
-		plusline1
-			.MoveDownwards(OperationalAmplifierResources::TriangleHeight / 2)
-				->MoveToLeft(OperationalAmplifierResources::TriangleWidth + OperationalAmplifierResources::LeftConnectors * 2);
-
-		minusline
-			.MoveUpwards(OperationalAmplifierResources::TriangleHeight / 2 - OperationalAmplifierResources::LeftConnectors / 2)
-				->MoveToLeft(OperationalAmplifierResources::TriangleWidth + OperationalAmplifierResources::LeftConnectors * 2);
-
-		plusline2
-			.MoveDownwards(OperationalAmplifierResources::TriangleHeight / 2 - OperationalAmplifierResources::LeftConnectors / 2)
-				->MoveToLeft(OperationalAmplifierResources::TriangleWidth + OperationalAmplifierResources::LeftConnectors + OperationalAmplifierResources::LeftConnectors / 2);
-
-		line2StartPoint
-			.MoveDownwards(OperationalAmplifierResources::TriangleHeight / 2 + OperationalAmplifierResources::LeftConnectors / 2)
-				->MoveToLeft(OperationalAmplifierResources::TriangleWidth + OperationalAmplifierResources::LeftConnectors + OperationalAmplifierResources::LeftConnectors / 2);
+		////minusPoint.Copy(topConnectorStart)->MoveToLeft(OperationalAmplifierResources::DistanceBetweenSignAndCorner)->MoveUpwards(OperationalAmplifierResources::DistanceBetweenSignAndCorner);
+		////plusPoint.Copy(bottomConnectorStart)->MoveToLeft(OperationalAmplifierResources::DistanceBetweenSignAndCorner)->MoveDownwards(OperationalAmplifierResources::DistanceBetweenSignAndCorner);
 	}
-	else
-	if(orientation == Degrees90)
-		{
-		endPoint.MoveDownwards(OperationalAmplifierResources::TriangleWidth);
+	else if (orientation == Degrees90)
+	{
+		bottomTriangleCorner.MoveUpwards(OperationalAmplifierResources::TriangleHeight);
+		topTriangleCorner.Copy(bottomTriangleCorner)->MoveToRight(OperationalAmplifierResources::TriangleHeight);
+		middleTriangleCorner.MoveToRight(OperationalAmplifierResources::TriangleHeight / 2);
 
-		pointA
-			.MoveToLeft(OperationalAmplifierResources::TriangleHeight / 2)
-				->MoveUpwards(OperationalAmplifierResources::TriangleWidth);
-		pointB.MoveDownwards(OperationalAmplifierResources::TriangleWidth);
-		pointC
-			.MoveToRight(OperationalAmplifierResources::TriangleHeight / 2)
-				->MoveUpwards(OperationalAmplifierResources::TriangleWidth);
+		topConnectorStart.Copy(topTriangleCorner)->MoveToLeft(OperationalAmplifierResources::DistanceBetweenConnectorAndcorner);
+		topConnectorEnd.Copy(topConnectorStart)->MoveUpwards(BaseComponentResources::connectorWidth);
 
-		line1
-			.MoveToLeft(OperationalAmplifierResources::TriangleHeight / 2 - OperationalAmplifierResources::LeftConnectors)
-				->MoveUpwards(OperationalAmplifierResources::TriangleWidth);
-		line2
-			.MoveToRight(OperationalAmplifierResources::TriangleHeight / 2 - OperationalAmplifierResources::LeftConnectors)
-				->MoveUpwards(OperationalAmplifierResources::TriangleWidth);
+		bottomConnectorStart.Copy(bottomTriangleCorner)->MoveToRight(OperationalAmplifierResources::DistanceBetweenConnectorAndcorner);
+		bottomConnectorEnd.Copy(bottomConnectorStart)->MoveUpwards(BaseComponentResources::connectorWidth);
 
-		lineOfline1
-			.MoveUpwards(BaseComponentResources::connectorWidth + OperationalAmplifierResources::TriangleWidth)
-				->MoveToLeft(OperationalAmplifierResources::TriangleHeight / 2 - OperationalAmplifierResources::LeftConnectors);
-		lineOfline2
-			.MoveUpwards(BaseComponentResources::connectorWidth + OperationalAmplifierResources::TriangleWidth)
-				->MoveToRight(OperationalAmplifierResources::TriangleHeight / 2 - OperationalAmplifierResources::LeftConnectors);
+		middleConnectorStart.Copy(middleTriangleCorner);
+		middleConnectorEnd.Copy(middleConnectorStart)->MoveDownwards(BaseComponentResources::connectorWidth);
+	}
+	else if (orientation == Degrees180)
+	{
+		topTriangleCorner.MoveToRight(OperationalAmplifierResources::TriangleHeight);
+		bottomTriangleCorner.Copy(topTriangleCorner)->MoveUpwards(OperationalAmplifierResources::TriangleHeight);
+		middleTriangleCorner.MoveUpwards(OperationalAmplifierResources::TriangleHeight / 2);
 
-		endLine.MoveDownwards(BaseComponentResources::connectorWidth + OperationalAmplifierResources::TriangleWidth);
+		topConnectorStart.Copy(topTriangleCorner)->MoveUpwards(OperationalAmplifierResources::DistanceBetweenConnectorAndcorner);
+		topConnectorEnd.Copy(topConnectorStart)->MoveToRight(BaseComponentResources::connectorWidth);
 
-		plus
-			.MoveToLeft(OperationalAmplifierResources::TriangleHeight / 2)
-				->MoveUpwards(OperationalAmplifierResources::TriangleWidth + OperationalAmplifierResources::LeftConnectors);
+		bottomConnectorStart.Copy(bottomTriangleCorner)->MoveDownwards(OperationalAmplifierResources::DistanceBetweenConnectorAndcorner);
+		bottomConnectorEnd.Copy(bottomConnectorStart)->MoveToRight(BaseComponentResources::connectorWidth);
 
-		minus
-			.MoveToRight(OperationalAmplifierResources::TriangleHeight / 2 - OperationalAmplifierResources::LeftConnectors / 2)
-				->MoveUpwards(OperationalAmplifierResources::TriangleWidth + OperationalAmplifierResources::LeftConnectors);
+		middleConnectorStart.Copy(middleTriangleCorner);
+		middleConnectorEnd.Copy(middleConnectorStart)->MoveToLeft(BaseComponentResources::connectorWidth);
+	}
+	else if (orientation == Degrees270)
+	{
+		bottomTriangleCorner.MoveToRight(OperationalAmplifierResources::TriangleHeight);
+		middleTriangleCorner.MoveToRight(OperationalAmplifierResources::TriangleHeight / 2)->MoveUpwards(OperationalAmplifierResources::TriangleHeight);
 
-		plusline1
-			.MoveToLeft(OperationalAmplifierResources::TriangleHeight / 2)
-				->MoveUpwards(OperationalAmplifierResources::TriangleWidth + OperationalAmplifierResources::LeftConnectors * 2);
+		topConnectorStart.Copy(topTriangleCorner)->MoveToRight(OperationalAmplifierResources::DistanceBetweenConnectorAndcorner);
+		topConnectorEnd.Copy(topConnectorStart)->MoveDownwards(BaseComponentResources::connectorWidth);
 
-		minusline
-			.MoveToRight(OperationalAmplifierResources::TriangleHeight / 2 - OperationalAmplifierResources::LeftConnectors / 2)
-				->MoveUpwards(OperationalAmplifierResources::TriangleWidth + OperationalAmplifierResources::LeftConnectors * 2);
+		bottomConnectorStart.Copy(bottomTriangleCorner)->MoveToLeft(OperationalAmplifierResources::DistanceBetweenConnectorAndcorner);
+		bottomConnectorEnd.Copy(bottomConnectorStart)->MoveDownwards(BaseComponentResources::connectorWidth);
 
-		plusline2
-			.MoveToLeft(OperationalAmplifierResources::TriangleHeight / 2 - OperationalAmplifierResources::LeftConnectors / 2)
-				->MoveUpwards(OperationalAmplifierResources::TriangleWidth + OperationalAmplifierResources::LeftConnectors + OperationalAmplifierResources::LeftConnectors / 2);
+		middleConnectorStart.Copy(middleTriangleCorner);
+		middleConnectorEnd.Copy(middleConnectorStart)->MoveUpwards(BaseComponentResources::connectorWidth);
+	}
+	GraphicsHelper::DrawTriangle(bottomTriangleCorner, topTriangleCorner, middleTriangleCorner);
+	GraphicsHelper::DrawLine(topConnectorStart, topConnectorEnd);
+	GraphicsHelper::DrawLine(bottomConnectorStart, bottomConnectorEnd);
+	GraphicsHelper::DrawLine(middleConnectorStart, middleConnectorEnd);
+	////GraphicsHelper::DrawCharacter(minusPoint, '-');
+	////GraphicsHelper::DrawCharacter(plusPoint, '+');
 
-		line2StartPoint
-			.MoveToLeft(OperationalAmplifierResources::TriangleHeight / 2 + OperationalAmplifierResources::LeftConnectors / 2)
-				->MoveUpwards(OperationalAmplifierResources::TriangleWidth + OperationalAmplifierResources::LeftConnectors + OperationalAmplifierResources::LeftConnectors / 2);
-		}
-	else
-	if (orientation == Degrees180)
-		{
-			endPoint.MoveToLeft(OperationalAmplifierResources::TriangleWidth);
-
-		pointA
-			.MoveUpwards(OperationalAmplifierResources::TriangleHeight / 2)
-				->MoveToRight(OperationalAmplifierResources::TriangleWidth);
-		pointB.MoveToLeft(OperationalAmplifierResources::TriangleWidth);
-		pointC
-			.MoveDownwards(OperationalAmplifierResources::TriangleHeight / 2)
-				->MoveToRight(OperationalAmplifierResources::TriangleWidth);
-
-		line1
-			.MoveUpwards(OperationalAmplifierResources::TriangleHeight / 2 - OperationalAmplifierResources::LeftConnectors)
-				->MoveToRight(OperationalAmplifierResources::TriangleWidth);
-		line2
-			.MoveDownwards(OperationalAmplifierResources::TriangleHeight / 2 - OperationalAmplifierResources::LeftConnectors)
-				->MoveToRight(OperationalAmplifierResources::TriangleWidth);
-
-		lineOfline1
-			.MoveToRight(BaseComponentResources::connectorWidth + OperationalAmplifierResources::TriangleWidth)
-				->MoveUpwards(OperationalAmplifierResources::TriangleHeight / 2 - OperationalAmplifierResources::LeftConnectors);
-		lineOfline2
-			.MoveToRight(BaseComponentResources::connectorWidth + OperationalAmplifierResources::TriangleWidth)
-				->MoveDownwards(OperationalAmplifierResources::TriangleHeight / 2 - OperationalAmplifierResources::LeftConnectors);
-
-		endLine.MoveToLeft(BaseComponentResources::connectorWidth + OperationalAmplifierResources::TriangleWidth);
-
-		plus
-			.MoveUpwards(OperationalAmplifierResources::TriangleHeight / 2)
-				->MoveToRight(OperationalAmplifierResources::TriangleWidth + OperationalAmplifierResources::LeftConnectors);
-
-		minus
-			.MoveDownwards(OperationalAmplifierResources::TriangleHeight / 2 - OperationalAmplifierResources::LeftConnectors / 2)
-				->MoveToRight(OperationalAmplifierResources::TriangleWidth + OperationalAmplifierResources::LeftConnectors);
-
-		plusline1
-			.MoveUpwards(OperationalAmplifierResources::TriangleHeight / 2)
-				->MoveToRight(OperationalAmplifierResources::TriangleWidth + OperationalAmplifierResources::LeftConnectors * 2);
-
-		minusline
-			.MoveDownwards(OperationalAmplifierResources::TriangleHeight / 2 - OperationalAmplifierResources::LeftConnectors / 2)
-				->MoveToRight(OperationalAmplifierResources::TriangleWidth + OperationalAmplifierResources::LeftConnectors * 2);
-
-		plusline2
-			.MoveUpwards(OperationalAmplifierResources::TriangleHeight / 2 - OperationalAmplifierResources::LeftConnectors / 2)
-				->MoveToRight(OperationalAmplifierResources::TriangleWidth + OperationalAmplifierResources::LeftConnectors + OperationalAmplifierResources::LeftConnectors / 2);
-
-		line2StartPoint
-			.MoveUpwards(OperationalAmplifierResources::TriangleHeight / 2 + OperationalAmplifierResources::LeftConnectors / 2)
-				->MoveToRight(OperationalAmplifierResources::TriangleWidth + OperationalAmplifierResources::LeftConnectors + OperationalAmplifierResources::LeftConnectors / 2);	
-		}
-	else
-	if (orientation == Degrees270)
-		{
-		endPoint.MoveUpwards(OperationalAmplifierResources::TriangleWidth);
-
-		pointA
-			.MoveToRight(OperationalAmplifierResources::TriangleHeight / 2)
-				->MoveDownwards(OperationalAmplifierResources::TriangleWidth);
-		pointB.MoveUpwards(OperationalAmplifierResources::TriangleWidth);
-		pointC
-			.MoveToLeft(OperationalAmplifierResources::TriangleHeight / 2)
-				->MoveDownwards(OperationalAmplifierResources::TriangleWidth);
-
-		line1
-			.MoveToRight(OperationalAmplifierResources::TriangleHeight / 2 - OperationalAmplifierResources::LeftConnectors)
-				->MoveDownwards(OperationalAmplifierResources::TriangleWidth);
-		line2
-			.MoveToLeft(OperationalAmplifierResources::TriangleHeight / 2 - OperationalAmplifierResources::LeftConnectors)
-				->MoveDownwards(OperationalAmplifierResources::TriangleWidth);
-
-		lineOfline1
-			.MoveDownwards(BaseComponentResources::connectorWidth + OperationalAmplifierResources::TriangleWidth)
-				->MoveToRight(OperationalAmplifierResources::TriangleHeight / 2 - OperationalAmplifierResources::LeftConnectors);
-		lineOfline2
-			.MoveDownwards(BaseComponentResources::connectorWidth + OperationalAmplifierResources::TriangleWidth)
-				->MoveToLeft(OperationalAmplifierResources::TriangleHeight / 2 - OperationalAmplifierResources::LeftConnectors);
-
-		endLine.MoveUpwards(BaseComponentResources::connectorWidth + OperationalAmplifierResources::TriangleWidth);
-
-		plus
-			.MoveToRight(OperationalAmplifierResources::TriangleHeight / 2)
-				->MoveDownwards(OperationalAmplifierResources::TriangleWidth + OperationalAmplifierResources::LeftConnectors);
-
-		minus
-			.MoveToLeft(OperationalAmplifierResources::TriangleHeight / 2 - OperationalAmplifierResources::LeftConnectors / 2)
-				->MoveDownwards(OperationalAmplifierResources::TriangleWidth + OperationalAmplifierResources::LeftConnectors);
-
-		plusline1
-			.MoveToRight(OperationalAmplifierResources::TriangleHeight / 2)
-				->MoveDownwards(OperationalAmplifierResources::TriangleWidth + OperationalAmplifierResources::LeftConnectors * 2);
-
-		minusline
-			.MoveToLeft(OperationalAmplifierResources::TriangleHeight / 2 - OperationalAmplifierResources::LeftConnectors / 2)
-				->MoveDownwards(OperationalAmplifierResources::TriangleWidth + OperationalAmplifierResources::LeftConnectors * 2);
-
-		plusline2
-			.MoveToRight(OperationalAmplifierResources::TriangleHeight / 2 - OperationalAmplifierResources::LeftConnectors / 2)
-				->MoveDownwards(OperationalAmplifierResources::TriangleWidth + OperationalAmplifierResources::LeftConnectors + OperationalAmplifierResources::LeftConnectors / 2);
-
-		line2StartPoint
-			.MoveToRight(OperationalAmplifierResources::TriangleHeight / 2 + OperationalAmplifierResources::LeftConnectors / 2)
-				->MoveDownwards(OperationalAmplifierResources::TriangleWidth + OperationalAmplifierResources::LeftConnectors + OperationalAmplifierResources::LeftConnectors / 2);
-		}
-	GraphicsHelper::DrawTriangle(pointA, pointB, pointC);
-	GraphicsHelper::DrawLine(endPoint, endLine);
-	GraphicsHelper::DrawLine(line1, lineOfline1);
-	GraphicsHelper::DrawLine(line2, lineOfline2);
-	GraphicsHelper::DrawLine(minus, minusline);
-	GraphicsHelper::DrawLine(plus, plusline1);
-	GraphicsHelper::DrawLine(line2StartPoint,  plusline2);
-
-	PushConnectorPoint(lineOfline1);
-	PushConnectorPoint(lineOfline2);
-	PushConnectorPoint(endLine);
+	PushConnectorPoint(topConnectorEnd);
+	PushConnectorPoint(bottomConnectorEnd);
+	PushConnectorPoint(middleConnectorEnd);
 
 }

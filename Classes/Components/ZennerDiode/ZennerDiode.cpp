@@ -3,6 +3,19 @@
 #include "Resources/ZennerDiodeResources.h"
 #include "../../Helpers/CartesianPointsHelper/CartesianPointsHelper.h"
 
+CartesianPoint ZennerDiode::GetReferencePoint()
+{
+	auto referencePoint = BaseComponent::GetReferencePoint();
+
+	if(orientation != Normal && orientation != Degrees270)
+	{
+		referencePoint.MoveUpwards(BaseComponentResources::connectorWidth);
+	}
+	referencePoint.MoveToRight(BaseComponentResources::connectorWidth);
+
+	return referencePoint;
+}
+
 ZennerDiode::ZennerDiode()
 	: BaseComponent(ZennerDiodeResources::ActualContainerSize)
 {

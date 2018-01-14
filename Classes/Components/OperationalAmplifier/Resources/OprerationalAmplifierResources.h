@@ -7,6 +7,7 @@ public:
 	static std::string Name;
 	static const int TriangleWidth = 15;
 	static const int TriangleHeight = 25;
-	static const int LeftConnectors = 4;
+	static const int DistanceBetweenConnectorAndcorner = 7;
+	static const int DistanceBetweenSignAndCorner = 10;
 	static const int ActualContainerSize = TriangleHeight + 2 * BaseComponentResources::connectorWidth;
 };
