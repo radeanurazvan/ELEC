@@ -3,6 +3,15 @@
 #include "../../Helpers/GraphicsHelper/GraphicsHelper.h"
 
 
+CartesianPoint Resistor::GetReferencePoint()
+{
+	auto referencePoint = BaseComponent::GetReferencePoint();
+	referencePoint
+		.MoveToRight(BaseComponentResources::connectorWidth)
+		->MoveUpwards(BaseComponentResources::connectorWidth);
+	return referencePoint;
+}
+
 Resistor::Resistor()
 	: BaseComponent(ResistorResources::ActualContainerSize)
 {

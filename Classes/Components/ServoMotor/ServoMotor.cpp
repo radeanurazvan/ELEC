@@ -2,6 +2,15 @@
 #include "../../Helpers//GraphicsHelper/GraphicsHelper.h"
 #include "Resources/ServoMotorResources.h"
 
+CartesianPoint ServoMotor::GetReferencePoint()
+{
+	auto referencePoint = BaseComponent::GetReferencePoint();
+	referencePoint
+		.MoveToRight(BaseComponentResources::connectorWidth)
+		->MoveUpwards( BaseComponentResources::connectorWidth);
+	return referencePoint;
+}
+
 ServoMotor::ServoMotor()
 	: BaseComponent(ServoMotorResources::ActualContainerSize)
 {

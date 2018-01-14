@@ -19,7 +19,7 @@ protected:
 	std::vector<CartesianPoint> connectorPoints;
 	void DrawMiddleConnectors(CartesianPoint bottomLeftLimit, CartesianPoint topRightLimit);
 	void DrawMiddleConnectors90Degrees(CartesianPoint bottomLeftLimit, CartesianPoint topRightLimit);
-	CartesianPoint GetReferencePoint();
+	virtual CartesianPoint GetReferencePoint();
 	Orientation orientation;
 	void PushConnectorPoint(CartesianPoint connectorPoint);
 	BaseComponentResources resources = BaseComponentResources::GetInstance();

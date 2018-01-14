@@ -7,6 +7,7 @@ class Resistor :
 {
 	std::string name = ResistorResources::Name;
 	int numberOfConnectors = 2;
+	CartesianPoint GetReferencePoint();
 public:
 	Resistor();
 	void Draw() override;

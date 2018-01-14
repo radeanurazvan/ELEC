@@ -7,6 +7,7 @@ class ServoMotor :
 {
 	std::string name = ServoMotorResources::Name;
 	int numberOfConnectors = 2;
+	CartesianPoint GetReferencePoint();
 public:
 	ServoMotor();
 	void Draw() override;
