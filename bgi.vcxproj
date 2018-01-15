@@ -131,6 +131,7 @@
     <ClInclude Include="BaseMenuOption.h" />
     <ClInclude Include="Classes\CartesianPlane\Area\Area.h" />
     <ClInclude Include="Classes\Circuit\Circuit.h" />
+    <ClInclude Include="Classes\Circuit\Details\ClickedConnectorDetails.h" />
     <ClInclude Include="Classes\Components\NandGate\NandGate.h" />
     <ClInclude Include="Classes\Components\NandGate\Resources\NandGateResources.h" />
     <ClInclude Include="Classes\Enums\MouseEvents.h" />

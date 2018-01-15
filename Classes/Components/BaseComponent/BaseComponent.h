@@ -34,6 +34,7 @@ public:
 	void SetCoordinates(CartesianCoordinate coords);
 	void SetOrientation(::Orientation orientation);
 	CartesianPoint GetConnector(int index);
+	std::vector<CartesianPoint> GetConnectors();
 	virtual void Draw() = 0;
 	Area* GetContainerArea();
 	bool IsClicked(MouseClickPoint click);

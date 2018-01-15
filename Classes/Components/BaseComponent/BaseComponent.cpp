@@ -102,6 +102,11 @@ CartesianPoint BaseComponent::GetConnector(int index)
 	return connectorPoints.at(index-1);
 }
 
+std::vector<CartesianPoint> BaseComponent::GetConnectors()
+{
+	return connectorPoints;
+}
+
 Area* BaseComponent::GetContainerArea()
 {
 	auto bottomLeft = CartesianPoint(coordinates.GetX(), coordinates.GetY());
@@ -119,6 +124,7 @@ void BaseComponent::Rotate()
 	int currentOrientation = orientation;
 	auto nextOrientation = currentOrientation % 4 + 1;
 	orientation = static_cast<Orientation>(nextOrientation);
+	connectorPoints.clear();
 }
 
 

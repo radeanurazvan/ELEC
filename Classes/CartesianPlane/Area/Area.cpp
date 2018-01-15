@@ -26,3 +26,13 @@ bool Area::Overlaps(Area area)
 
 	return Contains(topLeft) || Contains(bottomRight) || Contains(area.bottomLeft) || Contains(area.topRight);
 }
+
+CartesianPoint Area::GetBottomLeft()
+{
+	return bottomLeft;
+}
+
+CartesianPoint Area::GetTopRight()
+{
+	return topRight;
+}

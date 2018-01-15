@@ -104,7 +104,7 @@ CartesianPoint GraphicsHelper::GetPlaneCenter()
 	return CartesianPoint(0, 0);
 }
 
-void GraphicsHelper::ClearScreen()
+void GraphicsHelper::ClearViewPort()
 {
 	clearviewport();
 }
@@ -125,6 +125,22 @@ void GraphicsHelper::FillRectangle(CartesianPoint bottomLeft, CartesianPoint top
 void GraphicsHelper::SetDrawColor(Colors color)
 {
 	setcolor(color);
+}
+
+void GraphicsHelper::SetViewPort(Area* area)
+{
+	auto bottomLeft = area->GetBottomLeft();
+	auto topRight = area->GetTopRight();
+
+	ComputeCoordinates(bottomLeft);
+	ComputeCoordinates(topRight);
+
+	setviewport(bottomLeft.GetX(), topRight.GetY(), topRight.GetX(), bottomLeft.GetY(), 1);
+}
+
+void GraphicsHelper::ResetViewPort()
+{
+	setviewport(0, 0, getmaxx(), getmaxy(), 0);
 }
 
 void GraphicsHelper::DrawCircle(CartesianPoint midPoint, int radius)

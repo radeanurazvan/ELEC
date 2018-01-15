@@ -2,7 +2,9 @@
 #include "Menu/FreeDrawMenu.h"
 #include "../Helpers/GraphicsHelper/GraphicsHelper.h"
 #include "../Factories/ComponentFactory/ComponentFactory.h"
+#include "Menu/Resources/FreeDrawMenuResources.h"
 
+JsonObjects::Link FreeDraw::linkToDraw;
 Circuit FreeDraw::circuit;
 DOMHelper FreeDraw::domHelper;
 std::string FreeDraw::componentToDraw = "";
@@ -29,6 +31,7 @@ void FreeDraw::BindOptionsEvents()
 			{
 				TryDrawNewComponent(mouseClick.Point);
 			}
+			FireCircuitLinksEvents(mouseClick);
 		}
 	});
 }
@@ -39,6 +42,7 @@ bool FreeDraw::TrySelectOption(const MouseClickPoint mouseClick)
 	{
 		if (option.IsTargettedByMouseClick(mouseClick))
 		{
+			linkToDraw.Reset();
 			SelectOption(option);
 			return true;
 		}
@@ -49,7 +53,6 @@ bool FreeDraw::TrySelectOption(const MouseClickPoint mouseClick)
 void FreeDraw::BindCircuitEvents()
 {
 	BindCircuitComponentsEvents();
-	BindCircuitLinksEvents();
 }
 
 void FreeDraw::BindCircuitComponentsEvents()
@@ -64,8 +67,12 @@ void FreeDraw::BindCircuitComponentsEvents()
 	});
 }
 
-void FreeDraw::BindCircuitLinksEvents()
+void FreeDraw::FireCircuitLinksEvents(MouseClickPoint click)
 {
+	if (click.IsValid() && circuit.IsClickedAroundConnector(click))
+	{
+		TryDrawLink(click.Point);
+	}
 }
 
 void FreeDraw::PrepareDrawComponent(std::string targetComponent)
@@ -89,16 +96,56 @@ void FreeDraw::TryDrawNewComponent(CartesianPoint referencePoint)
 	{
 		auto component = ComponentFactory::GetComponentByName(componentToDraw);
 		component->SetCoordinates(CartesianCoordinate(referencePoint.GetX(), referencePoint.GetY()));
-		if(!circuit.ComponentsOverlap(component))
+		if(!circuit.ComponentsOverlap(component) && !ComponentOverlapsOptions(component))
 		{
-			circuit.PushComponent(component);
+			circuit.AddComponent(component);
 			component->Draw();
+			linkToDraw.Reset();
 		}
+	}
+}
+
+void FreeDraw::InitialiseCircuitViewPort()
+{
+	auto maximumX = GraphicsHelper::GetMaxX();
+	auto maximumY = GraphicsHelper::GetMaxY();
+	auto topRight= CartesianPoint(maximumX, maximumY);
+	topRight.MoveDownwards(FreeDrawMenuResources::RectangleHeight + 1);
+
+	auto minimumX = -maximumX;
+	auto minimumY = -maximumY;
+	auto bottomLeft = CartesianPoint(minimumX, minimumY);
+
+
+	circuit.SetViewPort(Area::RectangleArea(bottomLeft, topRight));
+}
+
+bool FreeDraw::ComponentOverlapsOptions(BaseComponent* component)
+{
+	for (auto option : FreeDrawMenu::GetOptions())
+	{
+		if(Area::RectangleArea(option.BottomLeft, option.TopRight)->Overlaps(*component->GetContainerArea()))
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+void FreeDraw::TryDrawLink(CartesianPoint clickPoint)
+{
+	auto clickedConnectorDetails = circuit.GetClickedConnectorDetails(clickPoint);
+	linkToDraw.Populate(clickedConnectorDetails);
+	if(linkToDraw.IsReadyForDrawing())
+	{
+		circuit.AddLink(linkToDraw);
+		linkToDraw.Reset();
 	}
 }
 
 void FreeDraw::Initialise()
 {
 	FreeDrawMenu::Initialise();
+	InitialiseCircuitViewPort();
 	SubscribeToMouseEvents();
 }

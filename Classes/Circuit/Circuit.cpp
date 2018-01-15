@@ -70,9 +70,17 @@ BaseComponent* Circuit::GetClickedComponent(MouseClickPoint click)
 	return nullptr;
 }
 
+void Circuit::RefreshViewPort()
+{
+	GraphicsHelper::SetViewPort(viewPort);
+	GraphicsHelper::ClearViewPort();
+	GraphicsHelper::ResetViewPort();
+}
+
 void Circuit::Draw()
 {
-	GraphicsHelper::ClearScreen();
+	RefreshViewPort();
+
 	DrawComponents();
 	DrawLinks();
 }
@@ -88,9 +96,15 @@ void Circuit::DrawFromFile(char* fileName)
 	Draw();
 }
 
-void Circuit::PushComponent(BaseComponent* component)
+void Circuit::AddComponent(BaseComponent* component)
 {
 	components.push_back(component);
+}
+
+void Circuit::AddLink(JsonObjects::Link link)
+{
+	links.push_back(link);
+	Draw();
 }
 
 bool Circuit::ComponentsOverlap(BaseComponent* component)
@@ -110,9 +124,46 @@ bool Circuit::IsComponentClicked(MouseClickPoint click)
 	return GetClickedComponent(click) != nullptr ? true : false;
 }
 
+bool Circuit::IsClickedAroundConnector(MouseClickPoint click)
+{
+	auto clickedConnectorDetails = GetClickedConnectorDetails(click.Point);
+	if(clickedConnectorDetails.IsValid())
+	{
+		return true;
+	}
+	return false;
+}
+
 void Circuit::RotateClickedComponent(MouseClickPoint click)
 {
 	auto clickedComponent = GetClickedComponent(click);
 	clickedComponent->Rotate();
 	Draw();
+}
+
+void Circuit::SetViewPort(Area* vp)
+{
+	viewPort = vp;
+}
+
+ClickedConnectorDetails Circuit::GetClickedConnectorDetails(CartesianPoint clickPoint)
+{
+	for (int componentIndex = 0; componentIndex < components.size(); componentIndex++)
+	{
+		auto component = components.at(componentIndex);
+		auto connectors = component->GetConnectors();
+		for (int connectorIndex = 0; connectorIndex < connectors.size(); connectorIndex++)
+		{
+			auto connector = connectors.at(connectorIndex);
+			auto connectorAreaBottomLeft = CartesianPoint(connector.GetX() - BaseComponentResources::connectorErrorMargin, connector.GetY() - BaseComponentResources::connectorErrorMargin);
+			auto connectorAreaTopRight = CartesianPoint(connector.GetX() + BaseComponentResources::connectorErrorMargin, connector.GetY() + BaseComponentResources::connectorErrorMargin);
+
+			if (Area::RectangleArea(connectorAreaBottomLeft, connectorAreaTopRight)->Contains(clickPoint))
+			{
+				return ClickedConnectorDetails(componentIndex + 1, connectorIndex + 1);
+			}
+		}
+	}
+
+	return ClickedConnectorDetails::InvalidClick();
 }

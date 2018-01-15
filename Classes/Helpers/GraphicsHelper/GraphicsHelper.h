@@ -1,6 +1,7 @@
 #pragma once
 #include "../../CartesianPlane/CartesianPoint/CartesianPoint.h"
 #include "../../Classes/Enums/Colors.h";
+#include "../../CartesianPlane/Area/Area.h";
 #include <string>
 
 class GraphicsHelper
@@ -25,8 +26,10 @@ public:
 	static void GetDesktopResolution(int &horizontal, int &vertical);
 	static void DecomputeCoordinates(CartesianPoint& point);
 	static CartesianPoint GetPlaneCenter();
-	static void ClearScreen();
+	static void ClearViewPort();
 	static void FillRectangle(CartesianPoint bottomLeft, CartesianPoint topRight, int color);
 	static void SetDrawColor(Colors color);
+	static void SetViewPort(Area* area);
+	static void ResetViewPort();
 };
 

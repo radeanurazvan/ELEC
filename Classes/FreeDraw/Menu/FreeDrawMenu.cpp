@@ -46,7 +46,7 @@ void FreeDrawMenu::InitialiseOptions()
 
 void FreeDrawMenu::Initialise()
 {
-	GraphicsHelper::ClearScreen();
+	GraphicsHelper::ClearViewPort();
 	InitialiseOptions();
 	DrawSquares();
 }
