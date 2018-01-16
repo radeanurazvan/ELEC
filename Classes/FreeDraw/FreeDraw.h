@@ -19,10 +19,10 @@ private:
 	static bool TrySelectOption(const MouseClickPoint mouseClick);
 	static void BindCircuitEvents();
 	static void BindCircuitComponentsEvents();
-	static void FireCircuitLinksEvents(MouseClickPoint click);
+	static void FireCircuitLeftClickEvents(MouseClickPoint click);
 	static void PrepareDrawComponent(std::string targetComponent);
 	static void SelectOption(FreeDrawMenuOption option);
-	static void TryDrawNewComponent(CartesianPoint referencePoint);
+	static bool TryDrawNewComponent(CartesianPoint referencePoint);
 	static void InitialiseCircuitViewPort();
 	static bool ComponentOverlapsOptions(BaseComponent* component);
 	static void TryDrawLink(CartesianPoint clickPoint);

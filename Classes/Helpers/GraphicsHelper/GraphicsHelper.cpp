@@ -143,6 +143,19 @@ void GraphicsHelper::ResetViewPort()
 	setviewport(0, 0, getmaxx(), getmaxy(), 0);
 }
 
+Area* GraphicsHelper::GetMaximumViewPort()
+{
+	auto minimumX = -GetMaxX();
+	auto minimumY = -GetMaxY();
+	auto bottomLeft = CartesianPoint(minimumX, minimumY);
+
+	auto maximumX = GetMaxX();
+	auto maximumY = GetMaxY();
+	auto topRight = CartesianPoint(maximumX, maximumY);
+
+	return Area::RectangleArea(bottomLeft, topRight);
+}
+
 void GraphicsHelper::DrawCircle(CartesianPoint midPoint, int radius)
 {
 	ComputeCoordinates(midPoint);

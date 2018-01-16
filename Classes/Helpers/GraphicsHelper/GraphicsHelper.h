@@ -31,5 +31,6 @@ public:
 	static void SetDrawColor(Colors color);
 	static void SetViewPort(Area* area);
 	static void ResetViewPort();
+	static Area* GetMaximumViewPort();
 };
 

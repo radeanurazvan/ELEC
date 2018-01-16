@@ -14,12 +14,13 @@ namespace JsonObjects
 		void PopulateSecondComponent(ClickedConnectorDetails clickedConnector);
 	public:
 		Link();
-		int FirstComponent;
-		int SecondComponent;
+		std::string FirstComponent;
+		std::string SecondComponent;
 		int FirstComponentConnector;
 		int SecondComponentConnector;
 		LinkType Type;
 		bool IsReadyForDrawing();
+		bool BelongsTo(std::string componentId);
 		void Populate(ClickedConnectorDetails clickedConnector);
 		void Reset();
 	};

@@ -1,47 +1,9 @@
 #include "Menu.h"
 #include "Resources/MenuResources.h"
 #include "../Helpers/GraphicsHelper/GraphicsHelper.h"
-#include "../CartesianPlane/Area/Area.h"
 #include "../FreeDraw/FreeDraw.h"
 #include "../Circuit/Circuit.h"
 
-
-/*void Menu::GetCoordinates(CartesianPoint upperPoint, CartesianPoint lowerPoint, CartesianPoint midPoint)
-{
-	int x, y;
-	while (ismouseclick(WM_LBUTTONDOWN))
-	{
-		break;
-	}
-	getmouseclick(WM_LBUTTONDOWN, x, y);
-	if (x >= lowerPoint.GetX() && x <= midPoint.GetX())
-	{
-		if (y >= upperPoint.GetY() && y < midPoint.GetY())
-		{
-			int gd = DETECT, gm;
-			initgraph(&gd, &gm, static_cast<char*>(""));
-
-			auto menu = Menu();
-			menu.Inititalise();
-
-			getch();
-			closegraph();
-		}
-		else
-			if (y >= midPoint.GetY() && y <= lowerPoint.GetY())
-			{
-				int gd = DETECT, gm;
-				initgraph(&gd, &gm, static_cast<char*>(""));
-
-				auto circuit = new Circuit();
-				circuit->DrawFromFile("circuit.json");
-
-				getch();
-				closegraph();
-			}
-	}
-}
-*/
 std::string Menu::mouseEventSubscriptionId = "";
 std::vector<StartMenuOption> Menu::Options;
 DOMHelper Menu::domHelper;
@@ -83,7 +45,6 @@ void Menu::SubscribeMouseEvents()
 	mouseEventSubscriptionId = domHelper.SubscribeOnLeftClick([&](){
 		HandleOptionClick(GetClickedOption());
 	});
-	auto a = mouseEventSubscriptionId;
 }
 
 std::string Menu::GetClickedOption()
@@ -106,13 +67,13 @@ void Menu::HandleOptionClick(std::string option)
 {
 	if(option != "")
 	{
-		if(option == MenuResources::freeDrawText)
+		auto circuit = Circuit();
+		if(option == MenuResources::drawFromFileText)
 		{
-			FreeDraw::Initialise();
-		} else
-		{
-			Circuit().DrawFromFile("circuit.json");
+			circuit.LoadFromFile("circuit.json");
 		}
+		FreeDraw::Initialise(circuit);
+
 		domHelper.Unsubscribe(mouseEventSubscriptionId);
 	}
 }

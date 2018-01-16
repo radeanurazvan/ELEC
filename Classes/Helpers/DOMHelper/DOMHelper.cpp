@@ -28,6 +28,27 @@ void DOMHelper::ApplySubscription(std::string subscriptionId , std::function<voi
 	}
 }
 
+void DOMHelper::ApplyCombinationSubscription(std::string subscriptionId, std::function<void()> callback, MouseEvents startEvent, MouseEvents endEvent)
+{
+	auto isOnGoing = false;
+	while (IsSubscriptionActive(subscriptionId))
+	{
+		if(ismouseclick(startEvent))
+		{
+			isOnGoing = true;
+		}
+
+		while(isOnGoing)
+		{
+			callback();
+			if(ismouseclick(endEvent))
+			{
+				isOnGoing = false;
+			}
+		}
+	}
+}
+
 std::string DOMHelper::SubscribeOnMouseEvent(std::function<void()> callback, MouseEvents mouseEvent)
 {
 	const auto subscriptionId = GenerateSubscriptionId();
@@ -65,6 +86,19 @@ std::string DOMHelper::SubscribeOnRightClick(std::function<void()> callback)
 	return SubscribeOnMouseEvent(callback, RightClick);
 }
 
+std::string DOMHelper::SubscribeOnMiddleClick(std::function<void()> callback)
+{
+	return SubscribeOnMouseEvent(callback, MouseEvents::MiddleClick);
+}
+
+std::string DOMHelper::SubscribeOnCombination(std::function<void()> callback, MouseEvents startEvent, MouseEvents endEvent)
+{
+	const auto subscriptionId = GenerateSubscriptionId();
+	std::thread subscriptionThread(&DOMHelper::ApplyCombinationSubscription, this, subscriptionId, callback, startEvent, endEvent);
+	subscriptionThread.detach();
+	return subscriptionId;
+}
+
 void DOMHelper::Unsubscribe(std::string subscriptionId)
 {
 	mouseSubscriptions[subscriptionId] = false;
@@ -78,6 +112,18 @@ MouseClickPoint DOMHelper::GetLeftMouseClick()
 MouseClickPoint DOMHelper::GetRightMouseClick()
 {
 	return GetMouseEvent(RightClick);
+}
+
+MouseClickPoint DOMHelper::GetMiddleClick()
+{
+	return GetMouseEvent(MiddleClick);
+}
+
+MouseClickPoint DOMHelper::GetMousePosition()
+{
+	auto mousePoint = CartesianPoint(mousex(), mousey());
+	GraphicsHelper::DecomputeCoordinates(mousePoint);
+	return MouseClickPoint(mousePoint.GetX(), mousePoint.GetY());
 }
 
 

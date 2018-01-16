@@ -3,6 +3,9 @@
 #include "../Helpers/CircuitReader/CircuitReader.h"
 #include "../Helpers/GraphicsHelper/GraphicsHelper.h"
 
+Circuit::Circuit()
+{
+}
 
 void Circuit::Initialise(JsonObjects::CircuitDetails circuitDetails)
 {
@@ -30,7 +33,7 @@ void Circuit::DrawComponents()
 
 void Circuit::DrawLinks()
 {
-	for (const auto link : links)
+	for (auto link : links)
 	{
 		DrawLinkBetween(link);
 	}
@@ -39,15 +42,15 @@ void Circuit::DrawLinks()
 void Circuit::DrawLinkBetween(
 	JsonObjects::Link link)
 {
-	auto firstComponent = components.at(link.FirstComponent - 1);
-	auto secondComponent = components.at(link.SecondComponent - 1);
+	auto firstComponent = GetComponentById(link.FirstComponent);
+	auto secondComponent = GetComponentById(link.SecondComponent);
 	auto firstComponentConnector = firstComponent->GetConnector(link.FirstComponentConnector);
 	auto secondComponentConnector = secondComponent->GetConnector(link.SecondComponentConnector);
-	
+
 	auto inflectionPointX = firstComponentConnector.GetX();
 	auto inflectionPointY = secondComponentConnector.GetY();
 
-	if(link.Type == UpwardsOriented)
+	if (link.Type == UpwardsOriented)
 	{
 		inflectionPointX = secondComponentConnector.GetX();
 		inflectionPointY = firstComponentConnector.GetY();
@@ -62,7 +65,7 @@ BaseComponent* Circuit::GetClickedComponent(MouseClickPoint click)
 {
 	for (auto component : components)
 	{
-		if(component->IsClicked(click))
+		if (component->IsClicked(click))
 		{
 			return component;
 		}
@@ -70,11 +73,69 @@ BaseComponent* Circuit::GetClickedComponent(MouseClickPoint click)
 	return nullptr;
 }
 
+BaseComponent* Circuit::GetComponentById(std::string id)
+{
+	for (auto component : components)
+	{
+		if (component->GetId() == id)
+		{
+			return component;
+		}
+	}
+	return nullptr;
+}
+
+int Circuit::GetComponentIndexById(std::string id)
+{
+	for (auto componentIndex = 0; componentIndex < components.size(); componentIndex++)
+	{
+		auto component = components.at(componentIndex);
+		if (component->GetId() == id)
+		{
+			return componentIndex;
+		}
+	}
+	return -1;
+}
+
+std::string Circuit::GetClickedComponentId(MouseClickPoint click)
+{
+	for (int index = 0; index < components.size(); index++)
+	{
+		auto component = components.at(index);
+		if (component->IsClicked(click))
+		{
+			return component->GetId();
+		}
+	}
+	return "";
+}
+
+void Circuit::SetMaximumViewport()
+{
+	SetViewPort(GraphicsHelper::GetMaximumViewPort());
+}
+
 void Circuit::RefreshViewPort()
 {
 	GraphicsHelper::SetViewPort(viewPort);
 	GraphicsHelper::ClearViewPort();
 	GraphicsHelper::ResetViewPort();
+}
+
+void Circuit::RemoveComponentLinks(std::string componentId)
+{
+	links.erase(
+		std::remove_if(
+			links.begin(),
+			links.end(),
+			[&](JsonObjects::Link element) -> bool
+			{
+				return element.BelongsTo(componentId);
+			}
+		),
+		links.end()
+	);
 }
 
 void Circuit::Draw()
@@ -85,15 +146,10 @@ void Circuit::Draw()
 	DrawLinks();
 }
 
-Circuit::Circuit()
-{
-}
-
-void Circuit::DrawFromFile(char* fileName)
+void Circuit::LoadFromFile(char* fileName)
 {
 	auto circuit = CircuitReader::ReadFromJSON(fileName);
 	Initialise(circuit);
-	Draw();
 }
 
 void Circuit::AddComponent(BaseComponent* component)
@@ -107,11 +163,34 @@ void Circuit::AddLink(JsonObjects::Link link)
 	Draw();
 }
 
+void Circuit::RemoveComponent(std::string componentId)
+{
+	RemoveComponentLinks(componentId);
+	auto componentIndex = GetComponentIndexById(componentId);
+	components.erase(components.begin() + componentIndex);
+	Draw();
+}
+
+void Circuit::RepositionComponent(std::string componentId, CartesianPoint newPoint)
+{
+	auto component = GetComponentById(componentId);
+	auto coordinates = CartesianCoordinate(newPoint.GetX() - 10, newPoint.GetY() - 10);
+	component->SetCoordinates(coordinates);
+	Draw();
+}
+
+void Circuit::MoveComponent(std::string componentId, MouseClickPoint clickPoint)
+{
+	auto component = GetComponentById(componentId);
+	component->MoveByClick(clickPoint.Point);
+	Draw();
+}
+
 bool Circuit::ComponentsOverlap(BaseComponent* component)
 {
 	for (auto circuitComponent : components)
 	{
-		if(circuitComponent->GetContainerArea()->Overlaps(*component->GetContainerArea()))
+		if (circuitComponent->GetContainerArea()->Overlaps(*component->GetContainerArea()))
 		{
 			return true;
 		}
@@ -127,7 +206,7 @@ bool Circuit::IsComponentClicked(MouseClickPoint click)
 bool Circuit::IsClickedAroundConnector(MouseClickPoint click)
 {
 	auto clickedConnectorDetails = GetClickedConnectorDetails(click.Point);
-	if(clickedConnectorDetails.IsValid())
+	if (clickedConnectorDetails.IsValid())
 	{
 		return true;
 	}
@@ -148,19 +227,20 @@ void Circuit::SetViewPort(Area* vp)
 
 ClickedConnectorDetails Circuit::GetClickedConnectorDetails(CartesianPoint clickPoint)
 {
-	for (int componentIndex = 0; componentIndex < components.size(); componentIndex++)
+	for (auto component : components)
 	{
-		auto component = components.at(componentIndex);
 		auto connectors = component->GetConnectors();
 		for (int connectorIndex = 0; connectorIndex < connectors.size(); connectorIndex++)
 		{
 			auto connector = connectors.at(connectorIndex);
-			auto connectorAreaBottomLeft = CartesianPoint(connector.GetX() - BaseComponentResources::connectorErrorMargin, connector.GetY() - BaseComponentResources::connectorErrorMargin);
-			auto connectorAreaTopRight = CartesianPoint(connector.GetX() + BaseComponentResources::connectorErrorMargin, connector.GetY() + BaseComponentResources::connectorErrorMargin);
+			auto connectorAreaBottomLeft = CartesianPoint(connector.GetX() - BaseComponentResources::connectorErrorMargin,
+			                                              connector.GetY() - BaseComponentResources::connectorErrorMargin);
+			auto connectorAreaTopRight = CartesianPoint(connector.GetX() + BaseComponentResources::connectorErrorMargin,
+			                                            connector.GetY() + BaseComponentResources::connectorErrorMargin);
 
 			if (Area::RectangleArea(connectorAreaBottomLeft, connectorAreaTopRight)->Contains(clickPoint))
 			{
-				return ClickedConnectorDetails(componentIndex + 1, connectorIndex + 1);
+				return ClickedConnectorDetails(component->GetId(), connectorIndex + 1);
 			}
 		}
 	}

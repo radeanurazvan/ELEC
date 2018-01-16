@@ -1,6 +1,7 @@
 {
   "components": [
     {
+      "id": "76ed4e5e-3ac5-459b-a3ec-f09b2a979a8b",
       "type": "OperationalAmplifier",
       "position": {
         "x": -90,
@@ -9,6 +10,7 @@
       "orientation": 3
     },
     {
+      "id": "3ae0e288-5084-4cfc-a87a-b4eac170f18a",
       "type": "Condenser",
       "position": {
         "x": 50,
@@ -17,6 +19,7 @@
       "orientation": 1
     },
     {
+      "id": "7a368465-e725-4886-a447-493fe8682582",
       "type": "NpnTransistor",
       "position": {
         "x": 100,
@@ -25,6 +28,7 @@
       "orientation": 1
     },
     {
+      "id": "9b7e431d-c280-4eb1-8d60-0eff6e881cb4",
       "type": "NandGate",
       "position": {
         "x": 150,
@@ -33,6 +37,7 @@
       "orientation": 1
     },
     {
+      "id": "d3f2e0b7-d463-42aa-8cd1-91274c02eba4",
       "type": "Diode",
       "position": {
         "x": -90,
@@ -44,36 +49,36 @@
 
   "links": [
     {
-      "firstComponent": 1,
-      "secondComponent": 3,
+      "firstComponent": "76ed4e5e-3ac5-459b-a3ec-f09b2a979a8b",
+      "secondComponent": "7a368465-e725-4886-a447-493fe8682582",
       "firstComponentConnector": 2,
       "secondComponentConnector": 2,
       "type": 1
     },
     {
-      "firstComponent": 2,
-      "secondComponent": 4,
+      "firstComponent": "7a368465-e725-4886-a447-493fe8682582",
+      "secondComponent": "9b7e431d-c280-4eb1-8d60-0eff6e881cb4",
       "firstComponentConnector": 2,
       "secondComponentConnector": 2,
       "type": 2
     },
     {
-      "firstComponent": 3,
-      "secondComponent": 4,
+      "firstComponent": "7a368465-e725-4886-a447-493fe8682582",
+      "secondComponent": "9b7e431d-c280-4eb1-8d60-0eff6e881cb4",
       "firstComponentConnector": 3,
       "secondComponentConnector": 1,
       "type": 1
     },
     {
-      "firstComponent": 1,
-      "secondComponent": 5,
+      "firstComponent": "76ed4e5e-3ac5-459b-a3ec-f09b2a979a8b",
+      "secondComponent": "d3f2e0b7-d463-42aa-8cd1-91274c02eba4",
       "firstComponentConnector": 1,
       "secondComponentConnector": 2,
       "type": 1
     },
     {
-      "firstComponent": 5,
-      "secondComponent": 2,
+      "firstComponent": "d3f2e0b7-d463-42aa-8cd1-91274c02eba4",
+      "secondComponent": "3ae0e288-5084-4cfc-a87a-b4eac170f18a",
       "firstComponentConnector": 1,
       "secondComponentConnector": 1,
       "type": 2

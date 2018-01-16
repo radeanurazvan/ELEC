@@ -2,6 +2,7 @@
 #include "../../Helpers/GraphicsHelper/GraphicsHelper.h"
 #include "../../Helpers/CartesianPointsHelper/CartesianPointsHelper.h"
 #include "Resources/BaseComponentResources.h"
+#include "../../Guid/Guid.h"
 
 
 void BaseComponent::DrawConnectorLines(CartesianPoint leftStart, CartesianPoint leftEnd, CartesianPoint rightStart,
@@ -10,6 +11,7 @@ void BaseComponent::DrawConnectorLines(CartesianPoint leftStart, CartesianPoint 
 	GraphicsHelper::DrawLine(leftStart, leftEnd);
 	GraphicsHelper::DrawLine(rightStart, rightEnd);
 
+	connectorPoints.clear();
 	connectorPoints.push_back(CartesianPoint(leftEnd.GetX(), leftEnd.GetY()));
 	connectorPoints.push_back(CartesianPoint(rightEnd.GetX(), rightEnd.GetY()));
 }
@@ -55,8 +57,59 @@ void BaseComponent::PushConnectorPoint(CartesianPoint connectorPoint)
 	connectorPoints.push_back(connectorPoint);
 }
 
+bool BaseComponent::IsTopClicked(CartesianPoint clickPoint)
+{
+	auto area = GetContainerArea();
+	auto topRight = area->GetTopRight();
+
+	auto bottomLeft = area->GetBottomLeft();
+	topRight.SetCoordinates(CartesianCoordinate(bottomLeft.GetX(), topRight.GetY()));
+
+	auto middlePoint = CartesianPointsHelper::GetMiddlePointBetween(bottomLeft, topRight);
+	
+	return Area::RectangleArea(middlePoint, area->GetTopRight())->Contains(clickPoint);
+}
+
+bool BaseComponent::IsBottomClicked(CartesianPoint clickPoint)
+{
+	auto area = GetContainerArea();
+	auto topRight = area->GetTopRight();
+
+	auto bottomLeft = area->GetBottomLeft();
+	bottomLeft.SetCoordinates(CartesianCoordinate(topRight.GetX(), bottomLeft.GetY()));
+
+	auto middlePoint = CartesianPointsHelper::GetMiddlePointBetween(bottomLeft, topRight);
+
+	return Area::RectangleArea(area->GetBottomLeft(), middlePoint)->Contains(clickPoint);
+}
+
+bool BaseComponent::IsLeftClicked(CartesianPoint clickPoint)
+{
+	auto area = GetContainerArea();
+	auto topRight = area->GetTopRight();
+
+	auto bottomLeft = area->GetBottomLeft();
+	topRight.SetCoordinates(CartesianCoordinate(bottomLeft.GetX(), topRight.GetY()));
+	topRight.MoveToRight(BaseComponentResources::connectorWidth);
+
+	return Area::RectangleArea(bottomLeft, topRight)->Contains(clickPoint);
+}
+
+bool BaseComponent::IsRightClicked(CartesianPoint clickPoint)
+{
+	auto area = GetContainerArea();
+	auto topRight = area->GetTopRight();
+
+	auto bottomLeft = area->GetBottomLeft();
+	bottomLeft.SetCoordinates(CartesianCoordinate(topRight.GetX(), bottomLeft.GetY()));
+	bottomLeft.MoveToLeft(BaseComponentResources::connectorWidth);
+
+	return Area::RectangleArea(bottomLeft, topRight)->Contains(clickPoint);
+}
+
 BaseComponent::BaseComponent(const int actualContainerSize): coordinates()
 {
+	id = Guid::NewGuid();
 	numberOfConnectors = 0;
 	orientation = Normal;
 	resources.actualContainerSize = actualContainerSize;
@@ -127,4 +180,33 @@ void BaseComponent::Rotate()
 	connectorPoints.clear();
 }
 
+std::string BaseComponent::GetId()
+{
+	return id;
+}
+
+void BaseComponent::SetId(std::string guid)
+{
+	id = guid;
+}
+
+void BaseComponent::MoveByClick(CartesianPoint clickPoint)
+{
+	if(IsTopClicked(clickPoint))
+	{
+		SetCoordinates(CartesianCoordinate(coordinates.GetX(), coordinates.GetY() - BaseComponentResources::connectorWidth));
+	}
+	if(IsBottomClicked(clickPoint))
+	{
+		SetCoordinates(CartesianCoordinate(coordinates.GetX(), coordinates.GetY() + BaseComponentResources::connectorWidth));
+	}
+	if(IsLeftClicked(clickPoint))
+	{
+		SetCoordinates(CartesianCoordinate(coordinates.GetX() + BaseComponentResources::connectorWidth, coordinates.GetY()));
+	}
+	if(IsRightClicked(clickPoint))
+	{
+		SetCoordinates(CartesianCoordinate(coordinates.GetX() - BaseComponentResources::connectorWidth, coordinates.GetY()));
+	}
+}
 

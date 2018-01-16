@@ -97,9 +97,8 @@ void OperationalAmplifier::Draw()
 	GraphicsHelper::DrawLine(topConnectorStart, topConnectorEnd);
 	GraphicsHelper::DrawLine(bottomConnectorStart, bottomConnectorEnd);
 	GraphicsHelper::DrawLine(middleConnectorStart, middleConnectorEnd);
-	////GraphicsHelper::DrawCharacter(minusPoint, '-');
-	////GraphicsHelper::DrawCharacter(plusPoint, '+');
 
+	connectorPoints.clear();
 	PushConnectorPoint(topConnectorEnd);
 	PushConnectorPoint(bottomConnectorEnd);
 	PushConnectorPoint(middleConnectorEnd);

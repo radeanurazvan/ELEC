@@ -130,6 +130,7 @@ void NandGate::Draw()
 	GraphicsHelper::DrawLine(bottomConnectorStart, bottomConnectorEnd);
 	GraphicsHelper::DrawCircle(circleCenterPoint, NandGateResources::circleRadius);
 
+	connectorPoints.clear();
 	PushConnectorPoint(leftLowerLine);
 	PushConnectorPoint(middleConnectorEnd);
 	PushConnectorPoint(bottomConnectorEnd);

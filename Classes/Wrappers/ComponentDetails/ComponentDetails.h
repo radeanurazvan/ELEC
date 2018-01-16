@@ -10,6 +10,7 @@ namespace JsonObjects
 	{
 	public:
 		ComponentDetails();
+		std::string Id;
 		std::string Type;
 		PositionDetails Position;
 		Orientation orientation;

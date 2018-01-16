@@ -29,6 +29,7 @@ BaseComponent* ComponentFactory::GetComponentByDetails(const JsonObjects::Compon
 	auto componentCoordinates = new CartesianCoordinate(details.Position.x, details.Position.y);
 	component->SetCoordinates(*componentCoordinates);
 	component->SetOrientation(details.orientation);
+	component->SetId(details.Id);
 	return component;
 }
 

@@ -3,22 +3,22 @@
 class ClickedConnectorDetails
 {
 public:
-	ClickedConnectorDetails(int _componentIndex, int _connectorIndex)
+	ClickedConnectorDetails(std::string _componentId, int _connectorIndex)
 	{
-		componentIndex = _componentIndex;
+		componentId = _componentId;
 		connectorIndex = _connectorIndex;
 	}
 
-	int componentIndex;
+	std::string componentId;
 	int connectorIndex;
 
 	bool IsValid()
 	{
-		return connectorIndex != 0 && componentIndex != 0;
+		return connectorIndex != 0 && componentId != "";
 	}
 
 	static ClickedConnectorDetails InvalidClick()
 	{
-		return ClickedConnectorDetails(0, 0);
+		return ClickedConnectorDetails("", 0);
 	}
 };

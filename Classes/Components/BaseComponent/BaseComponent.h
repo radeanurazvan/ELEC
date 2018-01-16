@@ -12,6 +12,7 @@ class BaseComponent
 {
 private:
 	void DrawConnectorLines(CartesianPoint leftStart, CartesianPoint leftEnd, CartesianPoint rightStart, CartesianPoint rightEnd);
+	std::string id;
 protected:
 	BaseComponent(const int actualContainerSize);
 	BaseComponent();
@@ -25,6 +26,10 @@ protected:
 	Orientation orientation;
 	void PushConnectorPoint(CartesianPoint connectorPoint);
 	BaseComponentResources resources = BaseComponentResources::GetInstance();
+	bool IsTopClicked(CartesianPoint clickPoint);
+	bool IsBottomClicked(CartesianPoint clickPoint);
+	bool IsLeftClicked(CartesianPoint clickPoint);
+	bool IsRightClicked(CartesianPoint clickPoint);
 public:
 	int GetNumberOfConnectors();
 	void SetNumberOfConnectors(int number);
@@ -39,4 +44,7 @@ public:
 	Area* GetContainerArea();
 	bool IsClicked(MouseClickPoint click);
 	void Rotate();
+	std::string GetId();
+	void SetId(std::string guid);
+	void MoveByClick(CartesianPoint clickPoint);
 };

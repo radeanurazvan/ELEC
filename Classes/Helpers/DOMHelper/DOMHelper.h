@@ -10,6 +10,7 @@ private:
 	static std::map<std::string, bool> mouseSubscriptions;
 	std::string GenerateSubscriptionId();
 	void ApplySubscription(std::string subscriptionId, std::function<void()> callback, MouseEvents mouseEvent);
+	void ApplyCombinationSubscription(std::string subscriptionId, std::function<void()> callback, MouseEvents startEvent, MouseEvents endEvent);
 	std::string SubscribeOnMouseEvent(std::function<void()> callback, MouseEvents mouseEvent);
 	MouseClickPoint GetMouseEvent(MouseEvents mouseEvent);
 public:
@@ -18,7 +19,11 @@ public:
 	void Unsubscribe(std::string subscriptionId);
 	MouseClickPoint GetLeftMouseClick();
 	MouseClickPoint GetRightMouseClick();
+	MouseClickPoint GetMiddleClick();
+	MouseClickPoint GetMousePosition();
 	std::string SubscribeOnLeftClick(std::function<void()> callback);
 	std::string SubscribeOnRightClick(std::function<void()> callback);
+	std::string SubscribeOnMiddleClick(std::function<void()> callback);
+	std::string SubscribeOnCombination(std::function<void()> callback, MouseEvents startEvent, MouseEvents endEvent);
 };
 

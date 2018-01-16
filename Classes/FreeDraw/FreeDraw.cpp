@@ -29,9 +29,11 @@ void FreeDraw::BindOptionsEvents()
 		{
 			if(!TrySelectOption(mouseClick))
 			{
-				TryDrawNewComponent(mouseClick.Point);
+				if(!TryDrawNewComponent(mouseClick.Point))
+				{
+					FireCircuitLeftClickEvents(mouseClick);
+				}
 			}
-			FireCircuitLinksEvents(mouseClick);
 		}
 	});
 }
@@ -65,14 +67,49 @@ void FreeDraw::BindCircuitComponentsEvents()
 			circuit.RotateClickedComponent(click);
 		}
 	});
+
+	domHelper.SubscribeOnMiddleClick([&]()
+	{
+		auto click = domHelper.GetMiddleClick();
+		if(click.IsValid())
+		{
+			if(circuit.IsComponentClicked(click))
+			{
+				auto componentId = circuit.GetClickedComponentId(click);
+				if(componentId != "")
+				{
+					circuit.RemoveComponent(componentId);
+				}
+			}
+		}
+	});
+
+	////domHelper.SubscribeOnCombination([&]()
+	////{
+	////	auto mousePosition = domHelper.GetMousePosition();
+	////	if(circuit.IsComponentClicked(mousePosition))
+	////	{
+	////		auto componentId = circuit.GetClickedComponentId(mousePosition);
+	////		circuit.RepositionComponent(componentId, mousePosition.Point);
+	////	}
+	////}, DoubleLeftClick, LeftClick);
 }
 
-void FreeDraw::FireCircuitLinksEvents(MouseClickPoint click)
+void FreeDraw::FireCircuitLeftClickEvents(MouseClickPoint click)
 {
-	if (click.IsValid() && circuit.IsClickedAroundConnector(click))
+	if (circuit.IsClickedAroundConnector(click))
 	{
 		TryDrawLink(click.Point);
+	} else
+	{
+		if (circuit.IsComponentClicked(click))
+		{
+			auto componentId = circuit.GetClickedComponentId(click);
+			circuit.MoveComponent(componentId, click);
+		}
 	}
+
+	
 }
 
 void FreeDraw::PrepareDrawComponent(std::string targetComponent)
@@ -90,7 +127,7 @@ void FreeDraw::SelectOption(FreeDrawMenuOption option)
 	option.Select();
 }
 
-void FreeDraw::TryDrawNewComponent(CartesianPoint referencePoint)
+bool FreeDraw::TryDrawNewComponent(CartesianPoint referencePoint)
 {
 	if (componentToDraw != "")
 	{
@@ -101,8 +138,10 @@ void FreeDraw::TryDrawNewComponent(CartesianPoint referencePoint)
 			circuit.AddComponent(component);
 			component->Draw();
 			linkToDraw.Reset();
+			return true;
 		}
 	}
+	return false;
 }
 
 void FreeDraw::InitialiseCircuitViewPort()
@@ -143,9 +182,12 @@ void FreeDraw::TryDrawLink(CartesianPoint clickPoint)
 	}
 }
 
-void FreeDraw::Initialise()
+void FreeDraw::Initialise(Circuit _circuit)
 {
+	circuit = _circuit;
 	FreeDrawMenu::Initialise();
 	InitialiseCircuitViewPort();
+	circuit.Draw();
 	SubscribeToMouseEvents();
+
 }
