@@ -1,5 +1,7 @@
 #pragma once
 #include <string>
+#include "../../BaseComponent/Resources/BaseComponentResources.h";
+
 static class OperationalAmplifierResources{
 private:
 	OperationalAmplifierResources();
